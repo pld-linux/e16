@@ -1,6 +1,258 @@
-diff -Nru enlightenment-0.16.6/src/config.c enlightenment-0.16.6.new/src/config.c
---- enlightenment-0.16.6/src/config.c	Wed Nov  5 18:58:50 2003
-+++ enlightenment-0.16.6.new/src/config.c	Tue Nov 11 07:03:53 2003
+diff -ur enlightenment-0.16.6.orig/po/de.po enlightenment-0.16.6/po/de.po
+--- enlightenment-0.16.6.orig/po/de.po	Wed Nov  5 19:07:37 2003
++++ enlightenment-0.16.6/po/de.po	Thu Nov 13 13:30:50 2003
+@@ -783,7 +783,7 @@
+ "Enlightenment has just experienced some major problems in\n"
+ "attempting to load the theme you specified or the default\n"
+ "configuration directory:\n"
+-"%s/config/\n"
++"%s/\n"
+ "This will prevent Enlightenment from loading any configuration\n"
+ "files at all.\n"
+ "Since this couldn't be found Enlightenment is probably not\n"
+diff -ur enlightenment-0.16.6.orig/po/dk.po enlightenment-0.16.6/po/dk.po
+--- enlightenment-0.16.6.orig/po/dk.po	Wed Nov  5 19:07:37 2003
++++ enlightenment-0.16.6/po/dk.po	Thu Nov 13 13:31:19 2003
+@@ -633,7 +633,7 @@
+ "Enlightenment has just experienced some major problems in\n"
+ "attempting to load the theme you specified or the default\n"
+ "configuration directory:\n"
+-"%s/config/\n"
++"%s/\n"
+ "This will prevent Enlightenment from loading any configuration\n"
+ "files at all.\n"
+ "Since this couldn't be found Enlightenment is probably not\n"
+diff -ur enlightenment-0.16.6.orig/po/en_US.po enlightenment-0.16.6/po/en_US.po
+--- enlightenment-0.16.6.orig/po/en_US.po	Wed Nov  5 19:07:37 2003
++++ enlightenment-0.16.6/po/en_US.po	Thu Nov 13 13:30:47 2003
+@@ -533,7 +533,7 @@
+ "Enlightenment has just experienced some major problems in\n"
+ "attempting to load the theme you specified or the default\n"
+ "configuration directory:\n"
+-"%s/config/\n"
++"%s/\n"
+ "This will prevent Enlightenment from loading any configuration\n"
+ "files at all.\n"
+ "Since this couldn't be found Enlightenment is probably not\n"
+diff -ur enlightenment-0.16.6.orig/po/es.po enlightenment-0.16.6/po/es.po
+--- enlightenment-0.16.6.orig/po/es.po	Wed Nov  5 19:07:37 2003
++++ enlightenment-0.16.6/po/es.po	Thu Nov 13 13:31:16 2003
+@@ -700,7 +700,7 @@
+ "Enlightenment has just experienced some major problems in\n"
+ "attempting to load the theme you specified or the default\n"
+ "configuration directory:\n"
+-"%s/config/\n"
++"%s/\n"
+ "This will prevent Enlightenment from loading any configuration\n"
+ "files at all.\n"
+ "Since this couldn't be found Enlightenment is probably not\n"
+@@ -724,7 +724,7 @@
+ "Enlightenment ha experimentado algunos problemas graves\n"
+ "al intentar cargar el tema que Ud. eligió ó el directorio\n"
+ "de configuración por omisión:\n"
+-"%s/config/\n"
++"%s/\n"
+ "Esto impedirá que Enlightenment carga cualquier tipo de\n"
+ "archivos de configuración.\n"
+ "Ya que nada ha sido encontrado, Enlightenment probablemente\n"
+diff -ur enlightenment-0.16.6.orig/po/fr.po enlightenment-0.16.6/po/fr.po
+--- enlightenment-0.16.6.orig/po/fr.po	Wed Nov  5 19:07:37 2003
++++ enlightenment-0.16.6/po/fr.po	Thu Nov 13 13:30:43 2003
+@@ -666,7 +666,7 @@
+ "Enlightenment has just experienced some major problems in\n"
+ "attempting to load the theme you specified or the default\n"
+ "configuration directory:\n"
+-"%s/config/\n"
++"%s/\n"
+ "This will prevent Enlightenment from loading any configuration\n"
+ "files at all.\n"
+ "Since this couldn't be found Enlightenment is probably not\n"
+@@ -690,7 +690,7 @@
+ "Enlightenment vient de rencontrer des problèmes majeurs en tentant\n"
+ "de charger le thème que vous avez spécifié ou répertoire de\n"
+ "configuration par défaut :\n"
+-"%s/config/\n"
++"%s/\n"
+ "Cela empêchera Enlightenment de charger le moindre fichier\n"
+ "de configuration.\n"
+ "Puisque ce répertoire n'a pu être trouvé, Enlightenment ne trouvera\n"
+diff -ur enlightenment-0.16.6.orig/po/hu.po enlightenment-0.16.6/po/hu.po
+--- enlightenment-0.16.6.orig/po/hu.po	Wed Nov  5 19:07:37 2003
++++ enlightenment-0.16.6/po/hu.po	Thu Nov 13 13:31:12 2003
+@@ -555,7 +555,7 @@
+ "Enlightenment has just experienced some major problems in\n"
+ "attempting to load the theme you specified or the default\n"
+ "configuration directory:\n"
+-"%s/config/\n"
++"%s/\n"
+ "This will prevent Enlightenment from loading any configuration\n"
+ "files at all.\n"
+ "Since this couldn't be found Enlightenment is probably not\n"
+diff -ur enlightenment-0.16.6.orig/po/ja.po enlightenment-0.16.6/po/ja.po
+--- enlightenment-0.16.6.orig/po/ja.po	Wed Nov  5 19:07:39 2003
++++ enlightenment-0.16.6/po/ja.po	Thu Nov 13 13:30:38 2003
+@@ -686,7 +686,7 @@
+ "Enlightenment has just experienced some major problems in\n"
+ "attempting to load the theme you specified or the default\n"
+ "configuration directory:\n"
+-"%s/config/\n"
++"%s/\n"
+ "This will prevent Enlightenment from loading any configuration\n"
+ "files at all.\n"
+ "Since this couldn't be found Enlightenment is probably not\n"
+@@ -710,7 +710,7 @@
+ "¥Æ¡¼¥Ş¤Î¥Ç¥£¥ì¥¯¥È¥ê¤ò / ÀßÄê¥Õ¥¡¥¤¥ë¤¬Æş¤Ã¤Æ¤¤¤ë¥Ç¥£¥ì¥¯¥È¥ê¤ò\n"
+ "ÆÉ¤ß¹ş¤à¤È¤³¤í¤Ç¤è¤¯¤¢¤ëÌäÂê¤ËÄ¾ÌÌ¤·¤Ş¤·¤¿¡£\n"
+ "¥Ç¥£¥ì¥¯¥È¥ê¤Ï :\n"
+-"%s/config/\n"
++"%s/\n"
+ "\n"
+ "¤³¤ÎÌäÂê¤Î¤¿¤áÀßÄê¥Õ¥¡¥¤¥ë¤òÆÉ¤ß¤³¤á¤Ş¤»¤ó¡£\n"
+ "\n"
+diff -ur enlightenment-0.16.6.orig/po/ko.po enlightenment-0.16.6/po/ko.po
+--- enlightenment-0.16.6.orig/po/ko.po	Wed Nov  5 19:07:38 2003
++++ enlightenment-0.16.6/po/ko.po	Thu Nov 13 13:31:09 2003
+@@ -679,7 +679,7 @@
+ "Enlightenment has just experienced some major problems in\n"
+ "attempting to load the theme you specified or the default\n"
+ "configuration directory:\n"
+-"%s/config/\n"
++"%s/\n"
+ "This will prevent Enlightenment from loading any configuration\n"
+ "files at all.\n"
+ "Since this couldn't be found Enlightenment is probably not\n"
+@@ -702,7 +702,7 @@
+ msgstr ""
+ "ÀÎ¶óÀÌÆ°¸ÕÆ®°¡ ´ç½ÅÀÌ ¸í½ÃÇÑ Å×¸¶ È¤Àº ±âº» ¼³Á¤ µğ·ºÅä¸®ÀÇ\n"
+ "Å×¸¶¸¦ ÀĞ´Â Áß Áß´ëÇÑ ¹®Á¦°¡ ¹ß»ıÇß½À´Ï´Ù:\n"
+-"%s/config/\n"
++"%s/\n"
+ "ÀÎ¶óÀÌÆ°¸ÕÆ®´Â ´õ ÀÌ»ó ¼³Á¤ÆÄÀÏÀ» ÀĞ¾îµéÀÏ ¼ö ¾ø½À´Ï´Ù.\n"
+ "ÀÎ¶óÀÌÆ°¸ÕÆ®°¡ ´ç½ÅÀÇ ½Ã½ºÅÛ¿¡¼­ ¾î¶² ¼³Á¤ÆÄÀÏµµ ÀĞ¾î\n"
+ "µéÀÏ ¼ö ¾ø¾úÀ¸¹Ç·Î ½ÃÀÛÇÒ ¶§ ¼³Á¤°ª ¾øÀÌ ½ÃÀÛµÇ¾ú½À´Ï´Ù.\n"
+diff -ur enlightenment-0.16.6.orig/po/nl.po enlightenment-0.16.6/po/nl.po
+--- enlightenment-0.16.6.orig/po/nl.po	Wed Nov  5 19:07:38 2003
++++ enlightenment-0.16.6/po/nl.po	Thu Nov 13 13:30:26 2003
+@@ -662,7 +662,7 @@
+ "Enlightenment has just experienced some major problems in\n"
+ "attempting to load the theme you specified or the default\n"
+ "configuration directory:\n"
+-"%s/config/\n"
++"%s/\n"
+ "This will prevent Enlightenment from loading any configuration\n"
+ "files at all.\n"
+ "Since this couldn't be found Enlightenment is probably not\n"
+diff -ur enlightenment-0.16.6.orig/po/no.po enlightenment-0.16.6/po/no.po
+--- enlightenment-0.16.6.orig/po/no.po	Wed Nov  5 19:07:38 2003
++++ enlightenment-0.16.6/po/no.po	Thu Nov 13 13:31:05 2003
+@@ -694,7 +694,7 @@
+ "Enlightenment has just experienced some major problems in\n"
+ "attempting to load the theme you specified or the default\n"
+ "configuration directory:\n"
+-"%s/config/\n"
++"%s/\n"
+ "This will prevent Enlightenment from loading any configuration\n"
+ "files at all.\n"
+ "Since this couldn't be found Enlightenment is probably not\n"
+diff -ur enlightenment-0.16.6.orig/po/pt.po enlightenment-0.16.6/po/pt.po
+--- enlightenment-0.16.6.orig/po/pt.po	Wed Nov  5 19:07:38 2003
++++ enlightenment-0.16.6/po/pt.po	Thu Nov 13 13:31:02 2003
+@@ -699,7 +699,7 @@
+ "Enlightenment has just experienced some major problems in\n"
+ "attempting to load the theme you specified or the default\n"
+ "configuration directory:\n"
+-"%s/config/\n"
++"%s/\n"
+ "This will prevent Enlightenment from loading any configuration\n"
+ "files at all.\n"
+ "Since this couldn't be found Enlightenment is probably not\n"
+@@ -723,7 +723,7 @@
+ "O Enlightenment teve alguns problemas a carregar o tema que\n"
+ "especificou ou a directoría de configuração que vem por\n"
+ "defeito:\n"
+-"%s/config/\n"
++"%s/\n"
+ "Isto irá impedir o Enlightenment the carregar quaisquer\n"
+ "ficheiros de configuração.\n"
+ "Como até agora nada foi encontrado o Enlightenment, provavelmente,\n"
+diff -ur enlightenment-0.16.6.orig/po/pt_BR.po enlightenment-0.16.6/po/pt_BR.po
+--- enlightenment-0.16.6.orig/po/pt_BR.po	Wed Nov  5 19:07:39 2003
++++ enlightenment-0.16.6/po/pt_BR.po	Thu Nov 13 13:31:27 2003
+@@ -700,7 +700,7 @@
+ "Enlightenment has just experienced some major problems in\n"
+ "attempting to load the theme you specified or the default\n"
+ "configuration directory:\n"
+-"%s/config/\n"
++"%s/\n"
+ "This will prevent Enlightenment from loading any configuration\n"
+ "files at all.\n"
+ "Since this couldn't be found Enlightenment is probably not\n"
+@@ -724,7 +724,7 @@
+ "O Enlightenment acaba de encontrar um grande problema enquanto\n"
+ "tentava carregar o tema escolhido por você ou o diretório da\n"
+ "configuração padrão:\n"
+-"%s/config/\n"
++"%s/\n"
+ "Isso irá impedir que o Enlightenment carregue qualquer arquivo de\n"
+ "configuração.\n"
+ "Já que isso não foi encontrado, o Enlightenment provavelmente\n"
+diff -ur enlightenment-0.16.6.orig/po/ru.po enlightenment-0.16.6/po/ru.po
+--- enlightenment-0.16.6.orig/po/ru.po	Wed Nov  5 19:07:38 2003
++++ enlightenment-0.16.6/po/ru.po	Thu Nov 13 13:30:58 2003
+@@ -687,7 +687,7 @@
+ "Enlightenment has just experienced some major problems in\n"
+ "attempting to load the theme you specified or the default\n"
+ "configuration directory:\n"
+-"%s/config/\n"
++"%s/\n"
+ "This will prevent Enlightenment from loading any configuration\n"
+ "files at all.\n"
+ "Since this couldn't be found Enlightenment is probably not\n"
+@@ -711,7 +711,7 @@
+ "Enlightenment ÔÏÌØËÏ ŞÔÏ ÓÔÏÌËÎÕÌÓÑ Ó ÓÅÒØÅÚÎÙÍÉ ĞÒÏÂÌÅÍÁÍÉ\n"
+ "ĞÒÉ ĞÏĞÙÔËÅ ÚÁÇÒÕÚËÉ ÕËÁÚÁÎÎÏÊ ÷ÁÍÉ ÔÅÍÙ\n"
+ "ÉÌÉ ËÏÎÆÉÇÕÒÁÃÉÏÎÎÏÊ ÄÉÒÅËÔÏÒÉÉ:\n"
+-"%s/config/\n"
++"%s/\n"
+ "üÔÏ ÎÅ ĞÏÚ×ÏÌÉÔ Enlightenment ÚÁÇÒÕÚÉÔØ\n"
+ "ËÁËÉÅ ÂÙ ÔÏ ÎÉ ÂÙÌÏ ËÏÎÆÉÇÕÒÁÃÉÏÎÎÙÅ ÆÁÊÌÙ.\n"
+ "÷ÓÌÅÄÓÔ×ÉÅ ÜÔÏÇÏ, Enlightenment ÓËÏÒÅÅ ×ÓÅÇÏ ÎÅ ÎÁÊÄÅÔ\n"
+diff -ur enlightenment-0.16.6.orig/po/sv.po enlightenment-0.16.6/po/sv.po
+--- enlightenment-0.16.6.orig/po/sv.po	Wed Nov  5 19:07:38 2003
++++ enlightenment-0.16.6/po/sv.po	Thu Nov 13 13:31:23 2003
+@@ -680,7 +680,7 @@
+ "Enlightenment has just experienced some major problems in\n"
+ "attempting to load the theme you specified or the default\n"
+ "configuration directory:\n"
+-"%s/config/\n"
++"%s/\n"
+ "This will prevent Enlightenment from loading any configuration\n"
+ "files at all.\n"
+ "Since this couldn't be found Enlightenment is probably not\n"
+@@ -703,7 +703,7 @@
+ msgstr ""
+ "Enlightenment har just upptäckt några allvarliga fel vid försök\n"
+ "att ladda temat du valt, eller i grundkonfigurationskatalogen:\n"
+-"%s/config/\n"
++"%s/\n"
+ "Detta kommer att hindra Enlightenment från att ladda\n"
+ "några konfigurationsfiler över huvud taget.\n"
+ "Eftersom dessa inte kan hittas kommer Enlightenment troligtvis\n"
+diff -ur enlightenment-0.16.6.orig/po/tr.po enlightenment-0.16.6/po/tr.po
+--- enlightenment-0.16.6.orig/po/tr.po	Wed Nov  5 19:07:39 2003
++++ enlightenment-0.16.6/po/tr.po	Thu Nov 13 13:30:53 2003
+@@ -685,7 +685,7 @@
+ "Enlightenment has just experienced some major problems in\n"
+ "attempting to load the theme you specified or the default\n"
+ "configuration directory:\n"
+-"%s/config/\n"
++"%s/\n"
+ "This will prevent Enlightenment from loading any configuration\n"
+ "files at all.\n"
+ "Since this couldn't be found Enlightenment is probably not\n"
+diff -ur enlightenment-0.16.6.orig/src/config.c enlightenment-0.16.6/src/config.c
+--- enlightenment-0.16.6.orig/src/config.c	Wed Nov  5 18:58:50 2003
++++ enlightenment-0.16.6/src/config.c	Tue Nov 11 07:03:53 2003
 @@ -3263,7 +3263,7 @@
  	  }
  	Esnprintf(execline, sizeof(execline), "%s " "-P " "-nostdinc " "-undef "
