@@ -54,7 +54,7 @@ window-menad¿erem jaki kiedykolwiek zosta³ stworzony dla Linuxa ;)
 
 %build
 %{__libtoolize}
-gettextize --copy --force
+%{__gettextize}
 aclocal
 %{__autoconf}
 rm -f missing
