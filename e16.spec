@@ -55,32 +55,3 @@ rm -rf $RPM_BUILD_ROOT
 
 %dir /etc/X11/enlightenment
 %config /etc/X11/enlightenment/*
-
-%changelog
-* Sun Mar 21 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [0.15.4-4]
-- aadded --enable-fsstd to ./configure parameters,
-- gzipping %doc (instead bzipping2),
-- config files moved to /etc/X11/enlightenment,
-- removed Requires (autogenerate).
-
-* Sat Feb  6 1999 Micha³ Kuratczyk <kurkens@polbox.com>
-  [0.15.0-3d]
-- added %config macros
-- changed Group to X11/Window Managers
-- changed BuildRoot to /tmp/buildroot-%%{name}-%%{version}
-
-* Fri Feb 05 1999 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
-  [0.15.0-2.1d]
-- updated to latest snapshoot,
-- added Require: stringlist, Gtk-prel.
-
-* Mon Jul 20 1998 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
-  [0.14-2d]
-- build against glibc-2.1,
-- translation modified for pl,
-- added Require: Gtk-perl,
-- minor modifications of spec file.
-
-* Tue Jun 2 1998 The Rasterman <raster@redhat.com>
-- wrote .spec file
