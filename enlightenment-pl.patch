@@ -100,17 +100,17 @@ diff -Nur enlightenment-0.16.7.1.orig/po/pl.po enlightenment-0.16.7.1/po/pl.po
  " Zawarto¶æ wiadomo¶ci:\n"
 @@ -597,11 +616,11 @@
  
- #: src/config.c:3436
+ #: src/config.c:3299
  msgid "Theme versioning ERROR"
 -msgstr "B³±d w wersji wystroju."
 +msgstr "B³±d w wersji wystroju"
  
- #: src/config.c:3437 src/config.c:3466
+ #: src/config.c:3300 src/config.c:3329
  msgid "Restart with Defaults"
 -msgstr "Uruchom ponownie z warto¶ciami domy¶lnymi."
 +msgstr "Uruchom ponownie z warto¶ciami domy¶lnymi"
  
- #: src/config.c:3438 src/config.c:3467
+ #: src/config.c:3301 src/config.c:3330
  msgid "Abort and Exit"
 @@ -639,9 +658,9 @@
  "uaktualniony do obecnej wersji i bêdzie mia³\n"
@@ -166,7 +166,7 @@ diff -Nur enlightenment-0.16.7.1.orig/po/pl.po enlightenment-0.16.7.1/po/pl.po
 +"Aby otrzymaæ listê aktualnie dzia³aj±cych\n"
 +"aplikacji, naci¶nij ¶rodkowy przycisk myszy.\n"
  
- #: src/desktops.c:384
+ #: src/desktops.c:371
  msgid ""
  "Click here to raise this desktop\n"
  "to the top.\n"
@@ -175,7 +175,7 @@ diff -Nur enlightenment-0.16.7.1.orig/po/pl.po enlightenment-0.16.7.1/po/pl.po
 +"Aby umie¶ciæ Pulpit na wierzchu,\n"
  "kliknij tutaj.\n"
  
- #: src/desktops.c:399
+ #: src/desktops.c:386
 @@ -802,7 +821,7 @@
  
  #: src/events.c:60
@@ -394,7 +394,7 @@ diff -Nur enlightenment-0.16.7.1.orig/po/pl.po enlightenment-0.16.7.1/po/pl.po
 @@ -1224,9 +1243,8 @@
  msgstr "wpisz \"help <komenda>\" aby uzyskaæ opis pojedynczej komendy\n"
  
- #: src/ipc.c:6516
+ #: src/ipc.c:6527
 -#, fuzzy
  msgid "      <command>   : <description>\n"
 -msgstr "<komenda> : <opis>\n"
@@ -424,7 +424,7 @@ diff -Nur enlightenment-0.16.7.1.orig/po/pl.po enlightenment-0.16.7.1/po/pl.po
 +msgstr "Przycisk myszy s³u¿±cy do wybierania i przeci±gania okien :"
  
  #: src/settings.c:245 src/settings.c:277 src/settings.c:309
- #: src/settings.c:2272
+ #: src/settings.c:2283
  msgid "Left"
 -msgstr "Lewo"
 +msgstr "Lewy"
@@ -435,7 +435,7 @@ diff -Nur enlightenment-0.16.7.1.orig/po/pl.po enlightenment-0.16.7.1/po/pl.po
 +msgstr "¦rodkowy"
  
  #: src/settings.c:261 src/settings.c:293 src/settings.c:325
- #: src/settings.c:2279
+ #: src/settings.c:2290
  msgid "Right"
 -msgstr "Prawo"
 +msgstr "Prawy"
@@ -515,12 +515,12 @@ diff -Nur enlightenment-0.16.7.1.orig/po/pl.po enlightenment-0.16.7.1/po/pl.po
  msgid ""
 @@ -1965,14 +1983,14 @@
  
- #: src/settings.c:1923
+ #: src/settings.c:1934
  msgid "Audio Settings"
 -msgstr "Ustawienia Audio"
 +msgstr "Ustawienia D¼wiêku"
  
- #: src/settings.c:1938
+ #: src/settings.c:1949
  msgid ""
  "Enlightenment Audio\n"
  "Settings Dialog\n"
@@ -529,7 +529,7 @@ diff -Nur enlightenment-0.16.7.1.orig/po/pl.po enlightenment-0.16.7.1/po/pl.po
 +"Okno Ustwieñ D¼wiêku\n"
  "Enlightenment\n"
  
- #: src/settings.c:1951
+ #: src/settings.c:1962
 @@ -2013,7 +2031,7 @@
  
  #: src/settings.c:2156
@@ -550,43 +550,43 @@ diff -Nur enlightenment-0.16.7.1.orig/po/pl.po enlightenment-0.16.7.1/po/pl.po
  #: src/settings.c:2380
 @@ -2062,32 +2080,31 @@
  
- #: src/settings.c:2320
+ #: src/settings.c:2331
  msgid "Cleanup Slide speed: (slow)\n"
 -msgstr "Szybko¶æ ¶lizgania siê okien przy czyszczeniu: (wolno)\n"
 +msgstr "Szybko¶æ ¶lizgania siê okien przy czyszczeniu: (powoli)\n"
  
- #: src/settings.c:2342
+ #: src/settings.c:2353
  msgid "Appear Slide speed: (slow)\n"
 -msgstr "Szybko¶æ ¶lizgania siê przy pojawianiu: (wolno)\n"
 +msgstr "Szybko¶æ ¶lizgania siê przy pojawianiu: (powoli)\n"
  
- #: src/settings.c:2364
+ #: src/settings.c:2375
  msgid "Window Shading speed: (slow)\n"
 -msgstr "Szybko¶æ przechodzenia w cieñ: (wolna)\n"
 +msgstr "Szybko¶æ przechodzenia w cieñ: (powoli)\n"
  
- #: src/settings.c:2393
+ #: src/settings.c:2404
  msgid "Effects"
 -msgstr ""
 +msgstr "Efekty"
  
- #: src/settings.c:2399
+ #: src/settings.c:2410
 -#, fuzzy
  msgid "Enable Effect: Raindrops"
 -msgstr "Nie da siê wy¶wietliæ kropli deszczu"
 +msgstr "W³±cz efekt specjalny: 'Krople Deszczu'"
  
- #: src/settings.c:2406
+ #: src/settings.c:2417
  msgid "Ripples"
 -msgstr ""
 +msgstr "Zmarszczki"
  
- #: src/settings.c:2414
+ #: src/settings.c:2425
  msgid "Waves"
 -msgstr ""
 +msgstr "Fale"
  
- #: src/settings.c:2624 src/settings.c:3855
+ #: src/settings.c:2635 src/settings.c:3866
  msgid "-NONE-"
 @@ -2110,7 +2127,7 @@
  "Background"
@@ -617,27 +617,27 @@ diff -Nur enlightenment-0.16.7.1.orig/po/pl.po enlightenment-0.16.7.1/po/pl.po
  msgid "Duplicate\n"
 @@ -2322,19 +2339,19 @@
  
- #: src/settings.c:4117
+ #: src/settings.c:4128
  msgid "Icon image display policy (if one operation fails, try the next):"
 -msgstr "Sposób wy¶wietlania ikon (je¿eli która¶ zawiedzie, spróbuj nastêpnej):"
 +msgstr "Sposób wy¶wietlania ikon (je¿eli który¶ zawiedzie, spróbuj nastêpnego):"
  
- #: src/settings.c:4124
+ #: src/settings.c:4135
  msgid "Snapshot Windows, Use application icon, Use Enlightenment Icon"
 -msgstr "Zdjêcie Okna, U¿yj Ikony aplikacji, U¿ytj Ikony Enlightenment"
 +msgstr "Zdjêcie Okna, U¿yj Ikony aplikacji, U¿yj Ikony Enlightenment"
  
- #: src/settings.c:4133
+ #: src/settings.c:4144
  msgid "Use application icon, Use Enlightenment Icon, Snapshot Window"
 -msgstr "U¿yj Ikony aplikacji, U¿ytj Ikony Enlightenment, Zdjêcie Okna"
 +msgstr "U¿yj Ikony aplikacji, U¿yj Ikony Enlightenment, Zdjêcie Okna"
  
- #: src/settings.c:4141
+ #: src/settings.c:4152
  msgid "Use Enlightenment Icon, Snapshot Window"
 -msgstr "U¿ytj Ikony Enlightenment, Zdjêcie Okna"
 +msgstr "U¿yj Ikony Enlightenment, Zdjêcie Okna"
  
- #: src/settings.c:4155
+ #: src/settings.c:4166
  msgid "Icon size"
 @@ -2484,7 +2501,7 @@
  "Windows Settings Dialog\n"
@@ -670,12 +670,12 @@ diff -Nur enlightenment-0.16.7.1.orig/po/pl.po enlightenment-0.16.7.1/po/pl.po
 +"X-Serwera, przeczytaj strony podrêcznika X, xdm i startx zanim\n"
  "podejmiesz dalsze dzia³ania.\n"
  
- #: src/setup.c:300
+ #: src/setup.c:302
  msgid "X server version error"
 -msgstr "B³±d wersji XSerwera"
 +msgstr "B³±d wersji X-Serwera"
  
- #: src/setup.c:300
+ #: src/setup.c:302
  msgid "Ignore this error"
 @@ -2537,11 +2554,11 @@
  "access to, nor have heard of.\n"
@@ -724,26 +724,3 @@ diff -Nur enlightenment-0.16.7.1.orig/po/pl.po enlightenment-0.16.7.1/po/pl.po
  
  #: src/tooltips.c:662
  msgid "ToolTip Error!"
-diff -Nur enlightenment-0.16.7.1.orig/scripts/e_cache_clean.pl enlightenment-0.16.7.1/scripts/e_cache_clean.pl
---- enlightenment-0.16.7.1.orig/scripts/e_cache_clean.pl	2004-01-19 22:54:08.000000000 +0100
-+++ enlightenment-0.16.7.1/scripts/e_cache_clean.pl	2004-09-30 00:32:09.000000000 +0200
-@@ -54,7 +54,7 @@
- if [ $1 = "config" ]; then
-   rm -rf $ECACHEDIR/cached/cfg/* >& /dev/null
-   rm -rf $ECACHEDIR/cached/cfg/.* >& /dev/null
--  eesh -e "dialog_ok Wyczyszczono cahce plików konfiguracyjnych."
-+  eesh -e "dialog_ok Wyczyszczono cache plików konfiguracyjnych."
-   exit
- fi
- 
-diff -Nur enlightenment-0.16.7.1.orig/scripts/e_cache_query.pl enlightenment-0.16.7.1/scripts/e_cache_query.pl
---- enlightenment-0.16.7.1.orig/scripts/e_cache_query.pl	2004-01-19 22:54:08.000000000 +0100
-+++ enlightenment-0.16.7.1/scripts/e_cache_query.pl	2004-09-30 00:32:09.000000000 +0200
-@@ -57,6 +57,6 @@
- 
- if [ $1 = "bgsel" ]; then
-   VAL=`du -s $ECACHEDIR/cached/bgsel | awk '{printf("%s", $1);}'`
--  eesh -e "dialog_ok Twój cache z T³ami Pulpitu uzywa $VAL Kb przestrzeni dyskowej."
-+  eesh -e "dialog_ok Twój cache z T³ami Pulpitu u¿ywa $VAL Kb przestrzeni dyskowej."
-   exit
- fi
