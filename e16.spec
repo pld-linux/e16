@@ -5,7 +5,7 @@ Version:	0.16.5
 Release:	5
 License:	GPL
 Group:		X11/Window Managers
-Source0:	ftp://ftp.enlightenment.org/pub/enlightenment/enlightenment/%{name}-%{version}.tar.gz
+Source0:	http://prdownloads.sourceforge.net/enlightenment/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Source2:	%{name}.RunWM
 Source3:	%{name}.wm_style
@@ -13,7 +13,7 @@ Patch0:		%{name}-config-path.patch
 Patch1:		%{name}-makefile_fix.patch
 Patch2:		%{name}-ac_am_fixes.patch
 Patch3:		%{name}-use_sys_snprintf.patch
-URL:		http://www.enlightenment.org/
+URL:		http://enlightenment.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	esound-devel >= 0.2.13
