@@ -1,0 +1,352 @@
+diff -Nur enlightenment-0.16.7.2/themes/Makefile.am enlightenment-0.16.7.2.new/themes/Makefile.am
+--- enlightenment-0.16.7.2/themes/Makefile.am	2004-05-20 11:20:09.000000000 +0200
++++ enlightenment-0.16.7.2.new/themes/Makefile.am	2004-12-26 16:27:51.777770552 +0100
+@@ -1,8 +1,8 @@
+ 
+ THEME = winter
+-THEME_FILES = winter.etheme winter.etheme.ko
++THEME_FILES = winter
+ 
+-ethemedir = $(datadir)/themes
++ethemedir = $(pkgdatadir)/themes
+ 
+ EXTRA_DIST = $(THEME_FILES) 
+ 
+@@ -11,9 +11,8 @@
+ install-data-local:
+ 	$(mkinstalldirs) $(THEME_DIR)
+ 	for tf in $(THEME_FILES); do \
+-		gzip -d -c < $(srcdir)/$$tf | (cd $(THEME_DIR); tar -xmf -); \
++		cp -a $(srcdir)/$$tf/* $(THEME_DIR); \
+ 	done
+-	-if [ -n "$(USER)" ]; then chown -R $(USER) $(THEME_DIR); else chown -R root $(THEME_DIR); fi
+ 	
+ 
+ uninstall-local:
+diff -Nur enlightenment-0.16.7.2/themes/winter/borders/common/border.cfg enlightenment-0.16.7.2.new/themes/winter/borders/common/border.cfg
+--- enlightenment-0.16.7.2/themes/winter/borders/common/border.cfg	2004-06-22 06:17:07.000000000 +0200
++++ enlightenment-0.16.7.2.new/themes/winter/borders/common/border.cfg	2004-12-26 16:26:24.054106576 +0100
+@@ -330,22 +330,22 @@
+ __TCLASS __BGN
+   __NAME "TITLE"
+   __JUSTIFICATION 0
+-  __NORMAL "VeraBd/7"
++  __NORMAL "-*-lucida-bold-r-normal-*-10-100-*-*-*-*-*-*,-*-gulim*-bold-r-normal-*-10-100-*-*-*-*-*-*"
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 128 128 128
+   __BACKGROUND_COLOR 210 210 210
+   __JUSTIFICATION 0
+-  __NORMAL_ACTIVE "VeraBd/7"
++  __NORMAL_ACTIVE "-*-lucida-bold-r-normal-*-10-100-*-*-*-*-*-*,-*-gulim*-bold-r-normal-*-10-100-*-*-*-*-*-*"
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 70 70 70
+   __BACKGROUND_COLOR 170 170 170
+   __JUSTIFICATION 0
+-  __NORMAL_STICKY        "VeraBd/7"
++  __NORMAL_STICKY        "-*-lucida-bold-r-normal-*-10-100-*-*-*-*-*-*,-*-gulim*-bold-r-normal-*-10-100-*-*-*-*-*-*"
+   __JUSTIFICATION        0
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 128 128 128
+   __BACKGROUND_COLOR 210 210 210
+-  __NORMAL_ACTIVE_STICKY "VeraBd/7"
++  __NORMAL_ACTIVE_STICKY "-*-lucida-bold-r-normal-*-10-100-*-*-*-*-*-*,-*-gulim*-bold-r-normal-*-10-100-*-*-*-*-*-*"
+   __JUSTIFICATION        0
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 70 70 70
+@@ -355,22 +355,22 @@
+ __TCLASS __BGN
+   __NAME "MENU_TITLE"
+   __JUSTIFICATION 0
+-  __NORMAL "VeraBd/7"
++  __NORMAL "-*-lucida-bold-r-normal-*-10-100-*-*-*-*-*-*,-*-gulim*-bold-r-normal-*-10-100-*-*-*-*-*-*"
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 0 0 0
+   __BACKGROUND_COLOR 192 192 192
+   __JUSTIFICATION 0
+-  __NORMAL_ACTIVE "VeraBd/7"
++  __NORMAL_ACTIVE "-*-lucida-bold-r-normal-*-10-100-*-*-*-*-*-*,-*-gulim*-bold-r-normal-*-10-100-*-*-*-*-*-*"
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 70 70 70
+   __BACKGROUND_COLOR 192 192 192
+   __JUSTIFICATION 0
+- __NORMAL_STICKY        "VeraBd/7"
++ __NORMAL_STICKY        "-*-lucida-bold-r-normal-*-10-100-*-*-*-*-*-*,-*-gulim*-bold-r-normal-*-10-100-*-*-*-*-*-*"
+   __JUSTIFICATION        0
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 70 70 70
+   __BACKGROUND_COLOR 192 192 192
+-  __NORMAL_ACTIVE_STICKY "VeraBd/7"
++  __NORMAL_ACTIVE_STICKY "-*-lucida-bold-r-normal-*-10-100-*-*-*-*-*-*,-*-gulim*-bold-r-normal-*-10-100-*-*-*-*-*-*"
+   __JUSTIFICATION        0
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 70 70 70
+diff -Nur enlightenment-0.16.7.2/themes/winter/coords/coords.cfg enlightenment-0.16.7.2.new/themes/winter/coords/coords.cfg
+--- enlightenment-0.16.7.2/themes/winter/coords/coords.cfg	2004-06-15 11:06:44.000000000 +0200
++++ enlightenment-0.16.7.2.new/themes/winter/coords/coords.cfg	2004-12-26 16:26:24.055106424 +0100
+@@ -2,7 +2,7 @@
+   __NAME "COORDS"
+   __JUSTIFICATION 0
+     
+-  __NORMAL "VeraBd/7"
++  __NORMAL "-*-lucida-bold-r-normal-*-10-100-*-*-*-*-*-*,-*-gulim*-bold-r-normal-*-10-100-*-*-*-*-*-*"
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 0 0 0
+   __BACKGROUND_COLOR 192 192 192
+diff -Nur enlightenment-0.16.7.2/themes/winter/dialogs/dialogs.cfg enlightenment-0.16.7.2.new/themes/winter/dialogs/dialogs.cfg
+--- enlightenment-0.16.7.2/themes/winter/dialogs/dialogs.cfg	2004-06-15 11:06:44.000000000 +0200
++++ enlightenment-0.16.7.2.new/themes/winter/dialogs/dialogs.cfg	2004-12-26 16:26:24.055106424 +0100
+@@ -146,7 +146,7 @@
+   __NAME "DIALOG"
+   __JUSTIFICATION 512
+ 		
+-  __NORMAL "Vera/7"
++  __NORMAL "-*-lucida-medium-r-normal-*-10-100-*-*-*-*-*-*,-*-gulim*-medium-r-normal-*-10-100-*-*-*-*-*-*"
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 70 70 70
+   __BACKGROUND_COLOR 210 210 210
+@@ -156,12 +156,12 @@
+   __NAME "DIALOG_WIDGET_BUTTON"
+   __JUSTIFICATION 512
+   
+-__NORMAL "Vera/7"
++__NORMAL "-*-lucida-medium-r-normal-*-10-100-*-*-*-*-*-*,-*-gulim*-medium-r-normal-*-10-100-*-*-*-*-*-*"
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 70 70 70
+   __BACKGROUND_COLOR 210 210 210
+ 
+-  __HILITED "Vera/7"
++  __HILITED "-*-lucida-medium-r-normal-*-10-100-*-*-*-*-*-*,-*-gulim*-medium-r-normal-*-10-100-*-*-*-*-*-*"
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 70 70 70
+   __BACKGROUND_COLOR 210 210 210
+@@ -171,7 +171,7 @@
+   __NAME "DIALOG_WIDGET_CHECK_BUTTON"
+   __JUSTIFICATION 0
+   
+-  __NORMAL "Vera/7"
++  __NORMAL "-*-lucida-medium-r-normal-*-10-100-*-*-*-*-*-*,-*-gulim*-medium-r-normal-*-10-100-*-*-*-*-*-*"
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 70 70 70
+   __BACKGROUND_COLOR 210 210 210
+@@ -182,7 +182,7 @@
+   __NAME "DIALOG_WIDGET_RADIO_BUTTON"
+   __JUSTIFICATION 0
+   
+-__NORMAL "Vera/7"
++__NORMAL "-*-lucida-medium-r-normal-*-10-100-*-*-*-*-*-*,-*-gulim*-medium-r-normal-*-10-100-*-*-*-*-*-*"
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 70 70 70
+   __BACKGROUND_COLOR 210 210 210
+@@ -192,12 +192,12 @@
+   __NAME "DIALOG_WIDGET_TEXT"
+   __JUSTIFICATION 512
+   
+-__NORMAL "Vera/7"
++__NORMAL "-*-lucida-medium-r-normal-*-10-100-*-*-*-*-*-*,-*-gulim*-medium-r-normal-*-10-100-*-*-*-*-*-*"
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 70 70 70
+   __BACKGROUND_COLOR 210 210 210
+ 
+-  __HILITED "Vera/8"
++  __HILITED "-*-lucida-medium-r-normal-*-12-120-*-*-*-*-*-*,-*-gulim*-medium-r-normal-*-12-120-*-*-*-*-*-*"
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 70 70 70
+   __BACKGROUND_COLOR 210 210 210
+@@ -207,12 +207,12 @@
+   __NAME "PAGER_WINDOW_TITLE"
+   __JUSTIFICATION 0
+   
+-__NORMAL "Vera/7"
++__NORMAL "-*-lucida-medium-r-normal-*-10-100-*-*-*-*-*-*,-*-gulim*-medium-r-normal-*-10-100-*-*-*-*-*-*"
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 70 70 70
+   __BACKGROUND_COLOR 210 210 210
+ 
+-  __HILITED "Vera/7"
++  __HILITED "-*-lucida-medium-r-normal-*-10-100-*-*-*-*-*-*,-*-gulim*-medium-r-normal-*-10-100-*-*-*-*-*-*"
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 70 70 70
+   __BACKGROUND_COLOR 210 210 210
+@@ -222,12 +222,12 @@
+   __NAME "DIALOG_BUTTON"
+   __JUSTIFICATION 512
+     
+-__NORMAL "Vera/7"
++__NORMAL "-*-lucida-medium-r-normal-*-10-100-*-*-*-*-*-*,-*-gulim*-medium-r-normal-*-10-100-*-*-*-*-*-*"
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 70 70 70
+   __BACKGROUND_COLOR 210 210 210
+ 
+-  __HILITED "Vera/7"
++  __HILITED "-*-lucida-medium-r-normal-*-10-100-*-*-*-*-*-*,-*-gulim*-medium-r-normal-*-10-100-*-*-*-*-*-*"
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 70 70 70
+   __BACKGROUND_COLOR 210 210 210
+diff -Nur enlightenment-0.16.7.2/themes/winter/epplets/epplets.cfg enlightenment-0.16.7.2.new/themes/winter/epplets/epplets.cfg
+--- enlightenment-0.16.7.2/themes/winter/epplets/epplets.cfg	2004-06-15 11:06:44.000000000 +0200
++++ enlightenment-0.16.7.2.new/themes/winter/epplets/epplets.cfg	2004-12-26 16:26:24.056106272 +0100
+@@ -289,7 +289,7 @@
+ //-*-lucida-medium-r-normal-*-*-80-*-*-p-*-iso8859-1
+ __TCLASS __BGN
+   __NAME "EPPLET_LABEL"
+-  __NORMAL "Vera/6"
++  __NORMAL "-*-lucida-medium-r-normal-*-8-80-*-*-*-*-*-*,-*-gulim*-medium-r-normal-*-8-80-*-*-*-*-*-*"
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 0 0 0
+   __BACKGROUND_COLOR 255 255 255
+@@ -297,7 +297,7 @@
+ 
+ __TCLASS __BGN
+   __NAME "EPPLET_BUTTON"
+-  __NORMAL "Vera/6"
++  __NORMAL "-*-lucida-medium-r-normal-*-8-80-*-*-*-*-*-*,-*-gulim*-medium-r-normal-*-8-80-*-*-*-*-*-*"
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 0 0 0
+   __BACKGROUND_COLOR 255 255 255
+@@ -305,7 +305,7 @@
+ 
+ __TCLASS __BGN
+   __NAME "EPPLET_TOGGLEBUTTON_ON"
+-  __NORMAL "Vera/6"
++  __NORMAL "-*-lucida-medium-r-normal-*-8-80-*-*-*-*-*-*,-*-gulim*-medium-r-normal-*-8-80-*-*-*-*-*-*"
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 0 0 0
+   __BACKGROUND_COLOR 255 255 255
+@@ -313,7 +313,7 @@
+ 
+ __TCLASS __BGN
+   __NAME "EPPLET_TOGGLEBUTTON_OFF"
+-  __NORMAL "Vera/6"
++  __NORMAL "-*-lucida-medium-r-normal-*-8-80-*-*-*-*-*-*,-*-gulim*-medium-r-normal-*-8-80-*-*-*-*-*-*"
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 0 0 0
+   __BACKGROUND_COLOR 255 255 255
+@@ -321,7 +321,7 @@
+ 
+ __TCLASS __BGN
+   __NAME "EPPLET_POPUP"
+-  __NORMAL "Vera/6"
++  __NORMAL "-*-lucida-medium-r-normal-*-8-80-*-*-*-*-*-*,-*-gulim*-medium-r-normal-*-8-80-*-*-*-*-*-*"
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 0 0 0
+   __BACKGROUND_COLOR 255 255 255
+@@ -329,7 +329,7 @@
+ 
+ __TCLASS __BGN
+   __NAME "EPPLET_TEXT_TINY"
+-  __NORMAL "Vera/6"
++  __NORMAL "-*-lucida-medium-r-normal-*-8-80-*-*-*-*-*-*,-*-gulim*-medium-r-normal-*-8-80-*-*-*-*-*-*"
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 0 0 0
+   __BACKGROUND_COLOR 255 255 255
+@@ -337,7 +337,7 @@
+ 
+ __TCLASS __BGN
+   __NAME "EPPLET_TEXT_MEDIUM"
+-  __NORMAL "Vera/8"
++  __NORMAL "-*-lucida-medium-r-normal-*-12-120-*-*-*-*-*-*,-*-gulim*-medium-r-normal-*-12-120-*-*-*-*-*-*"
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 0 0 0
+   __BACKGROUND_COLOR 255 255 255
+@@ -345,7 +345,7 @@
+ 
+ __TCLASS __BGN
+   __NAME "EPPLET_TEXT_LARGE"
+-  __NORMAL "Vera/10"
++  __NORMAL "-*-lucida-medium-r-normal-*-16-160-*-*-*-*-*-*,-*-gulim*-medium-r-normal-*-16-160-*-*-*-*-*-*"
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 0 0 0
+   __BACKGROUND_COLOR 255 255 255
+diff -Nur enlightenment-0.16.7.2/themes/winter/focuslist/focuslist.cfg enlightenment-0.16.7.2.new/themes/winter/focuslist/focuslist.cfg
+--- enlightenment-0.16.7.2/themes/winter/focuslist/focuslist.cfg	2004-06-15 11:06:44.000000000 +0200
++++ enlightenment-0.16.7.2.new/themes/winter/focuslist/focuslist.cfg	2004-12-26 16:26:24.057106120 +0100
+@@ -2,12 +2,12 @@
+   __NAME "WARPFOCUS"
+   __JUSTIFICATION 0
+   
+-  __NORMAL "VeraBd/7"
++  __NORMAL "-*-lucida-bold-r-normal-*-10-100-*-*-*-*-*-*,-*-gulim*-bold-r-normal-*-10-100-*-*-*-*-*-*"
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 128 128 128
+   __BACKGROUND_COLOR 210 210 210
+   
+-   __CLICKED "VeraBd/7"
++   __CLICKED "-*-lucida-bold-r-normal-*-10-100-*-*-*-*-*-*,-*-gulim*-bold-r-normal-*-10-100-*-*-*-*-*-*"
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 70 70 70
+   __BACKGROUND_COLOR 210 210 210
+diff -Nur enlightenment-0.16.7.2/themes/winter/iconbox/iconbox.cfg enlightenment-0.16.7.2.new/themes/winter/iconbox/iconbox.cfg
+--- enlightenment-0.16.7.2/themes/winter/iconbox/iconbox.cfg	2004-06-22 06:10:34.000000000 +0200
++++ enlightenment-0.16.7.2.new/themes/winter/iconbox/iconbox.cfg	2004-12-26 16:26:24.057106120 +0100
+@@ -116,7 +116,7 @@
+ __TCLASS __BGN
+   __NAME "ICONBOX_WINDOW_TITLE"
+   __JUSTIFICATION 512
+-  __NORMAL "VeraBd/7"
++  __NORMAL "-*-lucida-bold-r-normal-*-10-100-*-*-*-*-*-*,-*-gulim*-bold-r-normal-*-10-100-*-*-*-*-*-*"
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 0 0 0
+   __BACKGROUND_COLOR 192 192 192
+diff -Nur enlightenment-0.16.7.2/themes/winter/init/init.cfg enlightenment-0.16.7.2.new/themes/winter/init/init.cfg
+--- enlightenment-0.16.7.2/themes/winter/init/init.cfg	2004-06-15 11:06:44.000000000 +0200
++++ enlightenment-0.16.7.2.new/themes/winter/init/init.cfg	2004-12-26 16:26:24.057106120 +0100
+@@ -35,7 +35,7 @@
+   __NAME "PROGRESS_TEXT"
+   __JUSTIFICATION 0
+   
+-  __NORMAL "VeraBd/8"
++  __NORMAL "-*-lucida-bold-r-normal-*-12-120-*-*-*-*-*-*,-*-gulim*-bold-r-normal-*-12-120-*-*-*-*-*-*"
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 0 0 0
+   __BACKGROUND_COLOR 180 180 180
+@@ -46,7 +46,7 @@
+   __NAME "PROGRESS_TEXT_NUMBER"
+   __JUSTIFICATION 512
+   
+-  __NORMAL "VeraBd/"
++  __NORMAL "-*-lucida-bold-r-normal-*-10-100-*-*-*-*-*-*,-*-gulim*-bold-r-normal-*-10-100-*-*-*-*-*-*"
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 0 0 0
+   __BACKGROUND_COLOR 180 180 180
+diff -Nur enlightenment-0.16.7.2/themes/winter/menustyles/menustyles.cfg enlightenment-0.16.7.2.new/themes/winter/menustyles/menustyles.cfg
+--- enlightenment-0.16.7.2/themes/winter/menustyles/menustyles.cfg	2004-06-15 11:06:44.000000000 +0200
++++ enlightenment-0.16.7.2.new/themes/winter/menustyles/menustyles.cfg	2004-12-26 16:26:24.058105968 +0100
+@@ -31,12 +31,12 @@
+   __NAME "MENU"
+   __JUSTIFICATION 0
+   
+-__NORMAL "Vera/7"
++__NORMAL "-*-lucida-medium-r-normal-*-10-100-*-*-*-*-*-*,-*-gulim*-medium-r-normal-*-10-100-*-*-*-*-*-*"
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 70 70 70
+   __BACKGROUND_COLOR 215 215 215
+ 
+-  __HILITED "Vera/7"
++  __HILITED "-*-lucida-medium-r-normal-*-10-100-*-*-*-*-*-*,-*-gulim*-medium-r-normal-*-10-100-*-*-*-*-*-*"
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 70 70 70
+   __BACKGROUND_COLOR 210 210 210
+diff -Nur enlightenment-0.16.7.2/themes/winter/pager/pager.cfg enlightenment-0.16.7.2.new/themes/winter/pager/pager.cfg
+--- enlightenment-0.16.7.2/themes/winter/pager/pager.cfg	2004-06-15 11:06:44.000000000 +0200
++++ enlightenment-0.16.7.2.new/themes/winter/pager/pager.cfg	2004-12-26 16:26:24.058105968 +0100
+@@ -33,7 +33,7 @@
+   __NAME "PAGER_WINDOW_TITLE"
+   __JUSTIFICATION 0
+     
+-  __NORMAL "VeraBd/7"
++  __NORMAL "-*-lucida-bold-r-normal-*-10-100-*-*-*-*-*-*,-*-gulim*-bold-r-normal-*-10-100-*-*-*-*-*-*"
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 0 0 0
+   __BACKGROUND_COLOR 192 192 192
+diff -Nur enlightenment-0.16.7.2/themes/winter/tooltips/tooltips.cfg enlightenment-0.16.7.2.new/themes/winter/tooltips/tooltips.cfg
+--- enlightenment-0.16.7.2/themes/winter/tooltips/tooltips.cfg	2004-06-15 11:06:44.000000000 +0200
++++ enlightenment-0.16.7.2.new/themes/winter/tooltips/tooltips.cfg	2004-12-26 16:26:24.059105816 +0100
+@@ -14,7 +14,7 @@
+   __NAME "TT_TEXT"
+   __JUSTIFICATION 512
+   
+-  __NORMAL "VeraBd/7"
++  __NORMAL "-*-lucida-bold-r-normal-*-10-100-*-*-*-*-*-*,-*-gulim*-bold-r-normal-*-10-100-*-*-*-*-*-*"
+   __DRAWING_EFFECT __EFFECT_SHADOW
+   __FORGROUND_COLOR 0 0 0
+   __BACKGROUND_COLOR 192 192 192
