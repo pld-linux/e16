@@ -1,16 +1,31 @@
-Summary:     Enlightenment Window Manager
-Summary(pl): X Window menad¿er - Enlightenment  
-Name:        enlightenment
-Version:     0.15.0
-Release:     1
-Copyright:   GPL
-Group:       X11/Applications
-Source:      ftp://www.rasterman.com/pub/enlightenment/%{name}-%{version}.tar.gz
-Patch0:      enlightenment-DESTDIR.patch
-Requires:    esound = 0.2.7, freetype = 1.2, fnlib = 0.4
-Requires:    imlib = 1.8.2, perl >= 5.005
-URL:         http://www.rasterman.com/
-BuildRoot:   /tmp/%{name}-%{version}-root
+Summary:	Enlightenment Window Manager
+Summary(pl):	X Window menad¿er - Enlightenment  
+Name:		enlightenment
+Version:	0.15.0
+Release:	2.1d
+%define		date	19990203		
+Copyright:	GPL
+Group:		X11/Applications
+Group(pl):	X11/Aplikacje
+#######		ftp://www.rasterman.com/pub/enlightenment
+Source:		%{name}-%{version}-%{date}.tar.gz
+URL:		http://www.rasterman.com/
+Requires:	imlib >= 1.9.2
+Requires:	fnlib >= 0.4
+Requires:	libpng
+Requires:	libtiff
+Requires:	libjpeg
+Requires:	zlib
+Requires:	libgr-progs
+Requires:	glib = 1.1.15
+Requires:	gtk+ = 1.1.15
+Requires:	libungif
+Requires:	ImageMagick
+Requires:	esound	 >= 0.2.7
+Requires:	freetype >= 1.2
+Requires:	Gtk-perl >= 0.5000
+Requires:	stringlist >= 0.3
+BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
 Enlightenment is a Windowmanager for X-Windows that is designed to be
@@ -21,43 +36,55 @@ Enlightenment jest najpotê¿niejszym i najpiêkniejszym window-menad¿erem
 jaki kiedykolwiek zosta³ stworzony dla Linuxa ;)
 
 %prep
-%setup -q
-%patch0 -p1
+%setup -q 
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
-./configure \
-	--prefix=/usr/X11R6
+CFLAGS=$RPM_OPT_FLAGS LDFLAGS=-s \
+    ./configure \
+	--prefix=/usr/X11R6 \
+	--enable-sound
 make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-make DESTDIR=$RPM_BUILD_ROOT install
+
+make prefix=$RPM_BUILD_ROOT/usr/X11R6 install
+
+install -d $RPM_BUILD_ROOT/usr/X11R6/bin
+
+ln -s	/usr/X11R6/enlightenment/bin/enlightenment \
+	$RPM_BUILD_ROOT/usr/X11R6/bin
+
+bzip2 -9 AUTHORS README NEWS 
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%defattr(644, root, root, 755)
-%doc AUTHORS README TODO NEWS
+%defattr(644,root,root,755)
+%doc AUTHORS.bz2 README.bz2 NEWS.bz2 
+
 %dir /usr/X11R6/enlightenment
-/usr/X11R6/enlightenment/E-docs
-%dir /usr/X11R6/enlightenment/bin
-%attr(755, root, root) /usr/X11R6/enlightenment/bin/*
+
+%attr(755,root,root) /usr/X11R6/enlightenment/bin/*
+
 /usr/X11R6/enlightenment/config
+/usr/X11R6/enlightenment/E-docs
 /usr/X11R6/enlightenment/themes
 
+%attr(755,root,root) /usr/X11R6/bin/*
+
 %changelog
-* Tue Jan 05 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [0.15.0-1]
-- more Requires (fnlib = 0.4, imlib = 1.8.2, esound = 0.2.7,
-  freetype = 1.2),
-- updates in %files for 0.15.0,
-- added LDFLAGS="-s" to ./configure enviroment.
+* Fri Feb 05 1999 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
+  [0.15.0-2.1d]
+- updated to latest snapshoot,
+- added Require: stringlist, Gtk-prel.
 
 * Mon Jul 20 1998 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
-  [0.14-2]
-- added pl translation,
+  [0.14-2d]
+- build against glibc-2.1,
+- translation modified for pl,
+- added Require: Gtk-perl,
 - minor modifications of spec file.
 
 * Tue Jun 2 1998 The Rasterman <raster@redhat.com>
