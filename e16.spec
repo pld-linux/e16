@@ -1,8 +1,14 @@
+# TODO:
+#	- fix attempts to use bogus path (differentiate absolute and relative
+#	  pathnames)
+#	- fix applnk submenu handling (for Ra)
+#	- use the translated (locale dependent) script menu generating (???)
+#
 Summary:	Enlightenment Window Manager
 Summary(pl):	Zarz±dca okien X - Enlightenment
 Name:		enlightenment
 Version:	0.16.6
-Release:	0.2
+Release:	1
 License:	GPL
 Group:		X11/Window Managers
 Source0:	http://dl.sourceforge.net/enlightenment/%{name}-%{version}.tar.gz
