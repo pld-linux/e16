@@ -1,7 +1,11 @@
 [Desktop Entry]
 Name=Enlightenment
+Name[da]=Enlightenment
+Name[gl]=Enlightenment
 Name[ko]=인라이튼먼트
+Name[no]=Enlightenment
 Name[pl]=Enlightenment
+Name[uk]=Enlightenment
 Exec=enlightenment
 TryExec=enlightenment
 
