@@ -57,7 +57,7 @@ make install \
 gzip -9nf AUTHORS README NEWS \
 	$RPM_BUILD_ROOT%{_mandir}/man1/*
 
-install %{SOURCE1} RPM_BUILD_ROOT%{_datadir}/gnome/wm-properties
+install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/gnome/wm-properties
 
 %clean
 rm -rf $RPM_BUILD_ROOT
