@@ -42,6 +42,8 @@ make install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	configdatadir=/etc/X11/enlightenment
 
+strip --strip-unneeded /usr/X11R6/bin/* || :
+
 gzip -9nf AUTHORS README NEWS 
 
 %clean
