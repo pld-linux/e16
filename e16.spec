@@ -5,6 +5,7 @@ Version:	0.16.4
 Release:	3
 License:	GPL
 Group:		X11/Window Managers
+Group(de):	X11/Fenstermanager
 Group(es):	X11/Administraadores De Ventanas
 Group(fr):	X11/Gestionnaires De Fenêtres
 Group(pl):	X11/Zarz±dcy Okien
@@ -46,8 +47,7 @@ window-menad¿erem jaki kiedykolwiek zosta³ stworzony dla Linuxa ;)
 %patch1 -p1
 
 %build
-LDFLAGS="-s"; export LDFLAGS
-CFLAGS="-I%{_includedir}/freetype $RPM_OPT_FLAGS"; export CFLAGS
+CFLAGS="-I%{_includedir}/freetype %{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g}"
 %configure \
 	--enable-fsstd \
 	--enable-sound
