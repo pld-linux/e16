@@ -56,9 +56,9 @@ window-menad¿erem jaki kiedykolwiek zosta³ stworzony dla Linuxa ;)
 libtoolize --copy --force
 gettextize --copy --force
 aclocal
-autoconf
+%{__autoconf}
 rm -f missing
-automake -a -c -f
+%{__automake}
 CFLAGS="-I%{_includedir}/freetype %{rpmcflags}"
 %configure \
 	--enable-sound=yes
