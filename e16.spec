@@ -8,7 +8,7 @@ Summary:	Enlightenment Window Manager
 Summary(pl):	Zarz±dca okien X - Enlightenment
 Name:		enlightenment
 Version:	0.16.6
-Release:	3
+Release:	4
 License:	GPL
 Group:		X11/Window Managers
 Source0:	http://dl.sourceforge.net/enlightenment/%{name}-%{version}.tar.gz
@@ -20,6 +20,7 @@ Patch1:		%{name}-makefile_fix.patch
 Patch2:		%{name}-ac_am_fixes.patch
 Patch3:		%{name}-use_sys_snprintf.patch
 Patch4:		%{name}-pl.patch
+Patch5:		%{name}-locale_names.patch
 URL:		http://enlightenment.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -56,6 +57,11 @@ jaki kiedykolwiek zosta³ stworzony dla Linuksa ;)
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
+%patch5 -p1
+
+mv -f po/{dk,da}.po
+mv -f po/{no,nb}.po
 
 %build
 rm -f missing
