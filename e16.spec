@@ -5,7 +5,7 @@ Version:	0.16.5
 Release:	5
 License:	GPL
 Group:		X11/Window Managers
-Source0:	http://prdownloads.sourceforge.net/enlightenment/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/enlightenment/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Source2:	%{name}.RunWM
 Source3:	%{name}.wm_style
@@ -32,7 +32,7 @@ BuildRequires:	zlib-devel
 Requires:	xinitrc >= 3.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_wmpropsdir	%{_datadir}/wm-properties
+%define		_wmpropsdir	/usr/share/wm-properties
 %define		_sysconfdir	/etc/X11/enlightenment
 
 %description
