@@ -8,7 +8,8 @@ Group:		X11/Window Managers
 Group(pl):	X11/Zarz±dcy Okien
 Source0:	ftp://ftp.enlightenment.org/pub/enlightenment/enlightenment/%{name}-%{version}.tar.gz
 Source1:	enlightenment.desktop
-Patch:		enlightenment-config-path.patch
+Patch0:		enlightenment-config-path.patch
+Patch1:		enlightenment-makefile_fix.patch
 URL:		http://www.enlightenment.org/
 BuildRequires:	gtk+-devel >= 1.2.1
 BuildRequires:	esound-devel >= 0.2.13
@@ -36,8 +37,9 @@ Enlightenment jest najpotê¿niejszym i najpiêkniejszym window-menad¿erem
 jaki kiedykolwiek zosta³ stworzony dla Linuxa ;)
 
 %prep
-%setup -q
-%patch -p1
+%setup  -q
+%patch0 -p1
+%patch1 -p1
 
 %build
 LDFLAGS="-s"; export LDFLAGS
