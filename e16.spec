@@ -48,13 +48,13 @@ CFLAGS="-I%{_includedir}/freetype $RPM_OPT_FLAGS"; export CFLAGS
 	--enable-fsstd \
 	--enable-sound
 
-make configdatadir=%{_sysconfdir}/X11/enlightenment
+%{__make} configdatadir=%{_sysconfdir}/X11/enlightenment
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/gnome/wm-properties
 
-make install \
+%{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	configdatadir=%{_sysconfdir}/X11/enlightenment
 
