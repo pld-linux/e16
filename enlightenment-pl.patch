@@ -1,7 +1,7 @@
-diff -ur enlightenment-0.16.6.orig/po/pl.po enlightenment-0.16.6/po/pl.po
---- enlightenment-0.16.6.orig/po/pl.po	Wed Nov  5 19:07:38 2003
-+++ enlightenment-0.16.6/po/pl.po	Thu Nov 13 13:28:33 2003
-@@ -52,9 +52,9 @@
+diff -Nur enlightenment-0.16.7.1.orig/po/pl.po enlightenment-0.16.7.1/po/pl.po
+--- enlightenment-0.16.7.1.orig/po/pl.po	2004-08-20 23:15:33.000000000 +0200
++++ enlightenment-0.16.7.1/po/pl.po	2004-09-30 00:32:09.000000000 +0200
+@@ -53,9 +53,9 @@
  "%s\n"
  "Nie mo¿na uruchomiæ programu.\n"
  "Najprawdopodobniej program nie znajduje siê w ¿adnym z katalogów\n"
@@ -11,57 +11,53 @@ diff -ur enlightenment-0.16.6.orig/po/pl.po enlightenment-0.16.6/po/pl.po
 -"gdzie dowiesz siê, jak dodaæ katalogi do ¶cie¿ki wykonywalnej\n"
 +"gdzie dowiesz siê, jak dodaæ katalogi do ¶cie¿ki wykonywalnej.\n"
  
- #: src/actions.c:698
+ #: src/actions.c:704
  #, c-format
-@@ -98,7 +98,7 @@
+@@ -99,7 +99,7 @@
  "Nast±pi³ b³±d przy uruchamianiu programu:\n"
  "%s\n"
  "Nie mo¿na uruchomiæ programu.\n"
 -"Ten plik jest katalogiem.\n"
 +"Nie jest to plik, ale katalog.\n"
  
- #: src/actions.c:733
+ #: src/actions.c:739
  #, c-format
-@@ -135,6 +135,16 @@
- "\n"
- "This code last updated on:\n"
+@@ -140,6 +140,25 @@
+ "Mandrake - mandrake@mandrake.net\n"
+ "Kim Woelders - kim@woelders.dk\n"
  msgstr ""
-+" wersja\n"
++"Witamy w wersji %s"
 +"mened¿era okien Enlightenment.\n"
-+" Enlightenment jest wci±¿ rozwijany, lecz\n"
++"Enlightenment jest wci±¿ rozwijany, lecz\n"
 +"starali¶my usun±æ wszystkie b³êdy, które uda³o\n"
 +"siê nam znale¼æ. Je¶li znalaz³e¶ b³±d w programie,\n"
-+" nie krêpuj siê wys³aæ informacjê o nim.\n"
++"nie krêpuj siê wys³aæ informacjê o nim.\n"
 +"W \"Help\" znajdziesz informacjê o tym, jak\n"
 +"zapisaæ siê na listê.\n"
 +"\n"
 +"Data ostatniej aktualizacji kodu:\n"
- 
- #: src/actions.c:3297
- msgid ""
-@@ -145,6 +155,12 @@
- "The Rasterman - raster@rasterman.com\n"
- "Mandrake - mandrake@mandrake.net\n"
- msgstr ""
-+"\n"
++"%s\n"
 +"\n"
 +"Powodzenia. Mamy nadziejê, ¿e program ci siê spodoba.\n"
 +"\n"
 +"The Rasterman - raster@rasterman.com\n"
 +"Mandrake - mandrake@mandrake.net\n"
++"Kim Woelders - kim@woelders.dk\n"
++
++
  
- #: src/actions.c:3302 src/dialog.c:303 src/groups.c:693 src/settings.c:329
- #: src/settings.c:602 src/settings.c:974 src/settings.c:1182
-@@ -190,7 +206,7 @@
- 
- #: src/actions.c:3898
+ #: src/actions.c:2888 src/dialog.c:2130 src/dialog.c:2171 src/groups.c:677
+ #: src/settings.c:336 src/settings.c:609 src/settings.c:980
+@@ -186,7 +205,7 @@
+ #: src/actions.c:3282
+ #, c-format
  msgid "You have been warned about the dangers of Zoom mode\n"
 -msgstr "Ostrze¿ono Ciê przed niebezpieczeñstwami trybu Powiêkszenia \n"
 +msgstr "Ostrze¿ono Ciê przed niebezpieczeñstwami trybu Powiêkszenia\n"
  
- #: src/actions.c:3901
+ #: src/actions.c:3285
  msgid "Warning !!!"
-@@ -214,7 +230,7 @@
+@@ -210,7 +229,7 @@
  "Ta funkcja jest jest ¶ci¶le powi±zana z funkcj± twojego\n"
  "X Serwera nazywan± Vid Mode Extension. Funkcja ta istnieje\n"
  "w serwerach XFree86, ale nie jest czêsto u¿ywana, st±d\n"
@@ -70,57 +66,53 @@ diff -ur enlightenment-0.16.6.orig/po/pl.po enlightenment-0.16.6/po/pl.po
  "\n"
  "Mo¿liwe, ¿e twój X Serwer niezbyt dobrze radzi sobie z\n"
  "szybkim zmienianiem trybów wy¶wietlania i mo¿e siê zawiesiæ,\n"
-@@ -223,7 +239,7 @@
+@@ -219,7 +238,7 @@
  "\n"
  "To jest ostrze¿enie i zostanie ono wy¶wietlone tylko raz.\n"
  "Je¿eli twój serwer nie bêdzie siê dobrze zachowywa³, bêdzie\n"
 -"prawdopodobnie trzeba zrezygnowaæ z tej funkcji\n"
 +"prawdopodobnie trzeba zrezygnowaæ z tej funkcji.\n"
  
- #: src/alert.c:172
- msgid "Enlightenment Error"
-@@ -251,7 +267,7 @@
+ #: src/alert.c:45 src/alert.c:75
+ msgid "Enlightenment Message Dialog"
+@@ -271,11 +290,11 @@
  
- #: src/cmclass.c:99
+ #: src/cmclass.c:91
  msgid "ColorModClass Error!"
 -msgstr "B³±d sekcjiColorModClass"
 +msgstr "B³±d sekcji ColorModClass"
  
- #: src/comms.c:2053
- #, c-format
-@@ -263,7 +279,7 @@
- "\n"
- "%s\n"
- msgstr ""
--"Odebrano nieznan± Wiadomo¶æ Klienta.\n"
-+"Odebrano wiadomo¶æ od nieznanego klienta.\n"
- " Nazwa klienta:  %s\n"
- " Wersja klienta: %s\n"
- " Zawarto¶æ wiadomo¶ci:\n"
-@@ -272,7 +288,7 @@
- 
- #: src/comms.c:2056
+ #: src/comms.c:351
  msgid "E IPC Error"
 -msgstr "B³±d Enlightenment IPC"
 +msgstr "B³±d IPC Enlightenment"
  
- #: src/config.c:254 src/config.c:488 src/config.c:567 src/config.c:881
- #: src/config.c:998 src/config.c:1239 src/config.c:1367 src/config.c:1472
-@@ -581,11 +597,11 @@
+ #: src/comms.c:352
+ #, c-format
+@@ -287,7 +306,7 @@
+ "\n"
+ "%s\n"
+ msgstr ""
+-"Odebrano nieznan± Wiadomo¶æ Klienta.\n"
++"Odebrano nieznane polecenie od klienta.\n"
+ " Nazwa klienta:  %s\n"
+ " Wersja klienta: %s\n"
+ " Zawarto¶æ wiadomo¶ci:\n"
+@@ -597,11 +616,11 @@
  
- #: src/config.c:3370
+ #: src/config.c:3436
  msgid "Theme versioning ERROR"
 -msgstr "B³±d w wersji wystroju."
 +msgstr "B³±d w wersji wystroju"
  
- #: src/config.c:3371 src/config.c:3401
+ #: src/config.c:3437 src/config.c:3466
  msgid "Restart with Defaults"
 -msgstr "Uruchom ponownie z warto¶ciami domy¶lnymi."
 +msgstr "Uruchom ponownie z warto¶ciami domy¶lnymi"
  
- #: src/config.c:3372 src/config.c:3402
+ #: src/config.c:3438 src/config.c:3467
  msgid "Abort and Exit"
-@@ -623,9 +639,9 @@
+@@ -639,9 +658,9 @@
  "uaktualniony do obecnej wersji i bêdzie mia³\n"
  "w³a¶ciw± wersjê.\n"
  "\n"
@@ -131,67 +123,17 @@ diff -ur enlightenment-0.16.6.orig/po/pl.po enlightenment-0.16.6/po/pl.po
 +"za¶ ten wystrój korzysta z nowych funkcji wprowadzonych\n"
  "w nowych wersjach Enlightenment.\n"
  
- #: src/config.c:3400
-@@ -682,7 +698,7 @@
- "Enlightenment has just experienced some major problems in\n"
- "attempting to load the theme you specified or the default\n"
- "configuration directory:\n"
--"%s/config/\n"
-+"%s/\n"
- "This will prevent Enlightenment from loading any configuration\n"
- "files at all.\n"
- "Since this couldn't be found Enlightenment is probably not\n"
-@@ -706,24 +722,24 @@
- "Enlightenment mia³ powa¿ne problemy przy próbie za³adowania\n"
- "wystroju, który zosta³ podany przez Ciebie jako domy¶lny\n"
- "katalog konfiguracyjny:\n"
--"%s/config/\n"
--"W wyniku tego Enlightenment nie za³aduje ¿adnych\n"
--"plików konfiguracyjnych.\n"
-+"%s/\n"
-+"W wyniku tego Enlightenment nie za³aduje ¿adnych plików\n"
-+"konfiguracyjnych.\n"
- "Skoro nie uda³o siê tego znale¼æ, Enlightenment nie znajdzie\n"
--"prawdopodobnie ¿adnych plików konfiguracyjnych w twoim systemie,\n"
--"st±d nie bêdzi mia³ za³adowanej prawie ¿adnej konfiguracji, kiedy\n"
--"siê uruchomi. Brak tego katalogu najprawdopodobniej jest zankiem\n"
--"z³ej instalacji Enlightenment. Przyczynami mog± byæ: b³êdna\n"
--"kompilacja pakietów, nie wydanie komendy 'make install', lub brak\n"
--"mo¿liwo¶ci skopiowanie powy¿szego katalogu podczas instalacji\n"
--"z powodu braku miejsca lub niewystarcaj±cych praw dostêpu. Mo¿liwe\n"
--"te¿, ¿e skasowano ten katalog ju¿ po instalacji\n"
--"Enlightenment.\n"
--"Jest to powany problem, któremu nalezy natychmiast zaradziæ.\n"
--"Skontaktuj siê z administratorem twojego systemu.\n"
-+"prawdopodobnie ¿adnych plików konfiguracyjnych w twoim\n"
-+"systemie, st±d nie bêdzie mia³ za³adowanej prawie ¿adnej\n"
-+"konfiguracji, kiedy siê uruchomi. Brak tego katalogu\n"
-+"najprawdopodobniej jest znakiem z³ej instalacji Enlightenment.\n"
-+"Przyczynami mog± byæ: b³êdna kompilacja pakietów, nie wydanie\n"
-+"komendy 'make install', lub brak mo¿liwo¶ci skopiowania\n"
-+"powy¿szego katalogu podczas instalacji z powodu braku miejsca\n"
-+"lub niewystarczaj±cych praw dostêpu. Mo¿liwe te¿, ¿e skasowano\n"
-+"ten katalog ju¿ po instalacji Enlightenment.\n"
-+"Jest to powa¿ny problem, któremu nale¿y natychmiast zaradziæ.\n"
-+"Skontaktuj siê z administratorem swojego systemu.\n"
- "Je¿eli to ty jeste¶ administratorem systemu, dodatkowe\n"
--"informacje mo¿esz znale¼æ w dokumentacji, która zosta³a\n"
--"dostarczona wraz z Enlightenment.\n"
-+"informacje mo¿esz znale¼æ w dokumentacji dostarczonej wraz\n"
-+"z Enlightenment.\n"
+ #: src/config.c:3465
+@@ -720,7 +739,7 @@
  
- #: src/config.c:3769
- msgid "Enlightenment Starting..."
-@@ -743,7 +759,7 @@
- 
- #: src/config.c:4209
+ #: src/config.c:4231
  msgid "Quit and give up"
 -msgstr ""
 +msgstr "Zakoñcz i zrezygnuj"
  
- #: src/config.c:4211
+ #: src/config.c:4233
  msgid ""
-@@ -760,7 +776,7 @@
+@@ -737,7 +756,7 @@
  "konfiguracji.\n"
  "\n"
  "Mo¿e to byæ spowodowane b³êdami w systemie plików, drobnymi\n"
@@ -200,7 +142,7 @@ diff -ur enlightenment-0.16.6.orig/po/pl.po enlightenment-0.16.6/po/pl.po
  "\n"
  "Czy chcesz, aby Enlightenment odtworzy³ oryginalne\n"
  "ustawienia systemowe i spróbowa³ ponownie?\n"
-@@ -787,9 +803,9 @@
+@@ -760,9 +779,9 @@
  "przycisk myszy i przeci±gaj mysz w\n"
  "dowolnym kierunku.\n"
  "Aby otrzymaæ listê Pulpitów i aplikacji w nich\n"
@@ -211,9 +153,9 @@ diff -ur enlightenment-0.16.6.orig/po/pl.po enlightenment-0.16.6/po/pl.po
 +"Aby otrzymaæ listê aktualnie dzia³aj±cych\n"
 +"aplikacji, naci¶nij ¶rodkowy przycisk myszy.\n"
  
- #: src/desktops.c:1081
+ #: src/desktops.c:363
  msgid ""
-@@ -803,16 +819,16 @@
+@@ -776,16 +795,16 @@
  "To jest Pulpit g³ówny.\n"
  "Tego pulpitu nie mo¿na przeci±gaæ.\n"
  "Aby otrzymaæ listê Pulpitów i aplikacji w nich\n"
@@ -224,7 +166,7 @@ diff -ur enlightenment-0.16.6.orig/po/pl.po enlightenment-0.16.6/po/pl.po
 +"Aby otrzymaæ listê aktualnie dzia³aj±cych\n"
 +"aplikacji, naci¶nij ¶rodkowy przycisk myszy.\n"
  
- #: src/desktops.c:1102
+ #: src/desktops.c:384
  msgid ""
  "Click here to raise this desktop\n"
  "to the top.\n"
@@ -233,8 +175,30 @@ diff -ur enlightenment-0.16.6.orig/po/pl.po enlightenment-0.16.6/po/pl.po
 +"Aby umie¶ciæ Pulpit na wierzchu,\n"
  "kliknij tutaj.\n"
  
- #: src/desktops.c:1118
-@@ -847,13 +863,13 @@
+ #: src/desktops.c:399
+@@ -802,7 +821,7 @@
+ 
+ #: src/events.c:60
+ msgid "X server setup error"
+-msgstr "B³±d w konfiguracji X Serwera"
++msgstr "B³±d w konfiguracji X-Serwera"
+ 
+ #: src/events.c:62
+ msgid ""
+@@ -817,10 +836,10 @@
+ msgstr ""
+ "B£¡D KRYTYCZNY:\n"
+ "\n"
+-"Ten XSerwer nie wspiera rozszerzenia Shape.\n"
++"Ten X-Serwer nie wspiera rozszerzenia Shape.\n"
+ "Jest ono konieczne, aby Enlightenment siê uruchomi³.\n"
+ "\n"
+-"Twój XSerwer jest albo za stary, albo ¼le skonfigurowany.\n"
++"Twój X-Serwer jest albo za stary, albo ¼le skonfigurowany.\n"
+ "\n"
+ "Koñczê dzia³anie.\n"
+ 
+@@ -844,13 +863,13 @@
  "\n"
  "W³a¶nie uruchomi³e¶ efekt Ripples FX.\n"
  "\n"
@@ -248,9 +212,9 @@ diff -ur enlightenment-0.16.6.orig/po/pl.po enlightenment-0.16.6/po/pl.po
 -"wybranie tej opcji\n"
 +"wybranie tej opcji.\n"
  
- #: src/fx.c:391
+ #: src/fx.c:395
  msgid "Starting up Raindrops FX..."
-@@ -877,11 +893,11 @@
+@@ -874,11 +893,11 @@
  "\n"
  "Je¿eli przyjrzysz siê t³u Pulpitu, i je¿eli nie ma ono jednolitego\n"
  "koloru (tzn. t³em jest tekstura lub obrazek) zobaczysz 'krople\n"
@@ -264,81 +228,35 @@ diff -ur enlightenment-0.16.6.orig/po/pl.po enlightenment-0.16.6/po/pl.po
 +"wybranie tej opcji.\n"
  "\n"
  
- #: src/fx.c:421 src/fx.c:437
-@@ -907,17 +923,17 @@
- msgstr ""
- "\n"
- "Enlightenment nie mo¿e wy¶wietliæ efektu 'Kropli Deszczu'\n"
--"na tym ekranie, gdy¿ ten X-Serwer nie wspiera rozszerzenia\n"
--"Shared memory\n"
-+"na tym ekranie, gdy¿ ten X-Serwer nie wspiera pamiêci\n"
-+"wspó³dzielonej.\n"
- "\n"
- "Mo¿e byæ to spowodowane: albo tym, ¿e Enlightenment jest\n"
--"uruchomiony poprzez po³±czenie sieciowe, albo X-Serwer nie\n"
--"ma takiej opcji, albo wyczerpa³ siê zasób SHM iD w systemie,\n"
--"albo wy³±czono opcjê Shared Memory w konfiguracji Imlib\n"
--"\n"
--"Mo¿na temu zaradziæ przez uruchomienie 'imlib_config'\n"
--"lub skopiowanie systemowego pliku imrc (usr/etc/imrc) do\n"
--"~/.imrc i w³±czenie obs³ugi Shared Memory prze jego edycjê\n"
-+"uruchomiony poprzez po³±czenie sieciowe, albo X-Serwer nie ma\n"
-+"takiej opcji, albo wyczerpa³ siê zasób numerów SHM w systemie,\n"
-+"albo wy³±czono wsparcie dla pamiêci wspó³dzielonej w Imlib.\n"
-+"\n"
-+"Mo¿na temu zaradziæ przez uruchomienie 'imlib_config' lub\n"
-+"skopiowanie systemowego pliku imrc (usr/etc/imrc) do ~/.imrc\n"
-+"i w³±czenie obs³ugi pamiêci wspó³dzielonej przez jego edycjê.\n"
- "\n"
- 
- #: src/fx.c:438
-@@ -941,13 +957,13 @@
- "na tym ekranie, gdy¿ ten X-Serwer nie wspiera rozszerzenia\n"
- "Shared Pixmaps\n"
- "\n"
--"Mo¿e to byæ spowodowany tym, ¿e S-Serwer nie obs³uguje opcji\n"
-+"Mo¿e to byæ spowodowany tym, ¿e X-Serwer nie obs³uguje opcji\n"
- "'Shared Pixmaps', lub tym, ¿e wy³±czono opcjê 'Shared Pixmaps'\n"
--"w konfiguracji Imlib\n"
-+"w konfiguracji Imlib.\n"
- "\n"
--"Mo¿na temu zaradziæ przez uruchomienie 'imlib_config'\n"
--"lub skopiowanie systemowego pliku imrc (usr/etc/imrc) do\n"
--"~/.imrc i w³±czenie obs³ugi Shared Pixmaps prze jego edycjê\n"
-+"Mo¿na temu zaradziæ przez uruchomienie 'imlib_config' lub\n"
-+"skopiowanie systemowego pliku imrc (usr/etc/imrc) do ~/.imrc\n"
-+"i w³±czenie obs³ugi Shared Pixmaps przez jego edycjê.\n"
- "\n"
- 
- #: src/fx.c:709
-@@ -976,7 +992,7 @@
+ #: src/fx.c:686
+@@ -907,7 +926,7 @@
  "znajduje siê ponad ni±.\n"
  "\n"
  "Mo¿esz wy³±czyc ten efekt poprzez ponowne\n"
 -"wybranie tej opcji\n"
 +"wybranie tej opcji.\n"
  
- #: src/fx.c:901
+ #: src/fx.c:874
  msgid "Starting up imagespinners FX..."
-@@ -994,7 +1010,7 @@
+@@ -925,7 +944,7 @@
  "W³a¶nie uruchomi³es efekt specjalny imagespinners.\n"
  "\n"
  "Mo¿esz wy³±czyc ten efekt poprzez ponowne\n"
 -"wybranie tej opcji\n"
 +"wybranie tej opcji.\n"
  
- #: src/groups.c:117 src/groups.c:149
+ #: src/groups.c:119 src/groups.c:141
  msgid "Cannot comply"
-@@ -1008,7 +1024,7 @@
+@@ -939,7 +958,7 @@
  msgstr ""
  "Pude³ka na Ikony i Podgl±dy Pulpitu nie mog±\n"
  "byc cz³onkami grup. Nie mo¿esz dodawaæ tych okien\n"
 -"do grup\n"
 +"do grup.\n"
  
- #: src/groups.c:599 src/groups.c:608 src/groups.c:616 src/settings.c:4370
+ #: src/groups.c:583 src/groups.c:592 src/groups.c:600 src/settings.c:4383
  msgid "Window Group Error"
-@@ -1024,8 +1040,8 @@
+@@ -955,8 +974,8 @@
  msgstr ""
  "\n"
  "  To okno nie nale¿y w tej chwili do ¿adnej grupy.   \n"
@@ -348,8 +266,8 @@ diff -ur enlightenment-0.16.6.orig/po/pl.po enlightenment-0.16.6/po/pl.po
 +"  Poprzez okno, które nale¿y do przynajmniej jednej grupy.\n"
  "\n"
  
- #: src/groups.c:609
-@@ -1038,7 +1054,7 @@
+ #: src/groups.c:593
+@@ -969,7 +988,7 @@
  msgstr ""
  "\n"
  "  W tej chwili nie istniej± ¿adne grupy, lub  \n"
@@ -358,16 +276,16 @@ diff -ur enlightenment-0.16.6.orig/po/pl.po enlightenment-0.16.6/po/pl.po
  "  Musisz najpierw utworzyæ now± grupê.   \n"
  "\n"
  
-@@ -1074,7 +1090,7 @@
+@@ -1005,7 +1024,7 @@
  msgstr "Zamknij"
  
- #: src/handlers.c:57
+ #: src/handlers.c:62
 -#, fuzzy, c-format
 +#, c-format
  msgid ""
  "Enlightenment performed an Illegal Instruction.\n"
  "\n"
-@@ -1085,14 +1101,14 @@
+@@ -1016,14 +1035,14 @@
  "re-compile Enlightenment and possibly any support libraries\n"
  "that you got in binary format to run Enlightenment.\n"
  msgstr ""
@@ -384,9 +302,9 @@ diff -ur enlightenment-0.16.6.orig/po/pl.po enlightenment-0.16.6/po/pl.po
 +"i byæ mo¿e równie¿ wszystkie biblioteki pomocnicze, które\n"
 +"zainstalowano w formie binarnej.\n"
  
- #: src/handlers.c:71
+ #: src/handlers.c:76
  msgid ""
-@@ -1107,16 +1123,16 @@
+@@ -1038,16 +1057,16 @@
  "send in a useful bug report with backtrace information and variable\n"
  "dumps etc.\n"
  msgstr ""
@@ -407,9 +325,9 @@ diff -ur enlightenment-0.16.6.orig/po/pl.po enlightenment-0.16.6/po/pl.po
 +"powstaje b³±d i wy¶lij nam u¿yteczny 'Raport o b³êdzie' z informacj±\n"
 +"¶ledz±c± i zrzutem warto¶ci zmiennych.\n"
  
- #: src/handlers.c:90
+ #: src/handlers.c:95
  msgid ""
-@@ -1131,15 +1147,15 @@
+@@ -1062,15 +1081,15 @@
  "useful bug report with backtrace information and variable\n"
  "dumps etc.\n"
  msgstr ""
@@ -430,8 +348,8 @@ diff -ur enlightenment-0.16.6.orig/po/pl.po enlightenment-0.16.6/po/pl.po
 +"powstaje b³±d i wy¶lij nam u¿yteczny 'Raport o b³êdzie' z informacj±\n"
  "¶ledz±c± i zrzutem warto¶ci zmiennych\n"
  
- #: src/handlers.c:106
-@@ -1150,15 +1166,15 @@
+ #: src/handlers.c:111
+@@ -1081,15 +1100,15 @@
  "It is highly unusual to cause Bus Errors on operational\n"
  "hardware.\n"
  msgstr ""
@@ -443,14 +361,14 @@ diff -ur enlightenment-0.16.6.orig/po/pl.po enlightenment-0.16.6/po/pl.po
 -"dobrze dzia³aj±cym sprzêcie\n"
 +"dobrze dzia³aj±cym sprzêcie.\n"
  
- #: src/handlers.c:191
+ #: src/handlers.c:218
  msgid "Another Window Manager is already running"
 -msgstr "Inny Menad¼er Okien jest ju¿ uruchomiony"
 +msgstr "Jest ju¿ uruchomiony inny Mened¿er Okien"
  
- #: src/handlers.c:192
+ #: src/handlers.c:219
  msgid "OK (edit file)"
-@@ -1187,17 +1203,17 @@
+@@ -1118,17 +1137,17 @@
  "\n"
  "It is possible that this MAY not properly edit your files.\n"
  msgstr ""
@@ -473,18 +391,18 @@ diff -ur enlightenment-0.16.6.orig/po/pl.po enlightenment-0.16.6/po/pl.po
  "\n"
  "OSTRZE¯ENIE OSTRZE¯ENIE OSTRZE¯ENIE!\n"
  "\n"
-@@ -1284,9 +1300,8 @@
+@@ -1224,9 +1243,8 @@
  msgstr "wpisz \"help <komenda>\" aby uzyskaæ opis pojedynczej komendy\n"
  
- #: src/ipc.c:4724
+ #: src/ipc.c:6516
 -#, fuzzy
  msgid "      <command>   : <description>\n"
 -msgstr "<komenda> : <opis>\n"
 +msgstr "      <komenda>   : <opis>\n"
  
- #: src/ipc.c:4830
+ #: src/main.c:178
  #, c-format
-@@ -1840,10 +1855,10 @@
+@@ -1542,10 +1560,10 @@
  msgstr ""
  "B³±d !\n"
  "\n"
@@ -498,85 +416,85 @@ diff -ur enlightenment-0.16.6.orig/po/pl.po enlightenment-0.16.6/po/pl.po
  "\n"
  "Jako¶ sobie poradzê.\n"
  "\n"
-@@ -1918,21 +1933,21 @@
+@@ -1620,21 +1638,21 @@
  
- #: src/settings.c:232
+ #: src/settings.c:239
  msgid "Mouse button to select and drag windows:"
 -msgstr "Przycisk myszy s³u¿acy do wybierania i przeci±gania okien :"
 +msgstr "Przycisk myszy s³u¿±cy do wybierania i przeci±gania okien :"
  
- #: src/settings.c:238 src/settings.c:270 src/settings.c:302
- #: src/settings.c:2333
+ #: src/settings.c:245 src/settings.c:277 src/settings.c:309
+ #: src/settings.c:2272
  msgid "Left"
 -msgstr "Lewo"
 +msgstr "Lewy"
  
- #: src/settings.c:246 src/settings.c:278 src/settings.c:310
+ #: src/settings.c:253 src/settings.c:285 src/settings.c:317
  msgid "Middle"
 -msgstr "¦rodek"
 +msgstr "¦rodkowy"
  
- #: src/settings.c:254 src/settings.c:286 src/settings.c:318
- #: src/settings.c:2340
+ #: src/settings.c:261 src/settings.c:293 src/settings.c:325
+ #: src/settings.c:2279
  msgid "Right"
 -msgstr "Prawo"
 +msgstr "Prawy"
  
- #: src/settings.c:264
+ #: src/settings.c:271
  msgid "Mouse button to select desktops:"
-@@ -1940,7 +1955,7 @@
+@@ -1642,7 +1660,7 @@
  
- #: src/settings.c:296
+ #: src/settings.c:303
  msgid "Mouse button to display pager menu:"
 -msgstr "Przycisk myszy s³u¿acy do wy¶wietlania menu Podgl±du Pulpitu :"
 +msgstr "Przycisk myszy s³u¿±cy do wy¶wietlania menu Podgl±du Pulpitu :"
  
- #: src/settings.c:330 src/settings.c:603 src/settings.c:975
- #: src/settings.c:1183 src/settings.c:1420 src/settings.c:1564
-@@ -1969,7 +1984,7 @@
+ #: src/settings.c:337 src/settings.c:610 src/settings.c:981
+ #: src/settings.c:1204 src/settings.c:1440 src/settings.c:1593
+@@ -1671,7 +1689,7 @@
  
- #: src/settings.c:452
+ #: src/settings.c:459
  msgid "Focus follows pointer sloppily"
 -msgstr "Aktywacja pod±za leniwie za kursorem"
 +msgstr "Aktywacja pod±¿a leniwie za kursorem"
  
- #: src/settings.c:460
+ #: src/settings.c:467
  msgid "Focus follows mouse clicks"
-@@ -2001,7 +2016,7 @@
+@@ -1703,7 +1721,7 @@
  
- #: src/settings.c:540
+ #: src/settings.c:547
  msgid "Display and use focus list"
 -msgstr "Wy¶wietl i uzywaj listy Aktywacji"
 +msgstr "Wy¶wietl i u¿ywaj listy Aktywacji"
  
- #: src/settings.c:548
+ #: src/settings.c:555
  msgid "Include sticky windows in focus list"
-@@ -2009,7 +2024,7 @@
+@@ -1711,7 +1729,7 @@
  
- #: src/settings.c:556
+ #: src/settings.c:563
  msgid "Include shaded windows in focus list"
 -msgstr "W³±cz onka w cieniu do listy Aktywacji"
 +msgstr "W³±cz okna w cieniu do listy Aktywacji"
  
- #: src/settings.c:565
+ #: src/settings.c:572
  msgid "Include iconified windows in focus list"
-@@ -2090,7 +2105,7 @@
- #: src/settings.c:1092 src/settings.c:1154
+@@ -1793,7 +1811,7 @@
+ #: src/settings.c:1098 src/settings.c:1161
  #, c-format
  msgid "%i Desktops"
 -msgstr "%i Puplpitów"
 +msgstr "%i Pulpitów"
  
- #: src/settings.c:1094 src/settings.c:1156
+ #: src/settings.c:1100 src/settings.c:1163
  #, c-format
-@@ -2132,14 +2147,14 @@
+@@ -1840,14 +1858,14 @@
  
- #: src/settings.c:1304
+ #: src/settings.c:1324
  msgid "Virtual Desktop Settings"
 -msgstr "Ustawienia Wirtualnego Biurka"
 +msgstr "Ustawienia Wirtualnych Pulpitów"
  
- #: src/settings.c:1322
+ #: src/settings.c:1342
  msgid ""
  "Enlightenment Virtual Desktop\n"
  "Settings Dialog\n"
@@ -585,24 +503,24 @@ diff -ur enlightenment-0.16.6.orig/po/pl.po enlightenment-0.16.6/po/pl.po
 +"Okno ustawieñ Wirtualnych Pulpitów\n"
  "Enlightenment\n"
  
- #: src/settings.c:1334
-@@ -2252,7 +2267,7 @@
+ #: src/settings.c:1354
+@@ -1949,7 +1967,7 @@
  
- #: src/settings.c:1900
+ #: src/settings.c:1841
  msgid "Miscellaneous Settings"
 -msgstr "Ustawienia ró¿ne"
 +msgstr "Ustawienia Ró¿ne"
  
- #: src/settings.c:1915
+ #: src/settings.c:1856
  msgid ""
-@@ -2268,14 +2283,14 @@
+@@ -1965,14 +1983,14 @@
  
- #: src/settings.c:1983
+ #: src/settings.c:1923
  msgid "Audio Settings"
 -msgstr "Ustawienia Audio"
 +msgstr "Ustawienia D¼wiêku"
  
- #: src/settings.c:1998
+ #: src/settings.c:1938
  msgid ""
  "Enlightenment Audio\n"
  "Settings Dialog\n"
@@ -611,75 +529,75 @@ diff -ur enlightenment-0.16.6.orig/po/pl.po enlightenment-0.16.6/po/pl.po
 +"Okno Ustwieñ D¼wiêku\n"
  "Enlightenment\n"
  
- #: src/settings.c:2011
-@@ -2316,7 +2331,7 @@
+ #: src/settings.c:1951
+@@ -2013,7 +2031,7 @@
  
- #: src/settings.c:2217
+ #: src/settings.c:2156
  msgid "Slide windows in when they appear"
 -msgstr "Okna ¶lizgaj± siê, gdy siê pojawjaj±"
 +msgstr "Okna ¶lizgaj± siê, gdy siê pojawiaj±"
  
- #: src/settings.c:2232
+ #: src/settings.c:2171
  msgid "Animated display of menus"
-@@ -2356,7 +2371,7 @@
+@@ -2053,7 +2071,7 @@
  
- #: src/settings.c:2359
+ #: src/settings.c:2298
  msgid "Desktop Slide speed: (slow)\n"
 -msgstr "Szybko¶æ ¶lizgania siê Pulpitów: (wolno)\n"
 +msgstr "Szybko¶æ ¶lizgania siê Pulpitów: (powoli)\n"
  
- #: src/settings.c:2375 src/settings.c:2397 src/settings.c:2419
- #: src/settings.c:2441
-@@ -2365,32 +2380,31 @@
+ #: src/settings.c:2314 src/settings.c:2336 src/settings.c:2358
+ #: src/settings.c:2380
+@@ -2062,32 +2080,31 @@
  
- #: src/settings.c:2381
+ #: src/settings.c:2320
  msgid "Cleanup Slide speed: (slow)\n"
 -msgstr "Szybko¶æ ¶lizgania siê okien przy czyszczeniu: (wolno)\n"
 +msgstr "Szybko¶æ ¶lizgania siê okien przy czyszczeniu: (powoli)\n"
  
- #: src/settings.c:2403
+ #: src/settings.c:2342
  msgid "Appear Slide speed: (slow)\n"
 -msgstr "Szybko¶æ ¶lizgania siê przy pojawianiu: (wolno)\n"
 +msgstr "Szybko¶æ ¶lizgania siê przy pojawianiu: (powoli)\n"
  
- #: src/settings.c:2425
+ #: src/settings.c:2364
  msgid "Window Shading speed: (slow)\n"
 -msgstr "Szybko¶æ przechodzenia w cieñ: (wolna)\n"
 +msgstr "Szybko¶æ przechodzenia w cieñ: (powoli)\n"
  
- #: src/settings.c:2454
+ #: src/settings.c:2393
  msgid "Effects"
 -msgstr ""
 +msgstr "Efekty"
  
- #: src/settings.c:2460
+ #: src/settings.c:2399
 -#, fuzzy
  msgid "Enable Effect: Raindrops"
 -msgstr "Nie da siê wy¶wietliæ kropli deszczu"
 +msgstr "W³±cz efekt specjalny: 'Krople Deszczu'"
  
- #: src/settings.c:2467
+ #: src/settings.c:2406
  msgid "Ripples"
 -msgstr ""
 +msgstr "Zmarszczki"
  
- #: src/settings.c:2475
+ #: src/settings.c:2414
  msgid "Waves"
 -msgstr ""
 +msgstr "Fale"
  
- #: src/settings.c:2753 src/settings.c:2874 src/settings.c:3132
- #: src/settings.c:3255 src/settings.c:3877
-@@ -2415,7 +2429,7 @@
+ #: src/settings.c:2624 src/settings.c:3855
+ msgid "-NONE-"
+@@ -2110,7 +2127,7 @@
  "Background"
  msgstr ""
  "Ilo¶æ\n"
 -"t³o"
 +"T³o"
  
- #: src/settings.c:3196 src/settings.c:3768
+ #: src/settings.c:2980 src/settings.c:3746
  #, c-format
-@@ -2431,7 +2445,7 @@
+@@ -2186,7 +2203,7 @@
  "Enlightenment Desktop\n"
  "Background Settings Dialog\n"
  msgstr ""
@@ -687,50 +605,50 @@ diff -ur enlightenment-0.16.6.orig/po/pl.po enlightenment-0.16.6/po/pl.po
 +"Okno ustawieñ T³a\n"
  "Pulpitu Enlightenment\n"
  
- #: src/settings.c:3558
-@@ -2440,7 +2454,7 @@
+ #: src/settings.c:3536
+@@ -2195,7 +2212,7 @@
  
- #: src/settings.c:3569
+ #: src/settings.c:3547
  msgid "Move to Front\n"
 -msgstr "Przesuñ na przód\n"
 +msgstr "Przesuñ na wierzch\n"
  
- #: src/settings.c:3576
+ #: src/settings.c:3554
  msgid "Duplicate\n"
-@@ -2562,19 +2576,19 @@
+@@ -2322,19 +2339,19 @@
  
- #: src/settings.c:4102
+ #: src/settings.c:4117
  msgid "Icon image display policy (if one operation fails, try the next):"
 -msgstr "Sposób wy¶wietlania ikon (je¿eli która¶ zawiedzie, spróbuj nastêpnej):"
 +msgstr "Sposób wy¶wietlania ikon (je¿eli który¶ zawiedzie, spróbuj nastêpnego):"
  
- #: src/settings.c:4109
+ #: src/settings.c:4124
  msgid "Snapshot Windows, Use application icon, Use Enlightenment Icon"
 -msgstr "Zdjêcie Okna, U¿yj Ikony aplikacji, U¿ytj Ikony Enlightenment"
 +msgstr "Zdjêcie Okna, U¿yj Ikony aplikacji, U¿yj Ikony Enlightenment"
  
- #: src/settings.c:4118
+ #: src/settings.c:4133
  msgid "Use application icon, Use Enlightenment Icon, Snapshot Window"
 -msgstr "U¿yj Ikony aplikacji, U¿ytj Ikony Enlightenment, Zdjêcie Okna"
 +msgstr "U¿yj Ikony aplikacji, U¿yj Ikony Enlightenment, Zdjêcie Okna"
  
- #: src/settings.c:4126
+ #: src/settings.c:4141
  msgid "Use Enlightenment Icon, Snapshot Window"
 -msgstr "U¿ytj Ikony Enlightenment, Zdjêcie Okna"
 +msgstr "U¿yj Ikony Enlightenment, Zdjêcie Okna"
  
- #: src/settings.c:4140
+ #: src/settings.c:4155
  msgid "Icon size"
-@@ -2724,7 +2738,7 @@
+@@ -2484,7 +2501,7 @@
  "Windows Settings Dialog\n"
  msgstr ""
  "Okno dialogowe Zapamiêtywanych\n"
 -"Ustawwieñ Okien Enlightenment\n"
 +"Ustawieñ Okien Enlightenment\n"
  
- #: src/settings.c:4918
+ #: src/settings.c:4930
  msgid "Remembered Settings..."
-@@ -2747,20 +2761,20 @@
+@@ -2507,20 +2524,20 @@
  "administrator, or Xserver vendor, or read the X, xdm and\n"
  "startx manual pages before proceeding.\n"
  msgstr ""
@@ -752,28 +670,6 @@ diff -ur enlightenment-0.16.6.orig/po/pl.po enlightenment-0.16.6/po/pl.po
 +"X-Serwera, przeczytaj strony podrêcznika X, xdm i startx zanim\n"
  "podejmiesz dalsze dzia³ania.\n"
  
- #: src/setup.c:205 src/setup.c:251
- msgid "X server setup error"
--msgstr "B³±d w konfiguracji X Serwera"
-+msgstr "B³±d w konfiguracji X-Serwera"
- 
- #: src/setup.c:208
- msgid ""
-@@ -2775,10 +2789,10 @@
- msgstr ""
- "B£¡D KRYTYCZNY:\n"
- "\n"
--"Ten XSerwer nie wspiera rozszerzenia Shape.\n"
-+"Ten X-Serwer nie wspiera rozszerzenia Shape.\n"
- "Jest ono konieczne, aby Enlightenment siê uruchomi³.\n"
- "\n"
--"Twój XSerwer jest albo za stary, albo ¼le skonfigurowany.\n"
-+"Twój X-Serwer jest albo za stary, albo ¼le skonfigurowany.\n"
- "\n"
- "Koñczê dzia³anie.\n"
- 
-@@ -2820,7 +2834,7 @@
- 
  #: src/setup.c:300
  msgid "X server version error"
 -msgstr "B³±d wersji XSerwera"
@@ -781,7 +677,7 @@ diff -ur enlightenment-0.16.6.orig/po/pl.po enlightenment-0.16.6/po/pl.po
  
  #: src/setup.c:300
  msgid "Ignore this error"
-@@ -2837,11 +2851,11 @@
+@@ -2537,11 +2554,11 @@
  "access to, nor have heard of.\n"
  msgstr ""
  "OSTRZE¯ENIE:\n"
@@ -796,9 +692,9 @@ diff -ur enlightenment-0.16.6.orig/po/pl.po enlightenment-0.16.6/po/pl.po
 +"nowszy ni¿ X11, to do Twojego serwera autor Enlightenment\n"
 +"nigdy nie mia³ dostêpu, ani nawet o nim nie s³ysza³.\n"
  
- #: src/setup.c:534
+ #: src/setup.c:473
  #, c-format
-@@ -2850,7 +2864,7 @@
+@@ -2550,7 +2567,7 @@
  "This is a fatal condition.\n"
  "Please remove this file\n"
  msgstr ""
@@ -807,7 +703,7 @@ diff -ur enlightenment-0.16.6.orig/po/pl.po enlightenment-0.16.6/po/pl.po
  "To jest sytuacja krytyczna.\n"
  "Usuñ ten plik.\n"
  
-@@ -2903,9 +2917,9 @@
+@@ -2603,9 +2620,9 @@
  "window you wish to Remember\n"
  "from now on\n"
  msgstr ""
@@ -817,20 +713,20 @@ diff -ur enlightenment-0.16.6.orig/po/pl.po enlightenment-0.16.6/po/pl.po
 -"zapamiêtaæ.\n"
 +"zapamiêtaæ\n"
  
- #: src/snaps.c:339
+ #: src/snaps.c:358
  msgid "Title:"
-@@ -3032,7 +3046,7 @@
+@@ -2741,7 +2758,7 @@
  "jest ¼le skonstruowanym wystrojem i przez to nie jest u¿ywany.\n"
  "Enlightenment powróci³ do u¿ywanie wystroju domy¶lnego (DEFAULT).\n"
  "\n"
 -"Powodem dla którego ten wystrój jest z³y jest:%s"
 +"Ten wystrój jest z³y z powodu:%s"
  
- #: src/theme.c:358
- msgid "Bad Theme"
-diff -u enlightenment-0.16.6/scripts.orig/e_cache_clean.pl enlightenment-0.16.6/scripts/e_cache_clean.pl
---- enlightenment-0.16.6.orig/scripts/e_cache_clean.pl	Wed Nov  5 17:45:58 2003
-+++ enlightenment-0.16.6/scripts/e_cache_clean.pl	Thu Nov 13 11:54:50 2003
+ #: src/tooltips.c:662
+ msgid "ToolTip Error!"
+diff -Nur enlightenment-0.16.7.1.orig/scripts/e_cache_clean.pl enlightenment-0.16.7.1/scripts/e_cache_clean.pl
+--- enlightenment-0.16.7.1.orig/scripts/e_cache_clean.pl	2004-01-19 22:54:08.000000000 +0100
++++ enlightenment-0.16.7.1/scripts/e_cache_clean.pl	2004-09-30 00:32:09.000000000 +0200
 @@ -54,7 +54,7 @@
  if [ $1 = "config" ]; then
    rm -rf $ECACHEDIR/cached/cfg/* >& /dev/null
@@ -840,9 +736,9 @@ diff -u enlightenment-0.16.6/scripts.orig/e_cache_clean.pl enlightenment-0.16.6/
    exit
  fi
  
-diff -u enlightenment-0.16.6/scripts.orig/e_cache_query.pl enlightenment-0.16.6/scripts/e_cache_query.pl
---- enlightenment-0.16.6.orig/scripts/e_cache_query.pl	Wed Nov  5 17:45:58 2003
-+++ enlightenment-0.16.6/scripts/e_cache_query.pl	Thu Nov 13 11:54:34 2003
+diff -Nur enlightenment-0.16.7.1.orig/scripts/e_cache_query.pl enlightenment-0.16.7.1/scripts/e_cache_query.pl
+--- enlightenment-0.16.7.1.orig/scripts/e_cache_query.pl	2004-01-19 22:54:08.000000000 +0100
++++ enlightenment-0.16.7.1/scripts/e_cache_query.pl	2004-09-30 00:32:09.000000000 +0200
 @@ -57,6 +57,6 @@
  
  if [ $1 = "bgsel" ]; then
@@ -851,24 +747,3 @@ diff -u enlightenment-0.16.6/scripts.orig/e_cache_query.pl enlightenment-0.16.6/
 +  eesh -e "dialog_ok Twój cache z T³ami Pulpitu u¿ywa $VAL Kb przestrzeni dyskowej."
    exit
  fi
-diff -u enlightenment-0.16.6/scripts.orig/e_gen_menu.pl enlightenment-0.16.6/scripts/e_gen_menu.pl
---- enlightenment-0.16.6.orig/scripts/e_gen_menu.pl	Wed Nov  5 17:45:58 2003
-+++ enlightenment-0.16.6/scripts/e_gen_menu.pl	Thu Nov 13 11:55:47 2003
-@@ -47,7 +47,7 @@
- # generate file menu if it doesn't exist
- if [ ! -f "$OUT" ]; then
-   echo \"Menu U¿ytkownika\" > $OUT
--  echo \"Menu Aplikacji U¿ytkownia\" NULL menu \"user_apps.menu\" >> $OUT
-+  echo \"Menu Aplikacji U¿ytkownika\" NULL menu \"user_apps.menu\" >> $OUT
-   echo \"KDE\" NULL menu \"kde.menu\" >> $OUT
-   echo \"GNOME\" NULL menu \"gnome.menu\" >> $OUT
-   echo \"Menu u¿ytkownika GNOME\" NULL menu \"gnome_user.menu\" >> $OUT
-@@ -76,7 +76,7 @@
- # generate a stub user_apps menu if it doesnt exist
- OUT=$OUT_DIR"/user_apps.menu"
- if [ ! -f "$OUT" ]; then
--  echo \"Menu Aplikacji U¿ytkownia\" > $OUT
-+  echo \"Menu Aplikacji U¿ytkownika\" > $OUT
-   echo \"Eterm\" NULL exec \"Eterm\" >> $OUT
-   echo \"XTerm\" NULL exec \"xterm\" >> $OUT
-   echo \"RXVT\" NULL exec \"rxvt\" >> $OUT

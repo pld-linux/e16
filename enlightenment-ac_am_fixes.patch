@@ -1,194 +1,120 @@
-diff -Nru enlightenment-0.16.6/configure.in enlightenment-0.16.6.new/configure.in
---- enlightenment-0.16.6/configure.in	Thu Jul 27 23:23:28 2000
-+++ enlightenment-0.16.6.new/configure.in	Wed May 30 14:08:45 2001
-@@ -31,10 +29,7 @@
- AC_DEFINE_UNQUOTED(ENLIGHTENMENT_MICRO, "$ENLIGHTENMENT_MICRO", [Micro Version])
- AC_SUBST(ENLIGHTENMENT_MICRO)
- 
--AC_SUBST(ENLIGHTENMENT_ROOT)
- AC_SUBST(ENLIGHTENMENT_BIN)
--AC_SUBST(LOCALEDIR)
--
- ALL_LINGUAS="de dk en_US es fr hu ko nl no ru sv pt pl pt_BR tr ja"
- 
- AC_PROG_CC
-@@ -64,8 +67,6 @@
- AM_GNU_GETTEXT
- AM_GNU_GETTEXT_VERSION(0.10.40)
- 
--AC_ARG_ENABLE(fsstd, [  --enable-fsstd          install files following FSSTD [default=no]], ,enable_fsstd=no)
--
- AC_ARG_ENABLE(sound, [  --enable-sound          compile with sound support [default=yes]], ,enable_sound=yes)
- 
- AC_ARG_ENABLE(upgrade, [  --enable-upgrade        compile with auto-upgrade support [default=yes]], ,enable_upgrade=yes)
-@@ -82,16 +74,7 @@
- dnl The following test must come after AM_GNU_GETTEXT as it relies on
- dnl ${DATADIRNAME} being defined.
- 
--if test "x$enable_fsstd" = "xyes"; then
--	LOCALEDIR=${prefix}/${DATADIRNAME}/locale
--else
--	datadir=${prefix}
--	exec_prefix=${prefix}/enlightenment
--	LOCALEDIR=${prefix}/enlightenment/locale
--fi
--ENLIGHTENMENT_ROOT=`eval echo ${datadir}/enlightenment`
- ENLIGHTENMENT_BIN=`eval echo ${bindir}`
--
- if test "x$enable_sound" = "xyes"; then
- AM_PATH_ESD(0.2.17,AC_DEFINE(HAVE_LIBESD, 1, [libesd.so]),[
- echo "WARNING: Enlightenment needs a system with libesd.so (esound)"
-diff -Nru enlightenment-0.16.6/dox/Makefile.am enlightenment-0.16.6.new/dox/Makefile.am
---- enlightenment-0.16.6/dox/Makefile.am	Fri Mar 31 03:18:28 2000
-+++ enlightenment-0.16.6.new/dox/Makefile.am	Wed May 30 14:08:45 2001
-@@ -23,9 +23,4 @@
- 
- INCLUDES=-I$(top_srcdir) $(IMLIB_CFLAGS) -I$(includedir) -I..
- 
--DEFS=-DENLIGHTENMENT_ROOT=\"@ENLIGHTENMENT_ROOT@\" -DENLIGHTENMENT_BIN=\"@ENLIGHTENMENT_BIN@\"
--
--uninstall-local:
--	for i in $(bin_PROGRAMS); do \
--	  rm -f $(exec_prefix)/bin/$$i; \
--	done
-+DEFS=-DENLIGHTENMENT_ROOT=\"$(pkgdatadir)\" -DENLIGHTENMENT_BIN=\"$(bindir)\"
-diff -Nru enlightenment-0.16.6/dox/E-docs/Makefile.am enlightenment-0.16.6.new/dox/E-docs/Makefile.am
---- enlightenment-0.16.6/dox/E-docs/Makefile.am	Fri Mar 31 03:18:28 2000
-+++ enlightenment-0.16.6.new/dox/E-docs/Makefile.am	Wed May 30 14:08:45 2001
-@@ -1,4 +1,4 @@
--edocdatadir = $(ENLIGHTENMENT_ROOT)/E-docs
-+edocdatadir = $(pkgdatadir)/E-docs
- 
- edocdata_DATA = @edocdata@
- edocdata_SCRIPTS = @edocexec@
-diff -Nru enlightenment-0.16.6/eesh/Makefile.am enlightenment-0.16.6.new/eesh/Makefile.am
---- enlightenment-0.16.6/eesh/Makefile.am	Wed Aug 18 00:56:29 1999
-+++ enlightenment-0.16.6.new/eesh/Makefile.am	Wed May 30 14:08:45 2001
-@@ -16,9 +16,4 @@
- 
- INCLUDES=-I$(top_srcdir) $(IMLIB_CFLAGS) -I$(includedir) -I..
- 
--DEFS=-DENLIGHTENMENT_ROOT=\"@ENLIGHTENMENT_ROOT@\"
--
--uninstall-local:
--	for i in $(bin_PROGRAMS); do \
--	  rm -f $(exec_prefix)/bin/$$i; \
--	done
-+DEFS=
-diff -Nru enlightenment-0.16.6/epp/Makefile.am enlightenment-0.16.6.new/epp/Makefile.am
---- enlightenment-0.16.6/epp/Makefile.am	Wed Aug 18 00:56:29 1999
-+++ enlightenment-0.16.6.new/epp/Makefile.am	Wed May 30 14:08:45 2001
-@@ -53,8 +53,3 @@
- -DTARGET_VT=11
- 
- LIBS =
--
--uninstall-local:
--	for i in $(bin_PROGRAMS); do \
--	  rm -f $(exec_prefix)/bin/$$i; \
--	done
-diff -Nru enlightenment-0.16.6/scripts/Makefile.am enlightenment-0.16.6.new/scripts/Makefile.am
---- enlightenment-0.16.6/scripts/Makefile.am	Thu Oct 21 19:49:58 1999
-+++ enlightenment-0.16.6.new/scripts/Makefile.am	Wed May 30 14:10:28 2001
-@@ -1,8 +1,8 @@
- EXTRA_DIST = e_gen_kde_menu e_gen_menu e_gen_gnome_menu e_cache_clean \
--e_cache_query enlightenment.install.in e_gen_menu.e16_5 \
--e_gen_menu.pl e_cache_clean.pl e_cache_query.pl
-+	e_cache_query enlightenment.install.in e_gen_menu.e16_5 \
-+	e_gen_menu.pl e_cache_clean.pl e_cache_query.pl
- script_SCRIPTS = e_gen_kde_menu e_gen_menu e_gen_gnome_menu e_cache_clean \
--e_cache_query enlightenment.install e_gen_menu.e16_5 \
--e_gen_menu.pl e_cache_clean.pl e_cache_query.pl
-+	e_cache_query enlightenment.install e_gen_menu.e16_5 \
-+	e_gen_menu.pl e_cache_clean.pl e_cache_query.pl
-
--scriptdir = $(ENLIGHTENMENT_ROOT)/scripts
-+scriptdir = $(pkgdatadir)/scripts
-diff -Nru enlightenment-0.16.6/src/Makefile.am enlightenment-0.16.6.new/src/Makefile.am
---- enlightenment-0.16.6/src/Makefile.am	Tue May 23 01:59:53 2000
-+++ enlightenment-0.16.6.new/src/Makefile.am	Wed May 30 14:08:45 2001
-@@ -106,14 +106,14 @@
- 
- INCLUDES = $(ESD_CFLAGS) $(IMLIB_CFLAGS) -I$(top_builddir) -I$(top_srcdir)/intl
- 
--DEFS=-DENLIGHTENMENT_ROOT=\"@ENLIGHTENMENT_ROOT@\" -DENLIGHTENMENT_BIN=\"@ENLIGHTENMENT_BIN@\" -DLOCALEDIR=\"@LOCALEDIR@\"
-+DEFS=-DENLIGHTENMENT_ROOT=\"$(pkgdatadir)\" -DENLIGHTENMENT_BIN=\"$(bindir)\" -DLOCALEDIR=\"$(datadir)/locale\" -DCONFIGDATADIR=\"$(sysconfdir)\"
- 
- install-data-local:
--	$(top_srcdir)/mkinstalldirs $(DESTDIR)$(ENLIGHTENMENT_ROOT)/themes; \
--	rm -f $(DESTDIR)$(ENLIGHTENMENT_ROOT)/themes/DEFAULT; \
-+	$(top_srcdir)/mkinstalldirs $(DESTDIR)$(pkgdatadir)/themes; \
-+	rm -f $(DESTDIR)$(pkgdatadir)/themes/DEFAULT; \
-         $(LN_S) \
- 	BrushedMetal-Tigert \
--	$(DESTDIR)$(ENLIGHTENMENT_ROOT)/themes/DEFAULT;
-+	$(DESTDIR)$(pkgdatadir)/themes/DEFAULT;
- 
- uninstall-local:
- 	for i in $(bin_PROGRAMS); do \
-diff -Nru enlightenment-0.16.6/src/themes/Makefile.am enlightenment-0.16.6.new/src/themes/Makefile.am
---- enlightenment-0.16.6/src/themes/Makefile.am	Fri Mar 31 05:43:45 2000
-+++ enlightenment-0.16.6.new/src/themes/Makefile.am	Wed May 30 14:08:45 2001
+diff -Nur enlightenment-0.16.7.1.orig/config/Makefile.am enlightenment-0.16.7.1/config/Makefile.am
+--- enlightenment-0.16.7.1.orig/config/Makefile.am	2004-07-12 21:41:53.000000000 +0200
++++ enlightenment-0.16.7.1/config/Makefile.am	2004-10-09 20:19:33.830189704 +0200
 @@ -1,6 +1,6 @@
- SUBDIRS = configs
- 
--ethemedir = $(ENLIGHTENMENT_ROOT)/themes
-+ethemedir = $(pkgdatadir)/themes
- 
- EXTRA_DIST = BrushedMetal-Tigert.etheme ShinyMetal.etheme BlueSteel.etheme Ganymede.etheme  BrushedMetal-Tigert.etheme.ja ShinyMetal.etheme.ja BlueSteel.etheme.ja Ganymede.etheme.ja
- 
-diff -Nru enlightenment-0.16.6/src/themes/configs/Makefile.am enlightenment-0.16.6.new/src/themes/configs/Makefile.am
---- enlightenment-0.16.6/src/themes/configs/Makefile.am	Fri Mar 31 05:43:46 2000
-+++ enlightenment-0.16.6.new/src/themes/configs/Makefile.am	Wed May 30 14:08:45 2001
-@@ -1,6 +1,6 @@
- SUBDIRS = pix backup
+ SUBDIRS = pix
  
 -configdata_DATA = \
 +sysconf_DATA = \
  actionclasses.cfg \
  backup-borders.cfg \
  backup-colormodifiers.cfg \
-@@ -21,20 +21,20 @@
- keybindings.rh.cfg \
- menus.rh.cfg
+@@ -14,10 +14,10 @@
+ keybindings.cfg \
+ menus.cfg
  
 -configdatadir = $(ENLIGHTENMENT_ROOT)/config
 +configdatadir = $(sysconfdir)
  
- TRANSLATIONS = config.ja config.pl
--EXTRA_DIST = $(configdata_DATA) $(TRANSLATIONS)
-+EXTRA_DIST = $(sysconf_DATA) $(TRANSLATIONS)
+ TRANSLATIONS = config.ja config.pl config.ko
+-EXTRA_DIST = $(configdata_DATA) $(TRANSLATIONS) strings.c
++EXTRA_DIST = $(sysconf_DATA) $(TRANSLATIONS) strings.c
  
  install-data-local:
--	$(mkinstalldirs) $(DESTDIR)$(configdatadir)
-+	$(mkinstalldirs) $(DESTDIR)$(sysconfdir)
- 	for f in $(TRANSLATIONS); do \
- 		gzip -d -c < $(srcdir)/$$f | \
--			(cd $(DESTDIR)$(configdatadir); tar -xmf -) \
-+			(cd $(DESTDIR)$(sysconfdir); tar -xmf -) \
- 	done
- 
- uninstall-local:
- 	for f in $(TRANSLATIONS); do \
- 		gzip -d -c < $(srcdir)/$$f | \
--			(cd $(DESTDIR)$(configdatadir); rm -f `tar -tf -` 2>/dev/null) \
-+			(cd $(DESTDIR)$(sysconfdir); rm -f `tar -tf -` 2>/dev/null) \
- 	done
-diff -Nru enlightenment-0.16.6/src/themes/configs/backup/Makefile.am enlightenment-0.16.6.new/src/themes/configs/backup/Makefile.am
---- enlightenment-0.16.6/src/themes/configs/backup/Makefile.am	Mon Aug 30 18:12:07 1999
-+++ enlightenment-0.16.6.new/src/themes/configs/backup/Makefile.am	Wed May 30 14:08:45 2001
-@@ -1,4 +1,4 @@
--ebackupdir = $(ENLIGHTENMENT_ROOT)/config/backup
-+ebackupdir = $(sysconfdir)/backup
- 
- ebackup_DATA =
- 
-diff -Nru enlightenment-0.16.6/src/themes/configs/pix/Makefile.am enlightenment-0.16.6.new/src/themes/configs/pix/Makefile.am
---- enlightenment-0.16.6/src/themes/configs/pix/Makefile.am	Wed Oct  6 16:55:56 1999
-+++ enlightenment-0.16.6.new/src/themes/configs/pix/Makefile.am	Wed May 30 14:08:45 2001
+ 	$(mkinstalldirs) $(DESTDIR)$(configdatadir)
+diff -Nur enlightenment-0.16.7.1.orig/config/pix/Makefile.am enlightenment-0.16.7.1/config/pix/Makefile.am
+--- enlightenment-0.16.7.1.orig/config/pix/Makefile.am	2003-07-15 07:46:24.000000000 +0200
++++ enlightenment-0.16.7.1/config/pix/Makefile.am	2004-10-09 20:19:33.832189400 +0200
 @@ -1,4 +1,4 @@
 -epixdir = $(ENLIGHTENMENT_ROOT)/config/pix
 +epixdir = $(sysconfdir)/pix
  
  epix_DATA = wait1.png wait2.png wait3.png wait4.png \
              wait5.png wait6.png wait7.png wait8.png \
+diff -Nur enlightenment-0.16.7.1.orig/configure.in enlightenment-0.16.7.1/configure.in
+--- enlightenment-0.16.7.1.orig/configure.in	2004-08-13 21:18:28.000000000 +0200
++++ enlightenment-0.16.7.1/configure.in	2004-10-09 20:20:06.645201064 +0200
+@@ -30,7 +30,7 @@
+ AC_DEFINE_UNQUOTED(ENLIGHTENMENT_RELEASE, "$ENLIGHTENMENT_RELEASE", [Release])
+ fi
+ 
+-ALL_LINGUAS="da de en_US es fr hu ko nl no ru sv pt pl pt_BR tr ja"
++ALL_LINGUAS="da de en_US es fr hu ja ko nb nl pl pt pt_BR ru sv tr"
+ 
+ AC_PROG_CC
+ AC_PROG_MAKE_SET
+@@ -70,9 +70,6 @@
+   AC_SUBST(LIBINTL)
+ fi
+ 
+-AC_ARG_ENABLE(fsstd,
+-  [  --enable-fsstd          install files following FSSTD [default=no]], ,enable_fsstd=no)
+-
+ AC_ARG_ENABLE(sound,
+   [  --enable-sound          compile with sound support [default=yes]], ,enable_sound=yes)
+ 
+@@ -89,20 +86,16 @@
+ dnl The following test must come after AM_GNU_GETTEXT as it relies on
+ dnl ${DATADIRNAME} being defined.
+ 
+-if test "x$enable_fsstd" = "xyes"; then
+-  LOCALEDIR=${prefix}/${DATADIRNAME}/locale
+-else
+-  datadir=${prefix}
+-  exec_prefix=${prefix}/enlightenment
+-  LOCALEDIR=${prefix}/enlightenment/locale
+-fi
+ ENLIGHTENMENT_ROOT=`eval echo ${datadir}/enlightenment`
+ ENLIGHTENMENT_BIN=`eval echo ${bindir}`
++ENLIGHTENMENT_CONF=`eval echo ${sysconfdir}`
+ AC_SUBST(ENLIGHTENMENT_ROOT)
+ AC_SUBST(ENLIGHTENMENT_BIN)
++AC_SUBST(ENLIGHTENMENT_CONF)
+ AC_SUBST(LOCALEDIR)
+ AC_DEFINE_UNQUOTED(ENLIGHTENMENT_ROOT, "$ENLIGHTENMENT_ROOT", [The installation root directory])
+ AC_DEFINE_UNQUOTED(ENLIGHTENMENT_BIN, "$ENLIGHTENMENT_BIN", [The installation bin directory])
++AC_DEFINE_UNQUOTED(ENLIGHTENMENT_CONF, "$ENLIGHTENMENT_CONF", [The installation config directory])
+ AC_DEFINE_UNQUOTED(LOCALEDIR, "$LOCALEDIR",  [The installation locale directory])
+ 
+ if test "x$enable_sound" = "xyes"; then
+diff -Nur enlightenment-0.16.7.1.orig/scripts/Makefile.am enlightenment-0.16.7.1/scripts/Makefile.am
+--- enlightenment-0.16.7.1.orig/scripts/Makefile.am	2003-09-06 21:32:17.000000000 +0200
++++ enlightenment-0.16.7.1/scripts/Makefile.am	2004-10-09 20:28:29.569744912 +0200
+@@ -1,9 +1,9 @@
+ 
+-EXTRA_DIST = e_gen_kde_menu e_gen_menu e_gen_gnome_menu e_cache_clean \
+-e_cache_query enlightenment.install.in e_gen_menu.e16_5 \
+-e_gen_menu.pl e_cache_clean.pl e_cache_query.pl
+-script_SCRIPTS = e_gen_kde_menu e_gen_menu e_gen_gnome_menu e_cache_clean \
+-e_cache_query enlightenment.install e_gen_menu.e16_5 \
+-e_gen_menu.pl e_cache_clean.pl e_cache_query.pl
++EXTRA_DIST =  e_cache_clean \
++e_cache_query enlightenment.install.in  \
++ e_cache_clean.pl e_cache_query.pl
++script_SCRIPTS =  e_cache_clean \
++e_cache_query enlightenment.install  \
++ e_cache_clean.pl e_cache_query.pl
+ 
+ scriptdir = $(ENLIGHTENMENT_ROOT)/scripts
+diff -Nur enlightenment-0.16.7.1.orig/themes/Makefile.am enlightenment-0.16.7.1/themes/Makefile.am
+--- enlightenment-0.16.7.1.orig/themes/Makefile.am	2004-05-20 11:20:09.000000000 +0200
++++ enlightenment-0.16.7.1/themes/Makefile.am	2004-10-09 20:30:28.255701904 +0200
+@@ -1,8 +1,8 @@
+ 
+ THEME = winter
+-THEME_FILES = winter.etheme winter.etheme.ko
++THEME_FILES = winter.etheme winter.etheme.i18n
+ 
+-ethemedir = $(datadir)/themes
++ethemedir = $(pkgdatadir)/themes
+ 
+ EXTRA_DIST = $(THEME_FILES) 
+ 
+@@ -13,7 +13,6 @@
+ 	for tf in $(THEME_FILES); do \
+ 		gzip -d -c < $(srcdir)/$$tf | (cd $(THEME_DIR); tar -xmf -); \
+ 	done
+-	-if [ -n "$(USER)" ]; then chown -R $(USER) $(THEME_DIR); else chown -R root $(THEME_DIR); fi
+ 	
+ 
+ uninstall-local:
