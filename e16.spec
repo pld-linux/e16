@@ -43,7 +43,7 @@ powerful, extensible, configurable and able to be really good looking.
 
 %description -l pl
 Enlightenment jest najpotê¿niejszym i najpiêkniejszym
-window-menad¿erem jaki kiedykolwiek zosta³ stworzony dla Linuxa ;)
+window-menad¿erem jaki kiedykolwiek zosta³ stworzony dla Linuksa ;)
 
 %prep
 %setup  -q
