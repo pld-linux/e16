@@ -1,8 +1,8 @@
 Summary:	Enlightenment Window Manager
 Summary(pl):	X Window menad¿er - Enlightenment  
 Name:		enlightenment
-Version:	0.16.3
-Release:	2
+Version:	0.16.4
+Release:	1
 Copyright:	GPL
 Group:		X11/Window Managers
 Group(pl):	X11/Zarz±dcy Okien
