@@ -2,11 +2,11 @@ Summary:	Enlightenment Window Manager
 Summary(pl):	X Window menad¿er - Enlightenment  
 Name:		enlightenment
 Version:	0.15.0
-Release:	2.1d
+Release:	3d
 %define		date	19990203		
 Copyright:	GPL
-Group:		X11/Applications
-Group(pl):	X11/Aplikacje
+Group:		X11/Window Managers
+Group(pl):	X11/Zarz±dcy okien
 #######		ftp://www.rasterman.com/pub/enlightenment
 Source:		%{name}-%{version}-%{date}.tar.gz
 URL:		http://www.rasterman.com/
@@ -25,7 +25,7 @@ Requires:	esound	 >= 0.2.7
 Requires:	freetype >= 1.2
 Requires:	Gtk-perl >= 0.5000
 Requires:	stringlist >= 0.3
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	/tmp/buildroot-%{name}-%{version}
 
 %description
 Enlightenment is a Windowmanager for X-Windows that is designed to be
@@ -47,10 +47,10 @@ make
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT/usr/X11R6/bin
 
 make prefix=$RPM_BUILD_ROOT/usr/X11R6 install
 
-install -d $RPM_BUILD_ROOT/usr/X11R6/bin
 
 ln -s	/usr/X11R6/enlightenment/bin/enlightenment \
 	$RPM_BUILD_ROOT/usr/X11R6/bin
@@ -68,13 +68,19 @@ rm -rf $RPM_BUILD_ROOT
 
 %attr(755,root,root) /usr/X11R6/enlightenment/bin/*
 
-/usr/X11R6/enlightenment/config
+%config /usr/X11R6/enlightenment/config
+%config /usr/X11R6/enlightenment/themes
 /usr/X11R6/enlightenment/E-docs
-/usr/X11R6/enlightenment/themes
 
 %attr(755,root,root) /usr/X11R6/bin/*
 
 %changelog
+* Sat Feb  6 1999 Micha³ Kuratczyk <kurkens@polbox.com>
+  [0.15.0-3d]
+- added %config macros
+- changed Group to X11/Window Managers
+- changed BuildRoot to /tmp/buildroot-%%{name}-%%{version}
+
 * Fri Feb 05 1999 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
   [0.15.0-2.1d]
 - updated to latest snapshoot,
