@@ -9,6 +9,7 @@ Group:		X11/Window Managers
 #Source0:	http://dl.sourceforge.net/enlightenment/%{name}-%{version}.tar.gz
 Source0:	ftp://ftp.sparky.homelinux.org/pub/e17/e-%{version}_pre10-%{_snap}.tar.gz
 # Source0-md5:	bd9a373605308955931f9102c7ebc29d
+Source1:        %{name}-xsession.desktop
 URL:		http://enlightenment.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -51,8 +52,12 @@ Pliki nag³ówkowe dla Enlightenmenta.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_datadir}/xsessions
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/xsessions/%{name}.desktop
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -66,6 +71,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_libdir}/%{name}
 %{_datadir}/%{name}
+%{_datadir}/xsessions/%{name}.desktop
 
 %files devel
 %defattr(644,root,root,755)
