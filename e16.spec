@@ -16,6 +16,7 @@ URL:		http://www.enlightenment.org/
 BuildRequires:	gtk+-devel >= 1.2.1
 BuildRequires:	esound-devel >= 0.2.13
 BuildRequires:	imlib-devel >= 1.9.8
+BuildRequires:	gettext-devel 
 BuildRequires:	freetype-devel
 BuildRequires:	libghttp-devel
 BuildRequires:	libjpeg-devel
