@@ -1,7 +1,7 @@
-diff -Nru enlightenment-0.16.6/src/E.h enlightenment-0.16.6.new/src/E.h
---- enlightenment-0.16.6/src/E.h	Fri Jul 28 19:23:34 2000
-+++ enlightenment-0.16.6.new/src/E.h	Fri Jul 20 05:34:54 2001
-@@ -245,7 +245,7 @@
+diff -ur enlightenment-0.16.6.orig/src/E.h enlightenment-0.16.6/src/E.h
+--- enlightenment-0.16.6.orig/src/E.h	Wed Nov  5 18:58:50 2003
++++ enlightenment-0.16.6/src/E.h	Wed Nov 12 17:24:40 2003
+@@ -249,7 +249,7 @@
  #define Esetenv(var, val, overwrite) \
  { \
    static char envvar[FILEPATH_LEN_MAX]; \
@@ -10,10 +10,10 @@ diff -Nru enlightenment-0.16.6/src/E.h enlightenment-0.16.6.new/src/E.h
    putenv(envvar);\
  }
  
-diff -Nru enlightenment-0.16.6/src/actions.c enlightenment-0.16.6.new/src/actions.c
---- enlightenment-0.16.6/src/actions.c	Fri Jul 28 21:13:13 2000
-+++ enlightenment-0.16.6.new/src/actions.c	Fri Jul 20 05:18:15 2001
-@@ -272,7 +272,7 @@
+diff -ur enlightenment-0.16.6.orig/src/actions.c enlightenment-0.16.6/src/actions.c
+--- enlightenment-0.16.6.orig/src/actions.c	Wed Nov  5 18:58:50 2003
++++ enlightenment-0.16.6/src/actions.c	Wed Nov 12 17:23:52 2003
+@@ -270,7 +270,7 @@
       {
  	char                stuff[255];
  
@@ -22,7 +22,7 @@ diff -Nru enlightenment-0.16.6/src/actions.c enlightenment-0.16.6.new/src/action
  		  ActionClassToRemove->ref_count);
  	DIALOG_OK(_("ActionClass Error!"), stuff);
  	EDBUG_RETURN_;
-@@ -3302,7 +3302,7 @@
+@@ -3268,7 +3268,7 @@
     {
        char                stuff[255];
  
@@ -31,7 +31,7 @@ diff -Nru enlightenment-0.16.6/src/actions.c enlightenment-0.16.6.new/src/action
  		ENLIGHTENMENT_VERSION);
        DialogSetTitle(d, stuff);
     }
-@@ -3683,7 +3683,7 @@
+@@ -3650,7 +3650,7 @@
  	ibl = ListAllIconboxes(&num);
  	if (ibl)
  	   Efree(ibl);
@@ -40,7 +40,7 @@ diff -Nru enlightenment-0.16.6/src/actions.c enlightenment-0.16.6.new/src/action
  	AUDIO_PLAY("SOUND_NEW_ICONBOX");
  	ib = CreateIconbox(s);
  	ShowIconbox(ib);
-@@ -3918,7 +3918,7 @@
+@@ -3885,7 +3885,7 @@
     if (!(CanZoom()))
        EDBUG_RETURN(0);
  
@@ -49,22 +49,10 @@ diff -Nru enlightenment-0.16.6/src/actions.c enlightenment-0.16.6.new/src/action
     if (!exists(s))
       {
  	FILE               *f;
-diff -Nru enlightenment-0.16.6/src/alert.c enlightenment-0.16.6.new/src/alert.c
---- enlightenment-0.16.6/src/alert.c	Fri Jul 28 19:23:34 2000
-+++ enlightenment-0.16.6.new/src/alert.c	Fri Jul 20 05:16:12 2001
-@@ -47,7 +47,7 @@
-    EDBUG(7, "Alert");
- 
-    va_start(ap, fmt);
--   Evsnprintf(text, 10240, fmt, ap);
-+   snprintf(text, 10240, fmt, ap);
-    va_end(ap);
-    AUDIO_PLAY("SOUND_ALERT");
-    ShowAlert(text);
-diff -Nru enlightenment-0.16.6/src/borders.c enlightenment-0.16.6.new/src/borders.c
---- enlightenment-0.16.6/src/borders.c	Fri Jul 28 21:13:13 2000
-+++ enlightenment-0.16.6.new/src/borders.c	Fri Jul 20 05:18:21 2001
-@@ -1915,7 +1915,7 @@
+diff -ur enlightenment-0.16.6.orig/src/borders.c enlightenment-0.16.6/src/borders.c
+--- enlightenment-0.16.6.orig/src/borders.c	Wed Nov  5 18:58:50 2003
++++ enlightenment-0.16.6/src/borders.c	Wed Nov 12 17:23:52 2003
+@@ -1732,7 +1732,7 @@
  	if (b->part[i].iclass->external)
  	  {
  	     ewin->bits[i].win = 0;
@@ -73,7 +61,7 @@ diff -Nru enlightenment-0.16.6/src/borders.c enlightenment-0.16.6.new/src/border
  		       b->part[i].iclass->name);
  	     CommsBroadcast(s);
  	     await = Emalloc(sizeof(AwaitIclass));
-@@ -2546,7 +2546,7 @@
+@@ -2238,7 +2238,7 @@
       {
  	char                stuff[255];
  
@@ -82,10 +70,10 @@ diff -Nru enlightenment-0.16.6/src/borders.c enlightenment-0.16.6.new/src/border
  		  b->ref_count);
  	DIALOG_OK(_("Border Error!"), stuff);
  	EDBUG_RETURN_;
-diff -Nru enlightenment-0.16.6/src/buttons.c enlightenment-0.16.6.new/src/buttons.c
---- enlightenment-0.16.6/src/buttons.c	Fri Jul 28 19:23:34 2000
-+++ enlightenment-0.16.6.new/src/buttons.c	Fri Jul 20 05:20:09 2001
-@@ -123,7 +123,7 @@
+diff -ur enlightenment-0.16.6.orig/src/buttons.c enlightenment-0.16.6/src/buttons.c
+--- enlightenment-0.16.6.orig/src/buttons.c	Wed Nov  5 18:58:50 2003
++++ enlightenment-0.16.6/src/buttons.c	Wed Nov 12 17:23:52 2003
+@@ -122,7 +122,7 @@
       {
  	char                stuff[255];
  
@@ -94,9 +82,9 @@ diff -Nru enlightenment-0.16.6/src/buttons.c enlightenment-0.16.6.new/src/button
  		  b->ref_count);
  	DIALOG_OK(_("Button Error!"), stuff);
  
-diff -Nru enlightenment-0.16.6/src/cmclass.c enlightenment-0.16.6.new/src/cmclass.c
---- enlightenment-0.16.6/src/cmclass.c	Fri Jul 28 19:23:34 2000
-+++ enlightenment-0.16.6.new/src/cmclass.c	Fri Jul 20 05:19:23 2001
+diff -ur enlightenment-0.16.6.orig/src/cmclass.c enlightenment-0.16.6/src/cmclass.c
+--- enlightenment-0.16.6.orig/src/cmclass.c	Wed Nov  5 18:58:50 2003
++++ enlightenment-0.16.6/src/cmclass.c	Wed Nov 12 17:23:52 2003
 @@ -94,7 +94,7 @@
       {
  	char                stuff[255];
@@ -106,9 +94,9 @@ diff -Nru enlightenment-0.16.6/src/cmclass.c enlightenment-0.16.6.new/src/cmclas
  		  cm->ref_count);
  	DIALOG_OK(_("ColorModClass Error!"), stuff);
  
-diff -Nru enlightenment-0.16.6/src/comms.c enlightenment-0.16.6.new/src/comms.c
---- enlightenment-0.16.6/src/comms.c	Fri Jul 28 19:23:34 2000
-+++ enlightenment-0.16.6.new/src/comms.c	Fri Jul 20 05:20:06 2001
+diff -ur enlightenment-0.16.6.orig/src/comms.c enlightenment-0.16.6/src/comms.c
+--- enlightenment-0.16.6.orig/src/comms.c	Wed Nov  5 18:58:50 2003
++++ enlightenment-0.16.6/src/comms.c	Wed Nov 12 17:23:52 2003
 @@ -34,7 +34,7 @@
  
     comms_win = XCreateSimpleWindow(disp, root.win, -100, -100, 5, 5, 0, 0, 0);
@@ -155,8 +143,8 @@ diff -Nru enlightenment-0.16.6/src/comms.c enlightenment-0.16.6.new/src/comms.c
  		    }
  	       }
 @@ -684,11 +684,11 @@
- 				     (Mod5Mask | ControlMask | ShiftMask)) mod =
- 				  20;
+ 				     (Mod5Mask | ControlMask | ShiftMask))
+ 			       mod = 20;
  			    if (a->action->params)
 -			       Esnprintf(buf2, sizeof(buf2), "%s %i %i %s\n",
 +			       snprintf(buf2, sizeof(buf2), "%s %i %i %s\n",
@@ -382,9 +370,9 @@ diff -Nru enlightenment-0.16.6/src/comms.c enlightenment-0.16.6.new/src/comms.c
  		     _("Received Unknown Client Message.\n"
  		       "Client Name:    %s\n" "Client Version: %s\n"
  		       "Message Contents:\n\n" "%s\n"), s1, s2, s);
-diff -Nru enlightenment-0.16.6/src/config.c enlightenment-0.16.6.new/src/config.c
---- enlightenment-0.16.6/src/config.c	Thu Aug  9 19:37:20 2001
-+++ enlightenment-0.16.6.new/src/config.c	Fri Jul 20 05:20:52 2001
+diff -ur enlightenment-0.16.6.orig/src/config.c enlightenment-0.16.6/src/config.c
+--- enlightenment-0.16.6.orig/src/config.c	Wed Nov 12 17:18:38 2003
++++ enlightenment-0.16.6/src/config.c	Wed Nov 12 17:23:52 2003
 @@ -3261,7 +3261,7 @@
  		s[i] = '.';
  	     i++;
@@ -392,7 +380,7 @@ diff -Nru enlightenment-0.16.6/src/config.c enlightenment-0.16.6.new/src/config.
 -	Esnprintf(execline, sizeof(execline), "%s " "-P " "-nostdinc " "-undef "
 +	snprintf(execline, sizeof(execline), "%s " "-P " "-nostdinc " "-undef "
  #ifndef __EMX__
- 		  "-include %s/config/definitions " "-I%s "
+ 		  "-include %s/definitions " "-I%s " "-I%s "
  		  "-D ENLIGHTENMENT_VERSION=%s " "-D ENLIGHTENMENT_ROOT=%s "
 @@ -3289,7 +3289,7 @@
  		  root.h, root.depth, def_user, def_home, def_shell, path,
@@ -421,7 +409,7 @@ diff -Nru enlightenment-0.16.6/src/config.c enlightenment-0.16.6.new/src/config.
     /* look in system config dir */
  #ifndef __EMX__
 -   Esnprintf(s, sizeof(s), "%s/%s", CONFIGDATADIR, file);
-+   snprintf(s, sizeof(s), "%s/config/%s", ENLIGHTENMENT_ROOT, file);
++   snprintf(s, sizeof(s), "%s/%s", CONFIGDATADIR, file);
  #else
 -   Esnprintf(s, sizeof(s), "%s/config/%s", __XOS2RedirRoot(ENLIGHTENMENT_ROOT),
 +   snprintf(s, sizeof(s), "%s/config/%s", __XOS2RedirRoot(ENLIGHTENMENT_ROOT),
@@ -440,7 +428,7 @@ diff -Nru enlightenment-0.16.6/src/config.c enlightenment-0.16.6.new/src/config.
     /* look in system config dir */
  #ifndef __EMX__
 -   Esnprintf(s, sizeof(s), "%s/%s", CONFIGDATADIR, file);
-+   snprintf(s, sizeof(s), "%s/config/%s", ENLIGHTENMENT_ROOT, file);
++   snprintf(s, sizeof(s), "%s/%s", CONFIGDATADIR, file);
  #else
 -   Esnprintf(s, sizeof(s), "%s/config/%s", __XOS2RedirRoot(ENLIGHTENMENT_ROOT),
 +   snprintf(s, sizeof(s), "%s/config/%s", __XOS2RedirRoot(ENLIGHTENMENT_ROOT),
@@ -476,7 +464,7 @@ diff -Nru enlightenment-0.16.6/src/config.c enlightenment-0.16.6.new/src/config.
  #endif
  #ifndef __EMX__
 -   Esnprintf(s, sizeof(s), "%s/", CONFIGDATADIR);
-+   snprintf(s, sizeof(s), "%s/config/", ENLIGHTENMENT_ROOT);
++   snprintf(s, sizeof(s), "%s/", CONFIGDATADIR);
  #else
 -   Esnprintf(s, sizeof(s), "%s/config/", __XOS2RedirRoot(ENLIGHTENMENT_ROOT));
 +   snprintf(s, sizeof(s), "%s/config/", __XOS2RedirRoot(ENLIGHTENMENT_ROOT));
@@ -501,9 +489,9 @@ diff -Nru enlightenment-0.16.6/src/config.c enlightenment-0.16.6.new/src/config.
  #if USE_FNLIB
     Fnlib_add_dir(pFnlibData, s);
  #endif
-diff -Nru enlightenment-0.16.6/src/coords.c enlightenment-0.16.6.new/src/coords.c
---- enlightenment-0.16.6/src/coords.c	Wed Jul 26 20:00:46 2000
-+++ enlightenment-0.16.6.new/src/coords.c	Fri Jul 20 05:22:18 2001
+diff -ur enlightenment-0.16.6.orig/src/coords.c enlightenment-0.16.6/src/coords.c
+--- enlightenment-0.16.6.orig/src/coords.c	Wed Nov  5 18:58:50 2003
++++ enlightenment-0.16.6/src/coords.c	Wed Nov 12 17:23:52 2003
 @@ -47,7 +47,7 @@
     if ((!ic) || (!tc))
        return;
@@ -513,9 +501,9 @@ diff -Nru enlightenment-0.16.6/src/coords.c enlightenment-0.16.6.new/src/coords.
     TextSize(tc, 0, 0, 0, s, &cw, &ch, 17);
     ewin = mode.ewin;
     cw += (ic->padding.left + ic->padding.right);
-diff -Nru enlightenment-0.16.6/src/cursors.c enlightenment-0.16.6.new/src/cursors.c
---- enlightenment-0.16.6/src/cursors.c	Wed Jul 26 20:00:46 2000
-+++ enlightenment-0.16.6.new/src/cursors.c	Fri Jul 20 05:22:27 2001
+diff -ur enlightenment-0.16.6.orig/src/cursors.c enlightenment-0.16.6/src/cursors.c
+--- enlightenment-0.16.6.orig/src/cursors.c	Wed Nov  5 18:58:50 2003
++++ enlightenment-0.16.6/src/cursors.c	Wed Nov 12 17:23:52 2003
 @@ -44,7 +44,7 @@
  	if (!img)
  	   return NULL;
@@ -534,10 +522,10 @@ diff -Nru enlightenment-0.16.6/src/cursors.c enlightenment-0.16.6.new/src/cursor
  		  ec->ref_count);
  	DIALOG_OK(_("ECursor Error!"), stuff);
  
-diff -Nru enlightenment-0.16.6/src/desktops.c enlightenment-0.16.6.new/src/desktops.c
---- enlightenment-0.16.6/src/desktops.c	Fri Jul 28 21:13:13 2000
-+++ enlightenment-0.16.6.new/src/desktops.c	Fri Jul 20 05:23:08 2001
-@@ -78,7 +78,7 @@
+diff -ur enlightenment-0.16.6.orig/src/desktops.c enlightenment-0.16.6/src/desktops.c
+--- enlightenment-0.16.6.orig/src/desktops.c	Wed Nov  5 18:58:50 2003
++++ enlightenment-0.16.6/src/desktops.c	Wed Nov 12 17:23:52 2003
+@@ -77,7 +77,7 @@
  	     Efree(f);
  	  }
       }
@@ -546,7 +534,7 @@ diff -Nru enlightenment-0.16.6/src/desktops.c enlightenment-0.16.6.new/src/deskt
  	     "%c%c%c%c%c%c" "%c%c%c%c%c%c" "%c%c%c%c%c%c" "%c%c%c%c%c%c"
  	     "%c%c%c%c%c%c" "%c%c%c%c%c%c" "%c%c%c%c%c%c" "%c%c%c%c%c%c"
  	     "%c%c%c%c%c%c" "%c%c%c%c%c%c" "%c%c%c%c%c%c",
-@@ -155,7 +155,7 @@
+@@ -154,7 +154,7 @@
  	     if (p)
  	       {
  		  p->desktop = i;
@@ -555,7 +543,7 @@ diff -Nru enlightenment-0.16.6/src/desktops.c enlightenment-0.16.6.new/src/deskt
  		  PagerTitle(p, s);
  		  PagerShow(p);
  	       }
-@@ -382,7 +382,7 @@
+@@ -376,7 +376,7 @@
       {
  	char                stuff[255];
  
@@ -564,7 +552,7 @@ diff -Nru enlightenment-0.16.6/src/desktops.c enlightenment-0.16.6.new/src/deskt
  		  bg->ref_count);
  	DIALOG_OK(_("Background Error!"), stuff);
  
-@@ -1047,7 +1047,7 @@
+@@ -1043,7 +1043,7 @@
  
     for (i = 0; i < ENLIGHTENMENT_CONF_NUM_DESKTOPS; i++)
       {
@@ -573,7 +561,7 @@ diff -Nru enlightenment-0.16.6/src/desktops.c enlightenment-0.16.6.new/src/deskt
  	ac = FindItem(s, 0, LIST_FINDBY_NAME, LIST_TYPE_ACLASS);
  	if (!ac)
  	  {
-@@ -1056,15 +1056,15 @@
+@@ -1052,15 +1052,15 @@
  	     a = CreateAction(EVENT_MOUSE_DOWN, 0, 0, 0, 1, 0, NULL, NULL);
  	     AddAction(ac, a);
  	     param = Emalloc(3);
@@ -592,7 +580,7 @@ diff -Nru enlightenment-0.16.6/src/desktops.c enlightenment-0.16.6.new/src/deskt
  	     AddToAction(a, ACTION_SHOW_MENU, duplicate(s));
  	     if (i > 0)
  	       {
-@@ -1090,7 +1090,7 @@
+@@ -1086,7 +1086,7 @@
  				"applications currently running.\n"));
  	       }
  	  }
@@ -601,7 +589,7 @@ diff -Nru enlightenment-0.16.6/src/desktops.c enlightenment-0.16.6.new/src/deskt
  	ac2 = FindItem(s, 0, LIST_FINDBY_NAME, LIST_TYPE_ACLASS);
  	if (!ac2)
  	  {
-@@ -1099,14 +1099,14 @@
+@@ -1095,14 +1095,14 @@
  	     a = CreateAction(EVENT_MOUSE_UP, 1, 0, 1, 0, 0, NULL, NULL);
  	     AddAction(ac2, a);
  	     param = Emalloc(3);
@@ -618,7 +606,7 @@ diff -Nru enlightenment-0.16.6/src/desktops.c enlightenment-0.16.6.new/src/deskt
  	ac3 = FindItem(s, 0, LIST_FINDBY_NAME, LIST_TYPE_ACLASS);
  	if (!ac3)
  	  {
-@@ -1115,7 +1115,7 @@
+@@ -1111,7 +1111,7 @@
  	     a = CreateAction(EVENT_MOUSE_UP, 1, 0, 1, 0, 0, NULL, NULL);
  	     AddAction(ac3, a);
  	     param = Emalloc(3);
@@ -627,39 +615,9 @@ diff -Nru enlightenment-0.16.6/src/desktops.c enlightenment-0.16.6.new/src/deskt
  	     AddToAction(a, ACTION_DESKTOP_LOWER, param);
  	     ac3->tooltipstring =
  		duplicate(_
-diff -Nru enlightenment-0.16.6/src/dialog.c enlightenment-0.16.6.new/src/dialog.c
---- enlightenment-0.16.6/src/dialog.c	Fri Jul 28 21:13:13 2000
-+++ enlightenment-0.16.6.new/src/dialog.c	Fri Jul 20 05:16:32 2001
-@@ -287,7 +287,7 @@
- 
-    SC_Kill();
-    va_start(ap, fmt);
--   Evsnprintf(text, 10240, fmt, ap);
-+   snprintf(text, 10240, fmt, ap);
-    va_end(ap);
-    Alert(text);
- }
-@@ -299,7 +299,7 @@
-    va_list             ap;
- 
-    va_start(ap, fmt);
--   Evsnprintf(text, 10240, fmt, ap);
-+   snprintf(text, 10240, fmt, ap);
-    va_end(ap);
-    ASSIGN_ALERT(_("Attention !!!"), _("OK"), " ", " ");
-    Alert(text);
-@@ -313,7 +313,7 @@
-    va_list             ap;
- 
-    va_start(ap, fmt);
--   Evsnprintf(text, 10240, fmt, ap);
-+   snprintf(text, 10240, fmt, ap);
-    va_end(ap);
-    DialogSetText(d, text);
- }
-diff -Nru enlightenment-0.16.6/src/dock.c enlightenment-0.16.6.new/src/dock.c
---- enlightenment-0.16.6/src/dock.c	Wed Jul 26 20:00:46 2000
-+++ enlightenment-0.16.6.new/src/dock.c	Fri Jul 20 05:24:34 2001
+diff -ur enlightenment-0.16.6.orig/src/dock.c enlightenment-0.16.6/src/dock.c
+--- enlightenment-0.16.6.orig/src/dock.c	Wed Nov  5 18:58:50 2003
++++ enlightenment-0.16.6/src/dock.c	Wed Nov 12 17:23:52 2003
 @@ -31,7 +31,7 @@
     char                id[32];
  
@@ -669,10 +627,10 @@ diff -Nru enlightenment-0.16.6/src/dock.c enlightenment-0.16.6.new/src/dock.c
     ac = 0;
     ic = FindItem("DEFAULT_DOCK_BUTTON", 0, LIST_FINDBY_NAME, LIST_TYPE_ICLASS);
     if (mode.dockstartx >= 0)
-diff -Nru enlightenment-0.16.6/src/draw.c enlightenment-0.16.6.new/src/draw.c
---- enlightenment-0.16.6/src/draw.c	Fri Jul 28 21:13:13 2000
-+++ enlightenment-0.16.6.new/src/draw.c	Fri Jul 20 05:23:46 2001
-@@ -965,7 +965,7 @@
+diff -ur enlightenment-0.16.6.orig/src/draw.c enlightenment-0.16.6/src/draw.c
+--- enlightenment-0.16.6.orig/src/draw.c	Wed Nov  5 18:58:50 2003
++++ enlightenment-0.16.6/src/draw.c	Wed Nov 12 17:23:52 2003
+@@ -1010,7 +1010,7 @@
        if ((x2) >= (x1)) \
          { \
            XDrawLine(disp, root.win, gc, x1, y1, x2, y1); \
@@ -681,7 +639,7 @@ diff -Nru enlightenment-0.16.6/src/draw.c enlightenment-0.16.6.new/src/draw.c
            XDrawString(disp, root.win, gc, ((x1) + (x2)) / 2, (y1) - 10, str, strlen(str)); \
          }
  #define DRAW_V_ARROW(y1, y2, x1) \
-@@ -979,7 +979,7 @@
+@@ -1024,7 +1024,7 @@
        if ((y2) >= (y1)) \
          { \
            XDrawLine(disp, root.win, gc, x1, y1, x1, y2); \
@@ -690,9 +648,9 @@ diff -Nru enlightenment-0.16.6/src/draw.c enlightenment-0.16.6.new/src/draw.c
            XDrawString(disp, root.win, gc, x1 + 10, ((y1) + (y2)) / 2, str, strlen(str)); \
          }
  #define DO_DRAW_MODE_1(aa, bb, cc, dd) \
-diff -Nru enlightenment-0.16.6/src/file.c enlightenment-0.16.6.new/src/file.c
---- enlightenment-0.16.6/src/file.c	Fri Jul 28 21:13:13 2000
-+++ enlightenment-0.16.6.new/src/file.c	Fri Jul 20 05:24:41 2001
+diff -ur enlightenment-0.16.6.orig/src/file.c enlightenment-0.16.6/src/file.c
+--- enlightenment-0.16.6.orig/src/file.c	Wed Nov  5 18:58:50 2003
++++ enlightenment-0.16.6/src/file.c	Wed Nov 12 17:23:52 2003
 @@ -52,7 +52,7 @@
     EDBUG(9, "Etmp");
     if (!n_calls)
@@ -702,10 +660,10 @@ diff -Nru enlightenment-0.16.6/src/file.c enlightenment-0.16.6.new/src/file.c
     n_calls++;
     EDBUG_RETURN_;
  }
-diff -Nru enlightenment-0.16.6/src/gnome.c enlightenment-0.16.6.new/src/gnome.c
---- enlightenment-0.16.6/src/gnome.c	Wed Jul 26 20:00:46 2000
-+++ enlightenment-0.16.6.new/src/gnome.c	Fri Jul 20 05:24:28 2001
-@@ -651,7 +651,7 @@
+diff -ur enlightenment-0.16.6.orig/src/gnome.c enlightenment-0.16.6/src/gnome.c
+--- enlightenment-0.16.6.orig/src/gnome.c	Wed Nov  5 18:58:50 2003
++++ enlightenment-0.16.6/src/gnome.c	Wed Nov 12 17:23:52 2003
+@@ -650,7 +650,7 @@
        atom_set = XInternAtom(disp, XA_WIN_WORKSPACE_NAMES, False);
     for (i = 0; i < mode.numdesktops; i++)
       {
@@ -714,10 +672,10 @@ diff -Nru enlightenment-0.16.6/src/gnome.c enlightenment-0.16.6.new/src/gnome.c
  	names[i] = duplicate(s);
       }
     if (XStringListToTextProperty(names, mode.numdesktops, &text))
-diff -Nru enlightenment-0.16.6/src/groups.c enlightenment-0.16.6.new/src/groups.c
---- enlightenment-0.16.6/src/groups.c	Wed Jul 26 20:00:46 2000
-+++ enlightenment-0.16.6.new/src/groups.c	Fri Jul 20 05:24:38 2001
-@@ -396,7 +396,7 @@
+diff -ur enlightenment-0.16.6.orig/src/groups.c enlightenment-0.16.6/src/groups.c
+--- enlightenment-0.16.6.orig/src/groups.c	Wed Nov  5 18:58:50 2003
++++ enlightenment-0.16.6/src/groups.c	Wed Nov 12 17:23:52 2003
+@@ -390,7 +390,7 @@
  	FILE               *f;
  	char                s[1024];
  
@@ -726,7 +684,7 @@ diff -Nru enlightenment-0.16.6/src/groups.c enlightenment-0.16.6.new/src/groups.
  		  root.scr);
  	f = fopen(s, "w");
  	if (f)
-@@ -441,7 +441,7 @@
+@@ -435,7 +435,7 @@
     FILE               *f;
     char                s[1024];
  
@@ -735,9 +693,9 @@ diff -Nru enlightenment-0.16.6/src/groups.c enlightenment-0.16.6.new/src/groups.
  	     root.scr);
     f = fopen(s, "r");
     if (f)
-diff -Nru enlightenment-0.16.6/src/iclass.c enlightenment-0.16.6.new/src/iclass.c
---- enlightenment-0.16.6/src/iclass.c	Wed Jul 26 20:00:46 2000
-+++ enlightenment-0.16.6.new/src/iclass.c	Fri Jul 20 05:25:42 2001
+diff -ur enlightenment-0.16.6.orig/src/iclass.c enlightenment-0.16.6/src/iclass.c
+--- enlightenment-0.16.6.orig/src/iclass.c	Wed Nov  5 18:58:51 2003
++++ enlightenment-0.16.6/src/iclass.c	Wed Nov 12 17:23:52 2003
 @@ -108,7 +108,7 @@
       {
  	char                stuff[255];
@@ -747,9 +705,9 @@ diff -Nru enlightenment-0.16.6/src/iclass.c enlightenment-0.16.6.new/src/iclass.
  		  i->ref_count);
  	DIALOG_OK(_("ImageClass Error!"), stuff);
  	EDBUG_RETURN_;
-diff -Nru enlightenment-0.16.6/src/iconify.c enlightenment-0.16.6.new/src/iconify.c
---- enlightenment-0.16.6/src/iconify.c	Fri Jul 28 19:23:35 2000
-+++ enlightenment-0.16.6.new/src/iconify.c	Fri Jul 20 05:25:36 2001
+diff -ur enlightenment-0.16.6.orig/src/iconify.c enlightenment-0.16.6/src/iconify.c
+--- enlightenment-0.16.6.orig/src/iconify.c	Wed Nov  5 18:58:51 2003
++++ enlightenment-0.16.6/src/iconify.c	Wed Nov 12 17:23:52 2003
 @@ -1029,7 +1029,7 @@
     char                s[1024];
     FILE               *f;
@@ -769,7 +727,7 @@ diff -Nru enlightenment-0.16.6/src/iconify.c enlightenment-0.16.6.new/src/iconif
  		       NULL);
     AddItemToMenu(p_menu, mi);
 @@ -2386,7 +2386,7 @@
- 		     NULL, NULL);
+ 		       NULL, NULL);
     AddItemToMenu(p_menu, mi);
     AddItem(p_menu, p_menu->name, 0, LIST_TYPE_MENU);
 -   Esnprintf(s, sizeof(s), "named %s", p_menu->name);
@@ -777,10 +735,10 @@ diff -Nru enlightenment-0.16.6/src/iconify.c enlightenment-0.16.6.new/src/iconif
     spawnMenu(s);
     x = 0;
     y = 0;
-diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
---- enlightenment-0.16.6/src/ipc.c	Fri Jul 28 21:13:13 2000
-+++ enlightenment-0.16.6.new/src/ipc.c	Fri Jul 20 05:25:39 2001
-@@ -613,7 +613,7 @@
+diff -ur enlightenment-0.16.6.orig/src/ipc.c enlightenment-0.16.6/src/ipc.c
+--- enlightenment-0.16.6.orig/src/ipc.c	Wed Nov  5 18:58:51 2003
++++ enlightenment-0.16.6/src/ipc.c	Wed Nov 12 17:23:52 2003
+@@ -626,7 +626,7 @@
  	  {
  	     for (i = 0; cfg_panels[i]; i += 2)
  	       {
@@ -789,7 +747,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  			    cfg_panels[i + 1]);
  		  strcat(buf, buf2);
  	       }
-@@ -737,10 +737,10 @@
+@@ -745,10 +745,10 @@
  	     SaveSnapInfo();
  	  }
  	else
@@ -802,7 +760,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  
     if (buf[0])
        CommsSend(c, buf);
-@@ -771,20 +771,20 @@
+@@ -778,20 +778,20 @@
  	  {
  	     if (mode.kde_support)
  	       {
@@ -827,7 +785,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  
     if (buf[0])
        CommsSend(c, buf);
-@@ -816,7 +816,7 @@
+@@ -822,7 +822,7 @@
  	  {
  	     if (!param2[0])
  	       {
@@ -836,7 +794,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	       }
  	     else
  	       {
-@@ -832,7 +832,7 @@
+@@ -838,7 +838,7 @@
  	  {
  	     if (!param2[0])
  	       {
@@ -845,7 +803,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	       }
  	     else
  	       {
-@@ -843,7 +843,7 @@
+@@ -849,7 +849,7 @@
  		       strcat(buf, ModuleErrorCodeToString(returncode));
  		       if (!buf[0])
  			 {
@@ -854,7 +812,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  			 }
  		    }
  	       }
-@@ -853,18 +853,18 @@
+@@ -859,18 +859,18 @@
  	     strcat(buf, ModuleListAsString());
  	     if (!buf[0])
  	       {
@@ -876,7 +834,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
       }
  
     if (buf[0])
-@@ -900,7 +900,7 @@
+@@ -903,7 +903,7 @@
  	       {
  		  if (!strcmp(param2, "?"))
  		    {
@@ -885,7 +843,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  				 mode.dockstartx, mode.dockstarty);
  		    }
  		  else
-@@ -913,7 +913,7 @@
+@@ -916,7 +916,7 @@
  			 }
  		       else
  			 {
@@ -894,7 +852,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  				      "Error: no y coordinate");
  
  			 }
-@@ -921,7 +921,7 @@
+@@ -924,7 +924,7 @@
  	       }
  	     else
  	       {
@@ -903,7 +861,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	       }
  	  }
  	else if (!strcmp(param1, "direction"))
-@@ -932,23 +932,23 @@
+@@ -935,23 +935,23 @@
  		    {
  		       if (mode.dockdirmode == DOCK_LEFT)
  			 {
@@ -932,7 +890,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  				      "Error: I have NO " "idea what direction "
  				      "this thing is going");
  			 }
-@@ -971,13 +971,13 @@
+@@ -974,13 +974,13 @@
  		    }
  		  else
  		    {
@@ -948,7 +906,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	       }
  	  }
  	else if (!strcmp(param1, "support"))
-@@ -986,7 +986,7 @@
+@@ -989,7 +989,7 @@
  	       {
  		  if (!strcmp(param2, "?"))
  		    {
@@ -957,7 +915,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  				 (mode.dockapp_support) ? "enabled" :
  				 "disabled");
  		    }
-@@ -994,28 +994,28 @@
+@@ -997,28 +997,28 @@
  			   || (!strcmp(param2, "enable")))
  		    {
  		       mode.dockapp_support = 1;
@@ -991,7 +949,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
       }
  
     if (buf[0])
-@@ -1037,16 +1037,16 @@
+@@ -1036,16 +1036,16 @@
       {
  	if (!strcmp(params, "screen_size"))
  	  {
@@ -1011,9 +969,9 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
       }
  
     if (buf[0])
-@@ -1102,22 +1102,22 @@
- 		     (Button *) FindItem(param1, 0, LIST_FINDBY_NAME,
- 					 LIST_TYPE_BUTTON);
+@@ -1096,22 +1096,22 @@
+ 		  b = (Button *) FindItem(param1, 0, LIST_FINDBY_NAME,
+ 					  LIST_TYPE_BUTTON);
  		  if (b)
 -		     Esnprintf(buf, sizeof(buf), "%u references remain",
 +		     snprintf(buf, sizeof(buf), "%u references remain",
@@ -1038,7 +996,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
       }
  
     if (buf[0])
-@@ -1158,7 +1158,7 @@
+@@ -1149,7 +1149,7 @@
  
  		  if (bg)
  		    {
@@ -1047,7 +1005,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  				 "%s ref_count %u\n" " bg.solid\t %i %i %i \n"
  				 " bg.file\t %s \ttop.file\t %s \n"
  				 " bg.tile\t %i \n"
-@@ -1176,7 +1176,7 @@
+@@ -1167,7 +1167,7 @@
  				 bg->top.yperc);
  		    }
  		  else
@@ -1056,7 +1014,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  			       "Error: background '%s' does not exist.", name);
  	       }
  	     else
-@@ -1195,7 +1195,7 @@
+@@ -1184,7 +1184,7 @@
  		       AddItem(bg, bg->name, 0, LIST_TYPE_BACKGROUND);
  		    }
  		  if (!bg)
@@ -1065,7 +1023,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  			       "Error: could not create background '%s'.",
  			       name);
  		  else
-@@ -1275,7 +1275,7 @@
+@@ -1264,7 +1264,7 @@
  			 }
  		       else
  			 {
@@ -1074,7 +1032,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  				      "Error: unknown background value type '%s'.",
  				      type);
  			 }
-@@ -1298,12 +1298,12 @@
+@@ -1286,12 +1286,12 @@
  		       FreeDesktopBG(bg);
  		    }
  		  else
@@ -1089,7 +1047,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  			  "Error: background '%s' does not exist.", name);
  	  }
       }
-@@ -1322,7 +1322,7 @@
+@@ -1310,7 +1310,7 @@
  	     for (i = 0; i < num; i++)
  	       {
  		  buf2[0] = 0;
@@ -1098,9 +1056,9 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  		  if (buf3)
  		     buf3 = realloc(buf3, strlen(buf3) + strlen(buf2) + 1);
  		  else
-@@ -1393,22 +1393,22 @@
- 		     (Border *) FindItem(param1, 0, LIST_FINDBY_NAME,
- 					 LIST_TYPE_BORDER);
+@@ -1376,22 +1376,22 @@
+ 		  b = (Border *) FindItem(param1, 0, LIST_FINDBY_NAME,
+ 					  LIST_TYPE_BORDER);
  		  if (b)
 -		     Esnprintf(buf, sizeof(buf), "%u references remain",
 +		     snprintf(buf, sizeof(buf), "%u references remain",
@@ -1125,9 +1083,9 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
       }
  
     if (buf[0])
-@@ -1463,22 +1463,22 @@
- 		     (ECursor *) FindItem(param1, 0, LIST_FINDBY_NAME,
- 					  LIST_TYPE_ECURSOR);
+@@ -1441,22 +1441,22 @@
+ 		  ec = (ECursor *) FindItem(param1, 0, LIST_FINDBY_NAME,
+ 					    LIST_TYPE_ECURSOR);
  		  if (ec)
 -		     Esnprintf(buf, sizeof(buf), "%u references remain",
 +		     snprintf(buf, sizeof(buf), "%u references remain",
@@ -1152,7 +1110,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
       }
  
     if (buf[0])
-@@ -1580,13 +1580,13 @@
+@@ -1553,13 +1553,13 @@
  		       if (txt)
  			 {
  			    TextSize(t, 0, 0, STATE_NORMAL, txt, &w, &h, 17);
@@ -1169,9 +1127,9 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  			       param1);
  	       }
  	     else if (!strcmp(param2, "query"))
-@@ -1597,9 +1597,9 @@
- 		     (TextClass *) FindItem(param1, 0, LIST_FINDBY_NAME,
- 					    LIST_TYPE_TCLASS);
+@@ -1569,9 +1569,9 @@
+ 		  t = (TextClass *) FindItem(param1, 0, LIST_FINDBY_NAME,
+ 					     LIST_TYPE_TCLASS);
  		  if (t)
 -		     Esnprintf(buf, sizeof(buf), "TextClass %s found", t->name);
 +		     snprintf(buf, sizeof(buf), "TextClass %s found", t->name);
@@ -1181,9 +1139,9 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  			       param1);
  	       }
  	     else if (!strcmp(param2, "ref_count"))
-@@ -1610,23 +1610,23 @@
- 		     (TextClass *) FindItem(param1, 0, LIST_FINDBY_NAME,
- 					    LIST_TYPE_TCLASS);
+@@ -1581,23 +1581,23 @@
+ 		  t = (TextClass *) FindItem(param1, 0, LIST_FINDBY_NAME,
+ 					     LIST_TYPE_TCLASS);
  		  if (t)
 -		     Esnprintf(buf, sizeof(buf), "%u references remain.",
 +		     snprintf(buf, sizeof(buf), "%u references remain.",
@@ -1209,9 +1167,9 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
       }
  
     if (buf[0])
-@@ -1683,23 +1683,23 @@
- 						     LIST_FINDBY_NAME,
- 						     LIST_TYPE_COLORMODIFIER);
+@@ -1649,23 +1649,23 @@
+ 						       LIST_FINDBY_NAME,
+ 						       LIST_TYPE_COLORMODIFIER);
  		  if (cm)
 -		     Esnprintf(buf, sizeof(buf), "%u references remain.",
 +		     snprintf(buf, sizeof(buf), "%u references remain.",
@@ -1237,9 +1195,9 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
       }
  
     if (buf[0])
-@@ -1754,23 +1754,23 @@
- 		     (ActionClass *) FindItem(param1, 0, LIST_FINDBY_NAME,
- 					      LIST_TYPE_ACLASS);
+@@ -1715,23 +1715,23 @@
+ 		  a = (ActionClass *) FindItem(param1, 0, LIST_FINDBY_NAME,
+ 					       LIST_TYPE_ACLASS);
  		  if (a)
 -		     Esnprintf(buf, sizeof(buf), "%u references remain.",
 +		     snprintf(buf, sizeof(buf), "%u references remain.",
@@ -1265,7 +1223,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
       }
  
     if (buf[0])
-@@ -1833,11 +1833,11 @@
+@@ -1791,11 +1791,11 @@
  		     (ImageClass *) FindItem(param1, 0, LIST_FINDBY_NAME,
  					     LIST_TYPE_ICLASS);
  		  if (iclass)
@@ -1279,14 +1237,14 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  			       "Error: Imageclass does not exist");
  	       }
  	     else if (!strcmp(param2, "get_image_size"))
-@@ -1863,20 +1863,20 @@
- 						   normal->real_file);
+@@ -1820,20 +1820,20 @@
+ 						     normal->real_file);
  			    if (im)
  			      {
 -				 Esnprintf(buf, sizeof(buf), "%i %i",
 +				 snprintf(buf, sizeof(buf), "%i %i",
  					   im->rgb_width, im->rgb_height);
- 				 Imlib_destroy_image(id, im);
+ 				 Imlib_destroy_image(pImlibData, im);
  			      }
  			    else
 -			       Esnprintf(buf, sizeof(buf),
@@ -1304,7 +1262,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  			       "Error: Imageclass does not exist");
  	       }
  	     else if (!strcmp(param2, "apply"))
-@@ -1941,7 +1941,7 @@
+@@ -1898,7 +1898,7 @@
  		       else
  			  st = STATE_NORMAL;
  		       if (!(hptr = atword(params, 6)))
@@ -1313,7 +1271,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  				    "Error:  missing width and/or height");
  		       else
  			 {
-@@ -1953,7 +1953,7 @@
+@@ -1910,7 +1910,7 @@
  			    IclassApplyCopy(iclass, win, w, h, 0, 0, st, &pmap,
  					    &mask);
  			    queue_up = pq;
@@ -1322,18 +1280,18 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  				      mask);
  			 }
  		    }
-@@ -1966,7 +1966,7 @@
- 		     (ImageClass *) FindItem(param1, 0, LIST_FINDBY_NAME,
- 					     LIST_TYPE_ICLASS);
+@@ -1922,7 +1922,7 @@
+ 		  i = (ImageClass *) FindItem(param1, 0, LIST_FINDBY_NAME,
+ 					      LIST_TYPE_ICLASS);
  		  if (i)
 -		     Esnprintf(buf, sizeof(buf), "%u references remain",
 +		     snprintf(buf, sizeof(buf), "%u references remain",
  			       i->ref_count);
  	       }
  	     else if (!strcmp(param2, "query"))
-@@ -1977,26 +1977,26 @@
- 		     (ImageClass *) FindItem(param1, 0, LIST_FINDBY_NAME,
- 					     LIST_TYPE_ICLASS);
+@@ -1932,26 +1932,26 @@
+ 		  i = (ImageClass *) FindItem(param1, 0, LIST_FINDBY_NAME,
+ 					      LIST_TYPE_ICLASS);
  		  if (i)
 -		     Esnprintf(buf, sizeof(buf), "ImageClass %s found",
 +		     snprintf(buf, sizeof(buf), "ImageClass %s found",
@@ -1363,7 +1321,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
       }
  
     if (buf[0])
-@@ -2039,7 +2039,7 @@
+@@ -1991,7 +1991,7 @@
  		    }
  		  else
  		    {
@@ -1372,7 +1330,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  		    }
  	       }
  	     else if (!strcmp(param1, "delete"))
-@@ -2050,18 +2050,18 @@
+@@ -2002,18 +2002,18 @@
  	       }
  	     else
  	       {
@@ -1394,7 +1352,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
       }
  
     if (buf[0])
-@@ -2085,11 +2085,11 @@
+@@ -2035,11 +2035,11 @@
  	if (soundtoplay)
  	   ApplySclass(soundtoplay);
  	else
@@ -1408,7 +1366,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
       }
  
     if (buf[0])
-@@ -2118,7 +2118,7 @@
+@@ -2064,7 +2064,7 @@
  	     for (i = 0; i < num; i++)
  	       {
  		  buf2[0] = 0;
@@ -1417,7 +1375,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  		  if (buf)
  		     buf = realloc(buf, strlen(buf) + strlen(buf2) + 1);
  		  else
-@@ -2139,7 +2139,7 @@
+@@ -2085,7 +2085,7 @@
  	     for (i = 0; i < num; i++)
  	       {
  		  buf2[0] = 0;
@@ -1426,7 +1384,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  		  if (buf)
  		     buf = realloc(buf, strlen(buf) + strlen(buf2) + 1);
  		  else
-@@ -2160,7 +2160,7 @@
+@@ -2106,7 +2106,7 @@
  	     for (i = 0; i < num; i++)
  	       {
  		  buf2[0] = 0;
@@ -1435,7 +1393,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  		  if (buf)
  		     buf = realloc(buf, strlen(buf) + strlen(buf2) + 1);
  		  else
-@@ -2181,7 +2181,7 @@
+@@ -2127,7 +2127,7 @@
  	     for (i = 0; i < num; i++)
  	       {
  		  buf2[0] = 0;
@@ -1444,7 +1402,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  		  if (buf)
  		     buf = realloc(buf, strlen(buf) + strlen(buf2) + 1);
  		  else
-@@ -2202,7 +2202,7 @@
+@@ -2148,7 +2148,7 @@
  	     for (i = 0; i < num; i++)
  	       {
  		  buf2[0] = 0;
@@ -1453,7 +1411,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  		  if (buf)
  		     buf = realloc(buf, strlen(buf) + strlen(buf2) + 1);
  		  else
-@@ -2223,7 +2223,7 @@
+@@ -2169,7 +2169,7 @@
  	     for (i = 0; i < num; i++)
  	       {
  		  buf2[0] = 0;
@@ -1462,7 +1420,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  		  if (buf)
  		     buf = realloc(buf, strlen(buf) + strlen(buf2) + 1);
  		  else
-@@ -2244,7 +2244,7 @@
+@@ -2190,7 +2190,7 @@
  	     for (i = 0; i < num; i++)
  	       {
  		  buf2[0] = 0;
@@ -1471,7 +1429,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  		  if (buf)
  		     buf = realloc(buf, strlen(buf) + strlen(buf2) + 1);
  		  else
-@@ -2265,7 +2265,7 @@
+@@ -2211,7 +2211,7 @@
  	     for (i = 0; i < num; i++)
  	       {
  		  buf2[0] = 0;
@@ -1480,7 +1438,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  		  if (buf)
  		     buf = realloc(buf, strlen(buf) + strlen(buf2) + 1);
  		  else
-@@ -2304,7 +2304,7 @@
+@@ -2249,7 +2249,7 @@
  	DIALOG_OK(_("Message"), params);
       }
     else
@@ -1489,7 +1447,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  
     if (buf[0])
        CommsSend(c, buf);
-@@ -2329,12 +2329,12 @@
+@@ -2271,12 +2271,12 @@
  	     my_focused_win = GetFocusEwin();
  	     if (my_focused_win)
  	       {
@@ -1504,7 +1462,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	       }
  	  }
  	else
-@@ -2349,7 +2349,7 @@
+@@ -2291,7 +2291,7 @@
       }
     else
       {
@@ -1513,7 +1471,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
       }
  
     if (buf[0])
-@@ -2390,16 +2390,16 @@
+@@ -2328,16 +2328,16 @@
  	       {
  		  if (mode.all_new_windows_get_focus)
  		    {
@@ -1533,7 +1491,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	       }
  	  }
  	else if (!strcmp(param1, "focus_list"))
-@@ -2416,16 +2416,16 @@
+@@ -2354,16 +2354,16 @@
  	       {
  		  if (mode.display_warp)
  		    {
@@ -1553,7 +1511,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	       }
  	  }
  	else if (!strcmp(param1, "new_popup_window_focus"))
-@@ -2442,18 +2442,18 @@
+@@ -2380,18 +2380,18 @@
  	       {
  		  if (mode.new_transients_get_focus)
  		    {
@@ -1575,7 +1533,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	       }
  	  }
  	else if (!strcmp(param1, "new_popup_of_owner_focus"))
-@@ -2470,18 +2470,18 @@
+@@ -2408,18 +2408,18 @@
  	       {
  		  if (mode.new_transients_get_focus_if_group_focused)
  		    {
@@ -1597,7 +1555,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	       }
  	  }
  	else if (!strcmp(param1, "raise_on_keyboard_focus_switch"))
-@@ -2498,18 +2498,18 @@
+@@ -2436,18 +2436,18 @@
  	       {
  		  if (mode.raise_on_next_focus)
  		    {
@@ -1619,7 +1577,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	       }
  	  }
  	else if (!strcmp(param1, "raise_after_keyboard_focus_switch"))
-@@ -2526,18 +2526,18 @@
+@@ -2464,18 +2464,18 @@
  	       {
  		  if (mode.raise_after_next_focus)
  		    {
@@ -1641,7 +1599,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	       }
  	  }
  	else if (!strcmp(param1, "display_warp"))
-@@ -2554,16 +2554,16 @@
+@@ -2492,16 +2492,16 @@
  	       {
  		  if (mode.display_warp)
  		    {
@@ -1661,7 +1619,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	       }
  	  }
  	else if (!strcmp(param1, "pointer_to_keyboard_focus_window"))
-@@ -2580,18 +2580,18 @@
+@@ -2518,18 +2518,18 @@
  	       {
  		  if (mode.warp_on_next_focus)
  		    {
@@ -1683,7 +1641,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	       }
  	  }
  	else if (!strcmp(param1, "pointer_after_keyboard_focus_window"))
-@@ -2608,18 +2608,18 @@
+@@ -2546,18 +2546,18 @@
  	       {
  		  if (mode.warp_after_next_focus)
  		    {
@@ -1705,7 +1663,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	       }
  	  }
  	else if (!strcmp(param1, "transients_follow_leader"))
-@@ -2636,18 +2636,18 @@
+@@ -2574,18 +2574,18 @@
  	       {
  		  if (mode.transientsfollowleader)
  		    {
@@ -1727,7 +1685,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	       }
  	  }
  	else if (!strcmp(param1, "switch_to_popup_location"))
-@@ -2664,18 +2664,18 @@
+@@ -2602,18 +2602,18 @@
  	       {
  		  if (mode.switchfortransientmap)
  		    {
@@ -1749,7 +1707,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	       }
  	  }
  	else if (!strcmp(param1, "manual_placement"))
-@@ -2692,16 +2692,16 @@
+@@ -2630,16 +2630,16 @@
  	       {
  		  if (mode.manual_placement)
  		    {
@@ -1769,7 +1727,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	       }
  	  }
  	else if (!strcmp(param1, "manual_placement_mouse_pointer"))
-@@ -2718,28 +2718,28 @@
+@@ -2656,28 +2656,28 @@
  	       {
  		  if (mode.manual_placement_mouse_pointer)
  		    {
@@ -1803,7 +1761,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
       }
  
     if (buf[0])
-@@ -2771,7 +2771,7 @@
+@@ -2705,7 +2705,7 @@
  	       {
  		  if (lst[i]->pager)
  		    {
@@ -1812,7 +1770,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  				 lst[i]->client.win);
  		       strcat(buf, buf2);
  		    }
-@@ -2783,7 +2783,7 @@
+@@ -2717,7 +2717,7 @@
  	       {
  		  if (lst[i]->menu)
  		    {
@@ -1821,7 +1779,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  				 lst[i]->client.win);
  		       strcat(buf, buf2);
  		    }
-@@ -2795,7 +2795,7 @@
+@@ -2729,7 +2729,7 @@
  	       {
  		  if (lst[i]->dialog)
  		    {
@@ -1830,7 +1788,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  				 lst[i]->client.win);
  		       strcat(buf, buf2);
  		    }
-@@ -2807,7 +2807,7 @@
+@@ -2741,7 +2741,7 @@
  	       {
  		  if (lst[i]->internal)
  		    {
@@ -1839,7 +1797,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  				 lst[i]->client.win);
  		       strcat(buf, buf2);
  		    }
-@@ -2815,7 +2815,7 @@
+@@ -2749,7 +2749,7 @@
  	  }
  	else
  	  {
@@ -1848,7 +1806,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  		       "Error: unknown internal list specified");
  	  }
  
-@@ -2858,11 +2858,11 @@
+@@ -2788,11 +2788,11 @@
  	  {
  	     if (mode.show_pagers)
  	       {
@@ -1862,7 +1820,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	       }
  	  }
  	else if (!strcmp(param1, "hiq"))
-@@ -2872,11 +2872,11 @@
+@@ -2802,11 +2802,11 @@
  	       {
  		  if (mode.pager_hiq)
  		    {
@@ -1876,7 +1834,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  		    }
  	       }
  	     else if (!strcmp(param2, "on"))
-@@ -2889,7 +2889,7 @@
+@@ -2819,7 +2819,7 @@
  	       }
  	     else
  	       {
@@ -1885,7 +1843,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  
  	       }
  	  }
-@@ -2919,13 +2919,13 @@
+@@ -2849,13 +2849,13 @@
  		    }
  		  else
  		    {
@@ -1901,7 +1859,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	       }
  	  }
  	else if (!strcmp(param1, "title"))
-@@ -2954,7 +2954,7 @@
+@@ -2884,7 +2884,7 @@
  		    }
  		  else
  		    {
@@ -1910,7 +1868,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  		    }
  	       }
  	  }
-@@ -2965,7 +2965,7 @@
+@@ -2895,7 +2895,7 @@
  	       {
  		  if (!strcmp(param2, "?"))
  		    {
@@ -1919,7 +1877,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  				 mode.pager_scanspeed);
  		    }
  		  else
-@@ -2975,7 +2975,7 @@
+@@ -2905,7 +2905,7 @@
  	       }
  	     else
  	       {
@@ -1928,7 +1886,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	       }
  	  }
  	else if (!strcmp(param1, "snap"))
-@@ -2985,11 +2985,11 @@
+@@ -2915,11 +2915,11 @@
  	       {
  		  if (mode.pager_hiq)
  		    {
@@ -1942,7 +1900,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  		    }
  	       }
  	     else if (!strcmp(param2, "on"))
-@@ -3025,12 +3025,12 @@
+@@ -2955,12 +2955,12 @@
  		    }
  		  else if (!strcmp(param3, "?"))
  		    {
@@ -1957,7 +1915,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  				 "Error: unknown mode specified");
  		    }
  	       }
-@@ -3038,22 +3038,22 @@
+@@ -2968,22 +2968,22 @@
  	       {
  		  if (param2[0])
  		    {
@@ -1984,7 +1942,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
       }
  
     if (buf[0])
-@@ -3102,29 +3102,29 @@
+@@ -3028,29 +3028,29 @@
  	     if (mode.movemode)
  	       {
  		  if (mode.movemode == 1)
@@ -2022,7 +1980,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
       }
  
     if (buf[0])
-@@ -3169,27 +3169,27 @@
+@@ -3091,27 +3091,27 @@
  	     if (mode.resizemode)
  	       {
  		  if (mode.resizemode == 1)
@@ -2057,7 +2015,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
       }
  
     if (buf[0])
-@@ -3226,23 +3226,23 @@
+@@ -3144,23 +3144,23 @@
  	     if (mode.geominfomode)
  	       {
  		  if (mode.geominfomode == 1)
@@ -2086,24 +2044,20 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
       }
  
     if (buf[0])
-@@ -3283,13 +3283,13 @@
+@@ -3196,10 +3196,10 @@
+ 	     else if (!strcmp(word2, "off"))
+ 		FX_Op(word1, FX_OP_STOP);
  	     else if (!strcmp(word2, "?"))
- 	       {
- 		  if (FX_IsOn("ripples"))
--		     Esnprintf(buf, sizeof(buf), "ripples: on");
-+		     snprintf(buf, sizeof(buf), "ripples: on");
- 		  else
--		     Esnprintf(buf, sizeof(buf), "ripples: off");
-+		     snprintf(buf, sizeof(buf), "ripples: off");
- 	       }
+-		Esnprintf(buf, sizeof(buf), "%s: %s", word1,
++		snprintf(buf, sizeof(buf), "%s: %s", word1,
+ 			  FX_IsOn(word1) ? "on" : "off");
  	     else
- 	       {
--		  Esnprintf(buf, sizeof(buf), "Error: unknown mode specified");
-+		  snprintf(buf, sizeof(buf), "Error: unknown mode specified");
- 	       }
+-		Esnprintf(buf, sizeof(buf), "Error: unknown mode specified");
++		snprintf(buf, sizeof(buf), "Error: unknown mode specified");
  	  }
  	else if (!strcmp(word1, "deskslide"))
-@@ -3306,13 +3306,13 @@
+ 	  {
+@@ -3215,13 +3215,13 @@
  	     else if (!strcmp(word2, "?"))
  	       {
  		  if (desks.slidein)
@@ -2120,7 +2074,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	       }
  	  }
  	else if (!strcmp(word1, "mapslide"))
-@@ -3329,13 +3329,13 @@
+@@ -3238,13 +3238,13 @@
  	     else if (!strcmp(word2, "?"))
  	       {
  		  if (mode.mapslide)
@@ -2136,25 +2090,8 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
 +		  snprintf(buf, sizeof(buf), "Error: unknown mode specified");
  	       }
  	  }
- 	else if (!strcmp(word1, "raindrops"))
-@@ -3354,13 +3354,13 @@
- 	     else if (!strcmp(word2, "?"))
- 	       {
- 		  if (FX_IsOn("raindrops"))
--		     Esnprintf(buf, sizeof(buf), "raindrops: on");
-+		     snprintf(buf, sizeof(buf), "raindrops: on");
- 		  else
--		     Esnprintf(buf, sizeof(buf), "raindrops: off");
-+		     snprintf(buf, sizeof(buf), "raindrops: off");
- 	       }
- 	     else
- 	       {
--		  Esnprintf(buf, sizeof(buf), "Error: unknown mode specified");
-+		  snprintf(buf, sizeof(buf), "Error: unknown mode specified");
- 	       }
- 	  }
  	else if (!strcmp(word1, "menu_animate"))
-@@ -3377,13 +3377,13 @@
+@@ -3261,13 +3261,13 @@
  	     else if (!strcmp(word2, "?"))
  	       {
  		  if (mode.menuslide)
@@ -2170,25 +2107,8 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
 +		  snprintf(buf, sizeof(buf), "Error: unknown mode specified");
  	       }
  	  }
- 	else if (!strcmp(word1, "waves"))
-@@ -3402,13 +3402,13 @@
- 	     else if (!strcmp(word2, "?"))
- 	       {
- 		  if (FX_IsOn("waves"))
--		     Esnprintf(buf, sizeof(buf), "waves: on");
-+		     snprintf(buf, sizeof(buf), "waves: on");
- 		  else
--		     Esnprintf(buf, sizeof(buf), "waves: off");
-+		     snprintf(buf, sizeof(buf), "waves: off");
- 	       }
- 	     else
- 	       {
--		  Esnprintf(buf, sizeof(buf), "Error: unknown mode specified");
-+		  snprintf(buf, sizeof(buf), "Error: unknown mode specified");
- 	       }
- 	  }
  	else if (!strcmp(word1, "animate_win_shading"))
-@@ -3425,13 +3425,13 @@
+@@ -3284,13 +3284,13 @@
  	     else if (!strcmp(word2, "?"))
  	       {
  		  if (mode.animate_shading)
@@ -2205,7 +2125,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	       }
  	  }
  	else if (!strcmp(word1, "window_shade_speed"))
-@@ -3441,12 +3441,12 @@
+@@ -3300,12 +3300,12 @@
  	       {
  		  if (mode.animate_shading)
  		    {
@@ -2220,7 +2140,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  		    }
  	       }
  	     else
-@@ -3501,29 +3501,29 @@
+@@ -3360,29 +3360,29 @@
  		    {
  		       if (desks.dragdir == 1)
  			 {
@@ -2256,7 +2176,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	       }
  
  	     if (move)
-@@ -3564,12 +3564,12 @@
+@@ -3421,12 +3421,12 @@
  	       {
  		  if (mode.tooltips)
  		    {
@@ -2271,7 +2191,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  		    }
  	       }
  	     else
-@@ -3594,13 +3594,13 @@
+@@ -3451,13 +3451,13 @@
  		    {
  		       if (mode.edge_flip_resistance >= 0)
  			 {
@@ -2287,7 +2207,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  			 }
  		    }
  		  else
-@@ -3610,7 +3610,7 @@
+@@ -3467,7 +3467,7 @@
  	       }
  	     else
  	       {
@@ -2296,7 +2216,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	       }
  	  }
  	else if (!strcmp(word1, "edge_snap_distance"))
-@@ -3620,7 +3620,7 @@
+@@ -3477,7 +3477,7 @@
  	       {
  		  if (!strcmp(word2, "?"))
  		    {
@@ -2305,7 +2225,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  				 mode.edge_snap_dist);
  		    }
  		  else
-@@ -3630,7 +3630,7 @@
+@@ -3487,7 +3487,7 @@
  	       }
  	     else
  	       {
@@ -2314,7 +2234,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	       }
  	  }
  	else if (!strcmp(word1, "autoraise"))
-@@ -3648,12 +3648,12 @@
+@@ -3505,12 +3505,12 @@
  	       {
  		  if (mode.autoraise)
  		    {
@@ -2329,7 +2249,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  		    }
  	       }
  	     else
-@@ -3705,23 +3705,23 @@
+@@ -3562,23 +3562,23 @@
  	     else if (!strcmp(word2, "?"))
  	       {
  		  if (mode.sound)
@@ -2358,7 +2278,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
       }
  
     if (buf[0])
-@@ -3761,25 +3761,25 @@
+@@ -3615,25 +3615,25 @@
  	       {
  		  if (mode.activenetwork)
  		    {
@@ -2389,25 +2309,25 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  
     if (buf[0])
        CommsSend(c, buf);
-@@ -3820,7 +3820,7 @@
- 		lst[i]->client.title = none;
+@@ -3672,7 +3672,7 @@
+ 		e->client.title = none;
  	     if (params)
  	       {
 -		  Esnprintf(buf, sizeof(buf),
 +		  snprintf(buf, sizeof(buf),
  			    "%8x : %s :: %d : %d %d : %d %d\n",
- 			    lst[i]->client.win, lst[i]->client.title,
- 			    lst[i]->desktop, lst[i]->area_x, lst[i]->area_y,
-@@ -3828,7 +3828,7 @@
+ 			    e->client.win, e->client.title,
+ 			    (e->sticky) ? -1 : e->desktop, e->area_x, e->area_y,
+@@ -3680,7 +3680,7 @@
  	       }
  	     else
  	       {
--		  Esnprintf(buf, sizeof(buf), "%8x : %s\n", lst[i]->client.win,
-+		  snprintf(buf, sizeof(buf), "%8x : %s\n", lst[i]->client.win,
- 			    lst[i]->client.title);
+-		  Esnprintf(buf, sizeof(buf), "%8x : %s\n", e->client.win,
++		  snprintf(buf, sizeof(buf), "%8x : %s\n", e->client.win,
+ 			    e->client.title);
  	       }
  	     if (!ret)
-@@ -3871,7 +3871,7 @@
+@@ -3722,7 +3722,7 @@
  
     if (!params)
       {
@@ -2416,7 +2336,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
       }
     else
       {
-@@ -3919,7 +3919,7 @@
+@@ -3770,7 +3770,7 @@
  	else if (!strcmp(param1, "?"))
  	  {
  	     GetCurrentArea(&a, &b);
@@ -2425,7 +2345,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	  }
  	else
  	  {
-@@ -3975,7 +3975,7 @@
+@@ -3822,7 +3822,7 @@
  	word(params, 2, operation);
  	if (!operation[0])
  	  {
@@ -2434,7 +2354,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	  }
  	else
  	  {
-@@ -3984,7 +3984,7 @@
+@@ -3831,7 +3831,7 @@
  	     ewin = FindEwinByChildren(win);
  	     if (!ewin)
  	       {
@@ -2443,7 +2363,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  			    win);
  	       }
  	     else
-@@ -4021,15 +4021,15 @@
+@@ -3868,15 +3868,15 @@
  			    else if (!strcmp(param1, "?"))
  			      {
  				 if (ewin->iconified)
@@ -2462,7 +2382,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  					   "Error: unknown mode specified");
  			      }
  			 }
-@@ -4059,15 +4059,15 @@
+@@ -3906,15 +3906,15 @@
  			    else if (!strcmp(param1, "?"))
  			      {
  				 if (ewin->shaded)
@@ -2481,7 +2401,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  					   "Error: unknown mode specified");
  			      }
  			 }
-@@ -4097,15 +4097,15 @@
+@@ -3944,15 +3944,15 @@
  			    else if (!strcmp(param1, "?"))
  			      {
  				 if (ewin->sticky)
@@ -2500,7 +2420,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  					   "Error: unknown mode specified");
  			      }
  			 }
-@@ -4132,7 +4132,7 @@
+@@ -3979,7 +3979,7 @@
  				 if (!strncmp(ptr, "?", 1))
  				   {
  				      /* return the window title */
@@ -2509,7 +2429,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  						"window title: %s",
  						ewin->client.title);
  				   }
-@@ -4155,7 +4155,7 @@
+@@ -4001,7 +4001,7 @@
  			    else
  			      {
  				 /* error */
@@ -2518,7 +2438,16 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  					   "Error: no title specified");
  			      }
  			 }
-@@ -4203,7 +4203,7 @@
+@@ -4034,7 +4034,7 @@
+ 		       word(params, 3, param1);
+ 		       if (!strcmp(param1, "?"))
+ 			 {
+-			    Esnprintf(buf, sizeof(buf),
++			    snprintf(buf, sizeof(buf),
+ 				      "window layer: %d", ewin->layer);
+ 			 }
+ 		       else
+@@ -4057,7 +4057,7 @@
  				   {
  				      if (ewin->border->name)
  					{
@@ -2527,7 +2456,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  						     "window border: %s",
  						     ewin->border->name);
  					}
-@@ -4228,7 +4228,7 @@
+@@ -4081,7 +4081,7 @@
  			 }
  		       else
  			 {
@@ -2536,7 +2465,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  				      "Error: no border specified");
  			 }
  		    }
-@@ -4255,7 +4255,7 @@
+@@ -4106,7 +4106,7 @@
  			      }
  			    else if (!strcmp(param1, "?"))
  			      {
@@ -2545,7 +2474,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  					   ewin->desktop);
  			      }
  			    else
-@@ -4269,7 +4269,7 @@
+@@ -4119,7 +4119,7 @@
  			 }
  		       else
  			 {
@@ -2554,7 +2483,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  				      "Error: no desktop supplied");
  			 }
  		    }
-@@ -4282,7 +4282,7 @@
+@@ -4132,7 +4132,7 @@
  			 {
  			    if (!strcmp(param1, "?"))
  			      {
@@ -2563,7 +2492,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  					   "window area: %d %d", ewin->area_x,
  					   ewin->area_y);
  			      }
-@@ -4294,7 +4294,7 @@
+@@ -4144,7 +4144,7 @@
  			 }
  		       else
  			 {
@@ -2572,7 +2501,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  				      "Error: no area supplied");
  			 }
  		    }
-@@ -4315,13 +4315,13 @@
+@@ -4165,13 +4165,13 @@
  			 {
  			    if (!strcmp(param1, "?"))
  			      {
@@ -2588,7 +2517,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  					   "client location: %d %d",
  					   ewin->x + ewin->border->border.left,
  					   ewin->y + ewin->border->border.top);
-@@ -4335,7 +4335,7 @@
+@@ -4185,7 +4185,7 @@
  			 }
  		       else
  			 {
@@ -2597,7 +2526,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  				      "Error: no coords supplied");
  			 }
  		    }
-@@ -4348,13 +4348,13 @@
+@@ -4198,13 +4198,13 @@
  			 {
  			    if (!strcmp(param1, "?"))
  			      {
@@ -2613,7 +2542,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  					   "frame size: %d %d", ewin->w,
  					   ewin->h);
  			      }
-@@ -4399,11 +4399,11 @@
+@@ -4249,11 +4249,11 @@
  			 {
  			    if (ewin == GetFocusEwin())
  			      {
@@ -2627,7 +2556,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  			      }
  			 }
  		       else
-@@ -4413,14 +4413,14 @@
+@@ -4263,14 +4263,14 @@
  		    }
  		  else
  		    {
@@ -2644,7 +2573,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
       }
  
     if (buf[0])
-@@ -4444,7 +4444,7 @@
+@@ -4290,7 +4290,7 @@
  	     int                 ax, ay;
  
  	     GetAreaSize(&ax, &ay);
@@ -2653,7 +2582,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	  }
  	else
  	  {
-@@ -4457,7 +4457,7 @@
+@@ -4303,7 +4303,7 @@
       }
     else
       {
@@ -2662,7 +2591,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
       }
  
     if (buf[0])
-@@ -4478,7 +4478,7 @@
+@@ -4320,7 +4320,7 @@
       {
  	if (!strcmp(params, "?"))
  	  {
@@ -2671,7 +2600,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  		       mode.numdesktops);
  	  }
  	else
-@@ -4488,7 +4488,7 @@
+@@ -4330,7 +4330,7 @@
       }
     else
       {
@@ -2680,7 +2609,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
       }
  
     if (buf[0])
-@@ -4527,7 +4527,7 @@
+@@ -4365,7 +4365,7 @@
  	  }
  	else if (!strcmp(params, "?"))
  	  {
@@ -2689,7 +2618,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	     if (mode.focusmode == 2)
  	       {
  		  if (mode.click_focus_grabbed)
-@@ -4554,12 +4554,12 @@
+@@ -4392,12 +4392,12 @@
  	  }
  	else
  	  {
@@ -2704,32 +2633,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
       }
  
     if (buf[0])
-@@ -4590,7 +4590,7 @@
- 	  }
- 	else if (!strcmp(params, "?"))
- 	  {
--	     Esnprintf(buf, sizeof(buf), "Icons: ");
-+	     snprintf(buf, sizeof(buf), "Icons: ");
- 	     if (mode.showicons)
- 		strcat(buf, "on");
- 	     else
-@@ -4598,13 +4598,13 @@
- 	  }
- 	else
- 	  {
--	     Esnprintf(buf, sizeof(buf), "Error: unknown icon statee: %s",
-+	     snprintf(buf, sizeof(buf), "Error: unknown icon statee: %s",
- 		       params);
- 	  }
-      }
-    else
-      {
--	Esnprintf(buf, sizeof(buf), "Error: no icon state specified");
-+	snprintf(buf, sizeof(buf), "Error: no icon state specified");
-      }
- 
-    if (buf[0])
-@@ -4622,7 +4622,7 @@
+@@ -4417,7 +4417,7 @@
     buf[0] = 0;
     if (!params)
       {
@@ -2738,7 +2642,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
       }
     else
       {
-@@ -4636,7 +4636,7 @@
+@@ -4431,7 +4431,7 @@
  	  }
  	else if (!strcmp(params, "?"))
  	  {
@@ -2747,7 +2651,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	  }
  	else
  	  {
-@@ -4703,7 +4703,7 @@
+@@ -4491,7 +4491,7 @@
       {
  	if (!strcmp(params, "?"))
  	  {
@@ -2756,7 +2660,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	  }
  	else
  	  {
-@@ -4712,7 +4712,7 @@
+@@ -4500,7 +4500,7 @@
       }
     else
       {
@@ -2765,7 +2669,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
       }
  
     if (buf[0])
-@@ -4757,13 +4757,13 @@
+@@ -4539,13 +4539,13 @@
  
     if (params)
       {
@@ -2780,8 +2684,8 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
 +	snprintf(buf, sizeof(buf), "Error: no window manager specified");
  	CommsSend(c, buf);
       }
- 
-@@ -4779,13 +4779,13 @@
+ }
+@@ -4557,13 +4557,13 @@
  
     if (params)
       {
@@ -2796,8 +2700,8 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
 +	snprintf(buf, sizeof(buf), "Error: no theme specified");
  	CommsSend(c, buf);
       }
-    return;
-@@ -4818,7 +4818,7 @@
+ }
+@@ -4591,7 +4591,7 @@
  
     if (!strcmp(params, "?"))
       {
@@ -2806,7 +2710,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
       }
     else
       {
-@@ -4827,13 +4827,13 @@
+@@ -4600,13 +4600,13 @@
  	     char                restartcommand[FILEPATH_LEN_MAX];
  
  	     SetDefaultTheme(params);
@@ -2822,7 +2726,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  		       GetDefaultTheme());
  	  }
       }
-@@ -4853,7 +4853,7 @@
+@@ -4622,7 +4622,7 @@
  
     buf[0] = 0;
  
@@ -2831,7 +2735,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  
     if (buf[0])
        CommsSend(c, buf);
-@@ -4875,9 +4875,9 @@
+@@ -4643,9 +4643,9 @@
     if (!strcmp(params, "?"))
       {
  	if (mode.autosave)
@@ -2843,34 +2747,34 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
       }
     else if (!strcmp(params, "on"))
       {
-@@ -4889,7 +4889,7 @@
+@@ -4657,7 +4657,7 @@
       }
     else
       {
 -	Esnprintf(buf, sizeof(buf), "Unknown autosave state: %s", params);
 +	snprintf(buf, sizeof(buf), "Unknown autosave state: %s", params);
       }
+ 
     if (buf[0])
-       CommsSend(c, buf);
-@@ -4911,7 +4911,7 @@
-    buf[0] = 0;
+@@ -4683,7 +4683,7 @@
     buf2[0] = 0;
     numIPC = sizeof(IPCArray) / sizeof(IPCStruct);
+ 
 -   Esnprintf(buf, sizeof(buf), _("Enlightenment IPC Commands Help"));
 +   snprintf(buf, sizeof(buf), _("Enlightenment IPC Commands Help"));
  
     if (!params)
       {
-@@ -5004,7 +5004,7 @@
+@@ -4771,7 +4771,7 @@
     char                buf[FILEPATH_LEN_MAX];
  
     params = NULL;
 -   Esnprintf(buf, sizeof(buf),
 +   snprintf(buf, sizeof(buf),
- 	     "Copyright (C) 2000 Carsten Haitzler and Geoff Harrison,\n"
+ 	     "Copyright (C) 2000-2003 Carsten Haitzler and Geoff Harrison,\n"
  	     "with various contributors (Isaac Richards, Sung-Hyun Nam, "
  	     "Kimball Thurston,\n"
-@@ -5063,7 +5063,7 @@
+@@ -4826,7 +4826,7 @@
  
     buf[0] = 0;
  
@@ -2879,7 +2783,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	     _("Enlightenment Version : %s\n" "code is current to    : %s\n"),
  	     ENLIGHTENMENT_VERSION, E_CHECKOUT_DATE);
  
-@@ -5209,7 +5209,7 @@
+@@ -4965,7 +4965,7 @@
  
  	if (!group)
  	  {
@@ -2888,7 +2792,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	     CommsSend(c, buf);
  	     return;
  	  }
-@@ -5217,7 +5217,7 @@
+@@ -4973,7 +4973,7 @@
  
  	if (!groups)
  	  {
@@ -2897,7 +2801,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	     CommsSend(c, buf);
  	     return;
  	  }
-@@ -5228,20 +5228,20 @@
+@@ -4984,20 +4984,20 @@
       {
  	groups = (Group **) ListItemType(&num_groups, LIST_TYPE_GROUP);
  
@@ -2921,7 +2825,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  		  "        index: %d\n" "  num_members: %d\n"
  		  "      iconify: %d\n" "         kill: %d\n"
  		  "         move: %d\n" "        raise: %d\n"
-@@ -5291,7 +5291,7 @@
+@@ -5043,7 +5043,7 @@
  
  	if (!operation[0])
  	  {
@@ -2930,7 +2834,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	  }
  	else
  	  {
-@@ -5300,7 +5300,7 @@
+@@ -5052,7 +5052,7 @@
  	     ewin = FindEwinByChildren(win);
  	     if (!ewin)
  	       {
@@ -2939,7 +2843,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  			    win);
  	       }
  	     else
-@@ -5308,7 +5308,7 @@
+@@ -5060,7 +5060,7 @@
  		  if (!strcmp(operation, "start"))
  		    {
  		       BuildWindowGroup(&ewin, 1);
@@ -2948,7 +2852,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  		    }
  		  else if (!strcmp(operation, "add"))
  		    {
-@@ -5323,7 +5323,7 @@
+@@ -5075,7 +5075,7 @@
  					LIST_TYPE_GROUP);
  			 }
  		       AddEwinToGroup(ewin, group);
@@ -2957,7 +2861,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  		    }
  		  else if (!strcmp(operation, "remove"))
  		    {
-@@ -5338,7 +5338,7 @@
+@@ -5090,7 +5090,7 @@
  					LIST_TYPE_GROUP);
  			 }
  		       RemoveEwinFromGroup(ewin, group);
@@ -2966,7 +2870,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  		    }
  		  else if (!strcmp(operation, "break"))
  		    {
-@@ -5353,16 +5353,16 @@
+@@ -5105,16 +5105,16 @@
  					LIST_TYPE_GROUP);
  			 }
  		       BreakWindowGroup(ewin, group);
@@ -2986,7 +2890,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  				 "Error: no such operation: %s", operation);
  
  		    }
-@@ -5371,7 +5371,7 @@
+@@ -5123,7 +5123,7 @@
       }
     else
       {
@@ -2995,7 +2899,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
       }
  
     if (buf)
-@@ -5405,7 +5405,7 @@
+@@ -5153,7 +5153,7 @@
  
  	if (!operation[0])
  	  {
@@ -3004,7 +2908,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  	  }
  	else
  	  {
-@@ -5416,7 +5416,7 @@
+@@ -5164,7 +5164,7 @@
  
  	     if (!group)
  	       {
@@ -3013,7 +2917,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  			    index);
  	       }
  	     else
-@@ -5431,12 +5431,12 @@
+@@ -5179,12 +5179,12 @@
  
  		       if (onoff == -1 && strcmp(param1, "?"))
  			 {
@@ -3028,7 +2932,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  				      group->num_members);
  			    onoff = -1;
  			 }
-@@ -5498,7 +5498,7 @@
+@@ -5246,7 +5246,7 @@
  			 }
  		       else
  			 {
@@ -3037,7 +2941,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  				      "Error: no such operation: %s",
  				      operation);
  			    onoff = -1;
-@@ -5506,19 +5506,19 @@
+@@ -5254,19 +5254,19 @@
  		    }
  		  else
  		    {
@@ -3061,7 +2965,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
       }
  
     if (buf)
-@@ -5564,7 +5564,7 @@
+@@ -5309,7 +5309,7 @@
     lst = (Snapshot **) ListItemType(&num, LIST_TYPE_SNAPSHOT);
     if (!num)
       {
@@ -3070,7 +2974,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
       }
     else
       {
-@@ -5575,7 +5575,7 @@
+@@ -5320,7 +5320,7 @@
  		  if (!lst[i] || (lst[i] && !lst[i]->used))
  		     j++;
  	       }
@@ -3079,7 +2983,7 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  		       num - j);
  	  }
  	/* strncat(buf, buf2, sizeof(buf)); */
-@@ -5585,12 +5585,12 @@
+@@ -5330,12 +5330,12 @@
  	       {
  		  if (!f)
  		    {
@@ -3094,10 +2998,10 @@ diff -Nru enlightenment-0.16.6/src/ipc.c enlightenment-0.16.6.new/src/ipc.c
  				 "             Name: %s\n"
  				 "     Window Title: %s\n"
  				 "      Window Name: %s\n"
-diff -Nru enlightenment-0.16.6/src/kde.c enlightenment-0.16.6.new/src/kde.c
---- enlightenment-0.16.6/src/kde.c	Wed Jul 26 20:00:47 2000
-+++ enlightenment-0.16.6.new/src/kde.c	Fri Jul 20 05:26:31 2001
-@@ -1208,12 +1208,12 @@
+diff -ur enlightenment-0.16.6.orig/src/kde.c enlightenment-0.16.6/src/kde.c
+--- enlightenment-0.16.6.orig/src/kde.c	Wed Nov  5 18:58:51 2003
++++ enlightenment-0.16.6/src/kde.c	Wed Nov 12 17:23:52 2003
+@@ -1081,12 +1081,12 @@
  
  	if (!KDE_DESKTOP_NAME[i])
  	  {
@@ -3112,7 +3016,7 @@ diff -Nru enlightenment-0.16.6/src/kde.c enlightenment-0.16.6.new/src/kde.c
  	     XChangeProperty(disp, root.win, KDE_DESKTOP_NAME[i], XA_STRING, 8,
  			     PropModeReplace, (unsigned char *)s,
  			     strlen(s) + 1);
-@@ -1249,7 +1249,7 @@
+@@ -1122,7 +1122,7 @@
  
  	     if (!KDE_DESKTOP_WINDOW_REGION[i])
  	       {
@@ -3121,7 +3025,7 @@ diff -Nru enlightenment-0.16.6/src/kde.c enlightenment-0.16.6.new/src/kde.c
  		  KDE_DESKTOP_WINDOW_REGION[i] = XInternAtom(disp, s, False);
  	       }
  	     if (a == KDE_DESKTOP_WINDOW_REGION[i])
-@@ -1276,7 +1276,7 @@
+@@ -1149,7 +1149,7 @@
  			 }
  		       if (i == 1)
  			 {
@@ -3130,9 +3034,9 @@ diff -Nru enlightenment-0.16.6/src/kde.c enlightenment-0.16.6.new/src/kde.c
  			     * "X %d to %d\nY to %d to %d\n", i + 1, data[0], data[2],
  			     * data[1], data[3]);
  			     * DIALOG_OK("kde hint",s); */
-diff -Nru enlightenment-0.16.6/src/main.c enlightenment-0.16.6.new/src/main.c
---- enlightenment-0.16.6/src/main.c	Fri Jul 28 19:23:35 2000
-+++ enlightenment-0.16.6.new/src/main.c	Fri Jul 20 05:26:34 2001
+diff -ur enlightenment-0.16.6.orig/src/main.c enlightenment-0.16.6/src/main.c
+--- enlightenment-0.16.6.orig/src/main.c	Wed Nov  5 18:58:51 2003
++++ enlightenment-0.16.6/src/main.c	Wed Nov 12 17:23:52 2003
 @@ -33,7 +33,7 @@
     if (fork())
        EDBUG_RETURN_;
@@ -3142,7 +3046,7 @@ diff -Nru enlightenment-0.16.6/src/main.c enlightenment-0.16.6.new/src/main.c
  	     ENLIGHTENMENT_ROOT);
     execl(usershell(getuid()), usershell(getuid()), "-c", (char *)file, NULL);
     exit(0);
-@@ -114,7 +114,7 @@
+@@ -113,7 +113,7 @@
  	{
  	   if ((!strcmp("-theme", argv[j])) && (argc - j > 1))
  	     {
@@ -3151,7 +3055,7 @@ diff -Nru enlightenment-0.16.6/src/main.c enlightenment-0.16.6.new/src/main.c
  	     }
  	   else if ((!strcmp("-econfdir", argv[j])) && (argc - j > 1))
  	     {
-@@ -210,7 +210,7 @@
+@@ -208,7 +208,7 @@
  		     s[0] = 0;
  		  fclose(f);
  		  if (s[0])
@@ -3160,7 +3064,7 @@ diff -Nru enlightenment-0.16.6/src/main.c enlightenment-0.16.6.new/src/main.c
  	       }
  	     Efree(file);
  	  }
-@@ -222,7 +222,7 @@
+@@ -220,7 +220,7 @@
  	     def = GetDefaultTheme();
  	     if (def)
  	       {
@@ -3169,10 +3073,10 @@ diff -Nru enlightenment-0.16.6/src/main.c enlightenment-0.16.6.new/src/main.c
  		  Efree(def);
  	       }
  	  }
-diff -Nru enlightenment-0.16.6/src/menus.c enlightenment-0.16.6.new/src/menus.c
---- enlightenment-0.16.6/src/menus.c	Fri Jul 28 19:23:35 2000
-+++ enlightenment-0.16.6.new/src/menus.c	Fri Jul 20 05:28:20 2001
-@@ -606,7 +606,7 @@
+diff -ur enlightenment-0.16.6.orig/src/menus.c enlightenment-0.16.6/src/menus.c
+--- enlightenment-0.16.6.orig/src/menus.c	Wed Nov  5 18:58:51 2003
++++ enlightenment-0.16.6/src/menus.c	Wed Nov 12 17:23:52 2003
+@@ -562,7 +562,7 @@
     if (m->win)
        EDestroyWindow(disp, m->win);
  
@@ -3181,7 +3085,7 @@ diff -Nru enlightenment-0.16.6/src/menus.c enlightenment-0.16.6.new/src/menus.c
     RemoveTimerEvent(s);
     RemoveItem((char *)m, m->win, LIST_FINDBY_POINTER, LIST_TYPE_MENU);
     if (m->name)
-@@ -1102,7 +1102,7 @@
+@@ -1060,7 +1060,7 @@
  	   cc = st.st_mtime;
  	else
  	   cc = st.st_ctime;
@@ -3190,16 +3094,16 @@ diff -Nru enlightenment-0.16.6/src/menus.c enlightenment-0.16.6.new/src/menus.c
  		  "%s/cached/img/.%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c",
  		  UserCacheDir(), chmap[(aa >> 0) & 0x3f],
  		  chmap[(aa >> 6) & 0x3f], chmap[(aa >> 12) & 0x3f],
-@@ -1141,7 +1141,7 @@
+@@ -1098,7 +1098,7 @@
  			    ImlibImage         *im;
  
  			    word(s, 2, s2);
 -			    Esnprintf(ss, sizeof(ss), "%s/%s", dir, s2);
 +			    snprintf(ss, sizeof(ss), "%s/%s", dir, s2);
- 			    im = Imlib_load_image(id, ss);
+ 			    im = Imlib_load_image(pImlibData, ss);
  			    if (im)
  			      {
-@@ -1155,7 +1155,7 @@
+@@ -1112,7 +1112,7 @@
  				 int                 maxw = 48, maxh = 48;
  				 int                 justx = 512, justy = 512;
  
@@ -3208,7 +3112,7 @@ diff -Nru enlightenment-0.16.6/src/menus.c enlightenment-0.16.6.new/src/menus.c
  					   UserCacheDir(), s3);
  				 width = im->rgb_width;
  				 height = im->rgb_height;
-@@ -1242,7 +1242,7 @@
+@@ -1200,7 +1200,7 @@
  			    ic = CreateIclass();
  			    ic->name = duplicate("`");
  			    ic->norm.normal = CreateImageState();
@@ -3217,7 +3121,7 @@ diff -Nru enlightenment-0.16.6/src/menus.c enlightenment-0.16.6.new/src/menus.c
  				      UserCacheDir(), s3);
  			    ic->norm.normal->im_file = duplicate(stmp);
  			    ic->norm.normal->unloadable = 1;
-@@ -1257,7 +1257,7 @@
+@@ -1214,7 +1214,7 @@
  		  else if (!strcmp(ss, "EXE"))
  		    {
  		       word(s, 2, ss);
@@ -3226,7 +3130,7 @@ diff -Nru enlightenment-0.16.6/src/menus.c enlightenment-0.16.6.new/src/menus.c
  		       mi = CreateMenuItem(NULL, NULL, ACTION_EXEC, s, NULL);
  		       AddItemToMenu(m, mi);
  		    }
-@@ -1266,8 +1266,8 @@
+@@ -1223,8 +1223,8 @@
  		       char                tmp[4096];
  
  		       word(s, 2, tmp);
@@ -3237,7 +3141,7 @@ diff -Nru enlightenment-0.16.6/src/menus.c enlightenment-0.16.6.new/src/menus.c
  		       mm = CreateMenuFromDirectory(s, ms, ss);
  		       mm->parent = m;
  		       AddItem(mm, mm->name, mm->win, LIST_TYPE_MENU);
-@@ -1280,7 +1280,7 @@
+@@ -1237,7 +1237,7 @@
  	  }
       }
     list = ls(dir, &num);
@@ -3246,7 +3150,7 @@ diff -Nru enlightenment-0.16.6/src/menus.c enlightenment-0.16.6.new/src/menus.c
     if (!init_win_ext)
        p = CreateProgressbar(s, 600, 16);
     if (p)
-@@ -1290,15 +1290,15 @@
+@@ -1247,15 +1247,15 @@
       {
  	if (p)
  	   SetProgressbar(p, (i * 100) / num);
@@ -3265,7 +3169,7 @@ diff -Nru enlightenment-0.16.6/src/menus.c enlightenment-0.16.6.new/src/menus.c
  		  mm = CreateMenuFromDirectory(s, ms, ss);
  		  mm->parent = m;
  		  AddItem(mm, mm->name, mm->win, LIST_TYPE_MENU);
-@@ -1351,7 +1351,7 @@
+@@ -1308,7 +1308,7 @@
  		     cc = st.st_mtime;
  		  else
  		     cc = st.st_ctime;
@@ -3274,7 +3178,7 @@ diff -Nru enlightenment-0.16.6/src/menus.c enlightenment-0.16.6.new/src/menus.c
  			    ".%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c",
  			    chmap[(aa >> 0) & 0x3f], chmap[(aa >> 6) & 0x3f],
  			    chmap[(aa >> 12) & 0x3f], chmap[(aa >> 18) & 0x3f],
-@@ -1380,7 +1380,7 @@
+@@ -1336,7 +1336,7 @@
  			    int                 scr_asp, im_asp, w2, h2;
  			    int                 maxw = 48, maxh = 48;
  
@@ -3283,7 +3187,7 @@ diff -Nru enlightenment-0.16.6/src/menus.c enlightenment-0.16.6.new/src/menus.c
  				      UserCacheDir(), s3);
  			    width = im->rgb_width;
  			    height = im->rgb_height;
-@@ -1455,7 +1455,7 @@
+@@ -1411,7 +1411,7 @@
  		       ic = CreateIclass();
  		       ic->name = duplicate("`");
  		       ic->norm.normal = CreateImageState();
@@ -3292,7 +3196,7 @@ diff -Nru enlightenment-0.16.6/src/menus.c enlightenment-0.16.6.new/src/menus.c
  				 UserCacheDir(), s3);
  		       ic->norm.normal->im_file = duplicate(stmp);
  		       ic->norm.normal->unloadable = 1;
-@@ -1509,7 +1509,7 @@
+@@ -1464,7 +1464,7 @@
  	   FillFlatFileMenu(m, m->style, m->name, ff, m);
  	m->data = ff;
  	m->ref_menu = parent;
@@ -3301,7 +3205,7 @@ diff -Nru enlightenment-0.16.6/src/menus.c enlightenment-0.16.6.new/src/menus.c
  	DoIn(s, 2.0, FileMenuUpdate, 0, m);
  	calls--;
  	EDBUG_RETURN(m);
-@@ -1566,7 +1566,7 @@
+@@ -1528,7 +1528,7 @@
  		  tmp = NULL;
  		  if (icon)
  		    {
@@ -3310,7 +3214,7 @@ diff -Nru enlightenment-0.16.6/src/menus.c enlightenment-0.16.6.new/src/menus.c
  		       icc =
  			  FindItem(wd, 0, LIST_FINDBY_NAME, LIST_TYPE_ICLASS);
  		       if (!icc)
-@@ -1603,7 +1603,7 @@
+@@ -1560,7 +1560,7 @@
  		    }
  		  else if ((act) && (!strcmp(act, "menu")) && (params))
  		    {
@@ -3319,7 +3223,7 @@ diff -Nru enlightenment-0.16.6/src/menus.c enlightenment-0.16.6.new/src/menus.c
  		       count++;
  		       mm = CreateMenuFromFlatFile(wd, ms, params, parent);
  		       if (mm)
-@@ -1648,7 +1648,7 @@
+@@ -1603,7 +1603,7 @@
     /* if the menu is up dont update */
     if (((mode.cur_menu_mode) || (clickmenu)) && (mode.cur_menu_depth > 0))
       {
@@ -3328,7 +3232,7 @@ diff -Nru enlightenment-0.16.6/src/menus.c enlightenment-0.16.6.new/src/menus.c
  	DoIn(s, 2.0, FileMenuUpdate, 0, m);
  	return;
       }
-@@ -1668,7 +1668,7 @@
+@@ -1623,7 +1623,7 @@
  	m->last_change = lastmod;
  	if (m == mm)
  	  {
@@ -3337,7 +3241,7 @@ diff -Nru enlightenment-0.16.6/src/menus.c enlightenment-0.16.6.new/src/menus.c
  	     DoIn(s, 2.0, FileMenuUpdate, 0, m);
  	  }
  	EmptyMenu(mm);
-@@ -1676,7 +1676,7 @@
+@@ -1631,7 +1631,7 @@
  	RepackMenu(mm);
  	return;
       }
@@ -3346,7 +3250,7 @@ diff -Nru enlightenment-0.16.6/src/menus.c enlightenment-0.16.6.new/src/menus.c
     DoIn(s, 2.0, FileMenuUpdate, 0, m);
     val = 0;
  }
-@@ -1695,7 +1695,7 @@
+@@ -1650,7 +1650,7 @@
     EDBUG(5, "CreateMenuFromGnome");
  
     if ((lang = setlocale(LC_MESSAGES, NULL)) != NULL)
@@ -3355,7 +3259,7 @@ diff -Nru enlightenment-0.16.6/src/menus.c enlightenment-0.16.6.new/src/menus.c
     else
        name_buf[0] = '\0';
  
-@@ -1707,17 +1707,17 @@
+@@ -1662,17 +1662,17 @@
       {
  	if ((strcmp(list[i], ".")) && (strcmp(list[i], "..")))
  	  {
@@ -3376,7 +3280,7 @@ diff -Nru enlightenment-0.16.6/src/menus.c enlightenment-0.16.6.new/src/menus.c
  		       if ((f = fopen(s, "r")) != NULL)
  			 {
  			    while (fgets(s, sizeof(s), f))
-@@ -1827,7 +1827,7 @@
+@@ -1781,7 +1781,7 @@
  	for (i = 0; i < num; i++)
  	  {
  	     s = fullfileof(lst[i]);
@@ -3385,43 +3289,42 @@ diff -Nru enlightenment-0.16.6/src/menus.c enlightenment-0.16.6.new/src/menus.c
  	     Efree(s);
  	     s = fileof(lst[i]);
  	     mi = CreateMenuItem(s, NULL, ACTION_EXIT, ss, NULL);
-@@ -1905,7 +1905,7 @@
+@@ -1858,7 +1858,7 @@
  	     if ((!lst[i]->menu) && (!lst[i]->pager) && (!lst[i]->skipwinlist)
  		 && (lst[i]->client.title) && (!lst[i]->ibox))
  	       {
 -		  Esnprintf(s, sizeof(s), "%i", (int)(lst[i]->client.win));
 +		  snprintf(s, sizeof(s), "%i", (int)(lst[i]->client.win));
- 		  mi =
- 		     CreateMenuItem(lst[i]->client.title, NULL,
- 				    ACTION_FOCUS_SET, s, NULL);
-@@ -1942,7 +1942,7 @@
+ 		  mi = CreateMenuItem(lst[i]->client.title, NULL,
+ 				      ACTION_FOCUS_SET, s, NULL);
+ 		  AddItemToMenu(m, mi);
+@@ -1894,7 +1894,7 @@
  		 && (!lst[i]->skipwinlist) && (lst[i]->client.title)
  		 && (!lst[i]->ibox))
  	       {
 -		  Esnprintf(s, sizeof(s), "%i", (int)(lst[i]->client.win));
 +		  snprintf(s, sizeof(s), "%i", (int)(lst[i]->client.win));
- 		  mi =
- 		     CreateMenuItem(lst[i]->client.title, NULL,
- 				    ACTION_FOCUS_SET, s, NULL);
-@@ -1975,7 +1975,7 @@
+ 		  mi = CreateMenuItem(lst[i]->client.title, NULL,
+ 				      ACTION_FOCUS_SET, s, NULL);
+ 		  AddItemToMenu(m, mi);
+@@ -1926,7 +1926,7 @@
  	mm = CreateMenu();
  	mm->name = duplicate("__SUBMENUDESK_E");
  	mm->style = ms;
 -	Esnprintf(s, sizeof(s), "%i", j);
 +	snprintf(s, sizeof(s), "%i", j);
- 	mi =
- 	   CreateMenuItem(_("Go to this Desktop"), NULL, ACTION_GOTO_DESK, s,
- 			  NULL);
-@@ -1986,7 +1986,7 @@
+ 	mi = CreateMenuItem(_("Go to this Desktop"), NULL, ACTION_GOTO_DESK, s,
+ 			    NULL);
+ 	AddItemToMenu(mm, mi);
+@@ -1936,14 +1936,14 @@
  		 && (!lst[i]->pager) && (!lst[i]->skipwinlist)
  		 && (lst[i]->client.title) && (!lst[i]->ibox))
  	       {
 -		  Esnprintf(s, sizeof(s), "%i", (int)(lst[i]->client.win));
 +		  snprintf(s, sizeof(s), "%i", (int)(lst[i]->client.win));
- 		  mi =
- 		     CreateMenuItem(lst[i]->client.title, NULL,
- 				    ACTION_FOCUS_SET, s, NULL);
-@@ -1994,7 +1994,7 @@
+ 		  mi = CreateMenuItem(lst[i]->client.title, NULL,
+ 				      ACTION_FOCUS_SET, s, NULL);
+ 		  AddItemToMenu(mm, mi);
  	       }
  	  }
  	mm->parent = m;
@@ -3430,24 +3333,23 @@ diff -Nru enlightenment-0.16.6/src/menus.c enlightenment-0.16.6.new/src/menus.c
  	mi = CreateMenuItem(s, NULL, 0, NULL, mm);
  	AddItemToMenu(m, mi);
       }
-@@ -2056,7 +2056,7 @@
+@@ -2009,7 +2009,7 @@
  	     mm = CreateMenu();
  	     mm->name = duplicate("__SUBMENUGROUP_E");
  	     mm->style = ms;
 -	     Esnprintf(s, sizeof(s), "%i", lst[i]->members[0]->client.win);
 +	     snprintf(s, sizeof(s), "%i", lst[i]->members[0]->client.win);
- 	     mi =
- 		CreateMenuItem(_("Show/Hide this group"), NULL,
- 			       ACTION_SHOW_HIDE_GROUP, s, NULL);
-@@ -2068,14 +2068,14 @@
+ 	     mi = CreateMenuItem(_("Show/Hide this group"), NULL,
+ 				 ACTION_SHOW_HIDE_GROUP, s, NULL);
+ 	     AddItemToMenu(mm, mi);
+@@ -2019,13 +2019,13 @@
  
  	     for (j = 0; j < lst[i]->num_members; j++)
  	       {
 -		  Esnprintf(s, sizeof(s), "%i", lst[i]->members[j]->client.win);
 +		  snprintf(s, sizeof(s), "%i", lst[i]->members[j]->client.win);
- 		  mi =
- 		     CreateMenuItem(lst[i]->members[j]->client.title, NULL,
- 				    ACTION_FOCUS_SET, s, NULL);
+ 		  mi = CreateMenuItem(lst[i]->members[j]->client.title, NULL,
+ 				      ACTION_FOCUS_SET, s, NULL);
  		  AddItemToMenu(mm, mi);
  	       }
  	     mm->parent = m;
@@ -3456,9 +3358,9 @@ diff -Nru enlightenment-0.16.6/src/menus.c enlightenment-0.16.6.new/src/menus.c
  	     mi = CreateMenuItem(s, NULL, 0, NULL, mm);
  	     AddItemToMenu(m, mi);
  	  }
-diff -Nru enlightenment-0.16.6/src/misc.c enlightenment-0.16.6.new/src/misc.c
---- enlightenment-0.16.6/src/misc.c	Wed Jul 26 20:00:47 2000
-+++ enlightenment-0.16.6.new/src/misc.c	Fri Jul 20 05:28:53 2001
+diff -ur enlightenment-0.16.6.orig/src/misc.c enlightenment-0.16.6/src/misc.c
+--- enlightenment-0.16.6.orig/src/misc.c	Wed Nov  5 18:58:51 2003
++++ enlightenment-0.16.6/src/misc.c	Wed Nov 12 17:23:52 2003
 @@ -51,9 +51,9 @@
     for (i = 0; i < 3; i++)
       {
@@ -3510,7 +3412,7 @@ diff -Nru enlightenment-0.16.6/src/misc.c enlightenment-0.16.6.new/src/misc.c
        Efree(home);
        dir = duplicate(buf);
     }
-@@ -221,9 +221,9 @@
+@@ -207,9 +207,9 @@
  	     char                sss[FILEPATH_LEN_MAX];
  
  #ifndef __EMX__
@@ -3522,7 +3424,7 @@ diff -Nru enlightenment-0.16.6/src/misc.c enlightenment-0.16.6.new/src/misc.c
  #endif
  	     system(sss);
  	  }
-@@ -434,93 +434,93 @@
+@@ -420,93 +420,93 @@
     char                s[4096];
  
     return 1;
@@ -3631,9 +3533,9 @@ diff -Nru enlightenment-0.16.6/src/misc.c enlightenment-0.16.6.new/src/misc.c
     if (isfile(s))
       {
  	badreason = _("Theme contains a keybindings.cfg file\n");
-diff -Nru enlightenment-0.16.6/src/modules.c enlightenment-0.16.6.new/src/modules.c
---- enlightenment-0.16.6/src/modules.c	Wed Jul 26 20:00:47 2000
-+++ enlightenment-0.16.6.new/src/modules.c	Fri Jul 20 05:29:33 2001
+diff -ur enlightenment-0.16.6.orig/src/modules.c enlightenment-0.16.6/src/modules.c
+--- enlightenment-0.16.6.orig/src/modules.c	Wed Nov  5 18:58:51 2003
++++ enlightenment-0.16.6/src/modules.c	Wed Nov 12 17:23:52 2003
 @@ -69,7 +69,7 @@
  
        char                pathoffiletoload[FILEPATH_LEN_MAX];
@@ -3643,10 +3545,10 @@ diff -Nru enlightenment-0.16.6/src/modules.c enlightenment-0.16.6.new/src/module
  		FindModulePath(module_name), module_name);
        handle = dlopen(pathoffiletoload, RTLD_LAZY);
  
-diff -Nru enlightenment-0.16.6/src/pager.c enlightenment-0.16.6.new/src/pager.c
---- enlightenment-0.16.6/src/pager.c	Fri Jul 28 19:23:35 2000
-+++ enlightenment-0.16.6.new/src/pager.c	Fri Jul 20 05:29:30 2001
-@@ -454,7 +454,7 @@
+diff -ur enlightenment-0.16.6.orig/src/pager.c enlightenment-0.16.6/src/pager.c
+--- enlightenment-0.16.6.orig/src/pager.c	Wed Nov  5 18:58:51 2003
++++ enlightenment-0.16.6/src/pager.c	Wed Nov 12 17:23:52 2003
+@@ -455,7 +455,7 @@
     static int          offsets[8] = { 0, 4, 2, 6, 1, 5, 3, 7 };
  
     p = (Pager *) data;
@@ -3655,7 +3557,7 @@ diff -Nru enlightenment-0.16.6/src/pager.c enlightenment-0.16.6.new/src/pager.c
     /* prevent runaway pager timeouts - dont knwo how it happens - but hack */
     /* around to stop it */
     cur_time = GetTime();
-@@ -669,7 +669,7 @@
+@@ -672,7 +672,7 @@
  	ShowEwin(p->ewin);
  	return;
       }
@@ -3664,7 +3566,7 @@ diff -Nru enlightenment-0.16.6/src/pager.c enlightenment-0.16.6.new/src/pager.c
     xch = XAllocClassHint();
     xch->res_name = s;
     xch->res_class = "Enlightenment_Pager";
-@@ -729,7 +729,7 @@
+@@ -732,7 +732,7 @@
  	RememberImportantInfoForEwin(ewin);
  	if (SNAP)
  	  {
@@ -3673,7 +3575,7 @@ diff -Nru enlightenment-0.16.6/src/pager.c enlightenment-0.16.6.new/src/pager.c
  	     if (mode.pager_scanspeed > 0)
  		DoIn(s, 1 / ((double)mode.pager_scanspeed), PagerUpdateTimeout,
  		     0, p);
-@@ -745,7 +745,7 @@
+@@ -749,7 +749,7 @@
     char                s[4096];
  
     RemoveItem("PAGER", p->win, LIST_FINDBY_ID, LIST_TYPE_PAGER);
@@ -3682,7 +3584,7 @@ diff -Nru enlightenment-0.16.6/src/pager.c enlightenment-0.16.6.new/src/pager.c
     RemoveTimerEvent(s);
     if (p->name)
        Efree(p->name);
-@@ -1006,7 +1006,7 @@
+@@ -1010,7 +1010,7 @@
  		       ImlibImage         *im;
  
  		       uniq = GetUniqueBGString(desks.desk[p->desktop].bg);
@@ -3691,7 +3593,7 @@ diff -Nru enlightenment-0.16.6/src/pager.c enlightenment-0.16.6.new/src/pager.c
  				 UserCacheDir(),
  				 desks.desk[p->desktop].bg->name, (p->w / ax),
  				 (p->h / ay), uniq);
-@@ -1270,7 +1270,7 @@
+@@ -1276,7 +1276,7 @@
  	pw_menu->style =
  	   FindItem("DEFAULT", 0, LIST_FINDBY_NAME, LIST_TYPE_MENU_STYLE);
  
@@ -3700,7 +3602,7 @@ diff -Nru enlightenment-0.16.6/src/pager.c enlightenment-0.16.6.new/src/pager.c
  	mi = CreateMenuItem(_("Iconify"), NULL, ACTION_ICONIFY, s, NULL);
  	AddItemToMenu(pw_menu, mi);
  
-@@ -1284,7 +1284,7 @@
+@@ -1290,7 +1290,7 @@
  	AddItemToMenu(pw_menu, mi);
  
  	AddItem(pw_menu, pw_menu->name, 0, LIST_TYPE_MENU);
@@ -3709,7 +3611,7 @@ diff -Nru enlightenment-0.16.6/src/pager.c enlightenment-0.16.6.new/src/pager.c
  	spawnMenu(s);
  	return;
       }
-@@ -1325,7 +1325,7 @@
+@@ -1326,7 +1326,7 @@
  	AddItemToMenu(p_menu, mi);
       }
     AddItem(p_menu, p_menu->name, 0, LIST_TYPE_MENU);
@@ -3718,7 +3620,7 @@ diff -Nru enlightenment-0.16.6/src/pager.c enlightenment-0.16.6.new/src/pager.c
     spawnMenu(s);
  }
  
-@@ -1713,7 +1713,7 @@
+@@ -1718,7 +1718,7 @@
     if (p)
       {
  	p->desktop = desk;
@@ -3727,7 +3629,7 @@ diff -Nru enlightenment-0.16.6/src/pager.c enlightenment-0.16.6.new/src/pager.c
  	PagerTitle(p, s);
  	PagerShow(p);
       }
-@@ -1734,7 +1734,7 @@
+@@ -1739,7 +1739,7 @@
  	if (p)
  	  {
  	     p->desktop = desk;
@@ -3736,7 +3638,7 @@ diff -Nru enlightenment-0.16.6/src/pager.c enlightenment-0.16.6.new/src/pager.c
  	     PagerTitle(p, s);
  	     PagerShow(p);
  	  }
-@@ -1865,7 +1865,7 @@
+@@ -1870,7 +1870,7 @@
  	     PagerForceUpdate(pl[i]);
  	     if (SNAP)
  	       {
@@ -3745,9 +3647,9 @@ diff -Nru enlightenment-0.16.6/src/pager.c enlightenment-0.16.6.new/src/pager.c
  		  if (mode.pager_scanspeed > 0)
  		     DoIn(s, 1 / ((double)mode.pager_scanspeed),
  			  PagerUpdateTimeout, 0, pl[i]);
-diff -Nru enlightenment-0.16.6/src/progress.c enlightenment-0.16.6.new/src/progress.c
---- enlightenment-0.16.6/src/progress.c	Fri Jul 28 19:23:35 2000
-+++ enlightenment-0.16.6.new/src/progress.c	Fri Jul 20 05:31:13 2001
+diff -ur enlightenment-0.16.6.orig/src/progress.c enlightenment-0.16.6/src/progress.c
+--- enlightenment-0.16.6.orig/src/progress.c	Wed Nov  5 18:58:51 2003
++++ enlightenment-0.16.6/src/progress.c	Wed Nov 12 17:23:52 2003
 @@ -92,7 +92,7 @@
        w = 1;
     if (w > p->w)
@@ -3757,21 +3659,9 @@ diff -Nru enlightenment-0.16.6/src/progress.c enlightenment-0.16.6.new/src/progr
     pq = queue_up;
     queue_up = 0;
     TclassApply(p->inc, p->n_win, p->h * 5, p->h, 0, 0, STATE_CLICKED, 0,
-#diff -Nru enlightenment-0.16.6/src/scursor.c enlightenment-0.16.6.new/src/scursor.c
-#--- enlightenment-0.16.6/src/scursor.c	Fri Jul 28 21:13:13 2000
-#+++ enlightenment-0.16.6.new/src/scursor.c	Fri Jul 20 05:31:30 2001
-#@@ -136,7 +136,7 @@
-# 	     ImlibImage         *im;
-# 	     Pixmap              pmap, mask;
-# 
-#-	     Esnprintf(s, sizeof(s), "pix/wait%i.png", wait_count);
-#+	     snprintf(s, sizeof(s), "pix/wait%i.png", wait_count);
-# 	     wait_count++;
-# 	     if (wait_count > 12)
-# 		wait_count = 1;
-diff -Nru enlightenment-0.16.6/src/session.c enlightenment-0.16.6.new/src/session.c
---- enlightenment-0.16.6/src/session.c	Wed Jul 26 20:00:47 2000
-+++ enlightenment-0.16.6.new/src/session.c	Fri Jul 20 05:31:10 2001
+diff -ur enlightenment-0.16.6.orig/src/session.c enlightenment-0.16.6/src/session.c
+--- enlightenment-0.16.6.orig/src/session.c	Wed Nov  5 18:58:51 2003
++++ enlightenment-0.16.6/src/session.c	Wed Nov 12 17:23:52 2003
 @@ -127,7 +127,7 @@
       {
  	char                s[1024];
@@ -3781,16 +3671,16 @@ diff -Nru enlightenment-0.16.6/src/session.c enlightenment-0.16.6.new/src/sessio
  	def_prefix = duplicate(s);
       }
     return def_prefix;
-@@ -238,7 +238,7 @@
+@@ -236,7 +236,7 @@
  		    }
  	       }
  	     fclose(f);
 -	     Esnprintf(ss, sizeof(ss), "%s.clients.%i", GetSMFile(), root.scr);
 +	     snprintf(ss, sizeof(ss), "%s.clients.%i", GetSMFile(), root.scr);
- 	     rm(ss);
  	     mv(s, ss);
  	     if (!isfile(ss))
-@@ -259,7 +259,7 @@
+ 		Alert(_
+@@ -256,7 +256,7 @@
     FILE               *f;
     char                s[4096], s1[4096];
  
@@ -3799,7 +3689,7 @@ diff -Nru enlightenment-0.16.6/src/session.c enlightenment-0.16.6.new/src/sessio
  #ifndef __EMX__
     f = fopen(s, "r");
  #else
-@@ -451,7 +451,7 @@
+@@ -443,7 +443,7 @@
       {
  /*      char                buf[1024];
   *
@@ -3808,7 +3698,7 @@ diff -Nru enlightenment-0.16.6/src/session.c enlightenment-0.16.6.new/src/sessio
   *      system(buf); */
  
  	rm(GetGenericSMFile());
-@@ -542,9 +542,9 @@
+@@ -532,9 +532,9 @@
  	if (mustdel)
  	  {
  #ifndef __EMX__
@@ -3820,7 +3710,7 @@ diff -Nru enlightenment-0.16.6/src/session.c enlightenment-0.16.6.new/src/sessio
  #endif
  	     system(sss);
  	  }
-@@ -559,7 +559,7 @@
+@@ -549,7 +549,7 @@
  
  	     if (themepath[0] != 0)
  	       {
@@ -3829,7 +3719,7 @@ diff -Nru enlightenment-0.16.6/src/session.c enlightenment-0.16.6.new/src/sessio
  			    "exec %s -single -ext_init_win %i -theme %s "
  			    "-econfdir %s -ecachedir %s -display %s", command,
  			    w, themename, UserEDir(), UserCacheDir(), dstr);
-@@ -567,7 +567,7 @@
+@@ -557,7 +557,7 @@
  	       }
  	     else
  	       {
@@ -3838,7 +3728,7 @@ diff -Nru enlightenment-0.16.6/src/session.c enlightenment-0.16.6.new/src/sessio
  			    "exec %s -single -ext_init_win %i "
  			    "-econfdir %s -ecachedir %s -display %s", command,
  			    w, UserEDir(), UserCacheDir(), dstr);
-@@ -583,7 +583,7 @@
+@@ -573,7 +573,7 @@
  	     XCloseDisplay(disp);
  	     disp = NULL;
  	     sscanf(params, "%*s %1000s", s);
@@ -3847,16 +3737,16 @@ diff -Nru enlightenment-0.16.6/src/session.c enlightenment-0.16.6.new/src/sessio
  		       "exec %s -single -ext_init_win %i -theme %s "
  		       "-econfdir %s -ecachedir %s -display %s", command, w, s,
  		       UserEDir(), UserCacheDir(), dstr);
-@@ -839,7 +839,7 @@
-    priorityVal.value = &priority;
+@@ -768,7 +768,7 @@
  
+ #if USE_DISCARD_PROPERTY
     /* Tell session manager how to clean up our old data */
 -   Esnprintf(buf, sizeof(buf) / sizeof(char), "rm %s*.clients.*", sm_file);
 +   snprintf(buf, sizeof(buf) / sizeof(char), "rm %s*.clients.*", sm_file);
  
     discardVal[0].length = strlen(sh);
     discardVal[0].value = sh;
-@@ -857,7 +857,7 @@
+@@ -788,7 +788,7 @@
       }
     if (restarting)
       {
@@ -3865,7 +3755,7 @@ diff -Nru enlightenment-0.16.6/src/session.c enlightenment-0.16.6.new/src/sessio
  
  	restartVal[n].length = strlen(extinitwin);
  	restartVal[n++].value = extinitwin;
-@@ -939,7 +939,7 @@
+@@ -881,7 +881,7 @@
  
  /*      int                 fd; */
  
@@ -3874,8 +3764,8 @@ diff -Nru enlightenment-0.16.6/src/session.c enlightenment-0.16.6.new/src/sessio
  /*      fd = Emkstemp(s + 8);
   * if (fd < 0)
   * {
-@@ -1304,7 +1304,7 @@
- 	   KDE_Shutdown();
+@@ -1196,7 +1196,7 @@
+ #endif
  	XCloseDisplay(disp);
  	disp = NULL;
 -	Esnprintf(s, sizeof(s), "exec %s -display %s", atword(params, 2), dstr);
@@ -3883,7 +3773,7 @@ diff -Nru enlightenment-0.16.6/src/session.c enlightenment-0.16.6.new/src/sessio
  	execl(DEFAULT_SH_PATH, DEFAULT_SH_PATH, "-c", s, NULL);
       }
     else if (!strcmp(s, "restart"))
-@@ -1321,14 +1321,14 @@
+@@ -1213,14 +1213,14 @@
  	if (themepath[0] != 0)
  	  {
  	     if (sm_client_id)
@@ -3900,7 +3790,7 @@ diff -Nru enlightenment-0.16.6/src/session.c enlightenment-0.16.6.new/src/sessio
  			  "exec %s -single -ext_init_win %i -theme %s "
  			  "-econfdir %s -ecachedir %s "
  			  "-smfile %s -display %s", command, init_win_ext,
-@@ -1338,14 +1338,14 @@
+@@ -1230,14 +1230,14 @@
  	else
  	  {
  	     if (sm_client_id)
@@ -3917,7 +3807,7 @@ diff -Nru enlightenment-0.16.6/src/session.c enlightenment-0.16.6.new/src/sessio
  			  "exec %s -single -ext_init_win %i"
  			  "-econfdir %s -ecachedir %s "
  			  "-smfile %s -display %s", command, init_win_ext,
-@@ -1368,14 +1368,14 @@
+@@ -1260,14 +1260,14 @@
  	     disp = NULL;
  	  }
  	if (sm_client_id)
@@ -3934,9 +3824,9 @@ diff -Nru enlightenment-0.16.6/src/session.c enlightenment-0.16.6.new/src/sessio
  		     "exec %s -ext_init_win %i -theme %s "
  		     "-econfdir %s -ecachedir %s "
  		     "-smfile %s -single -display %s", command, init_win_ext,
-diff -Nru enlightenment-0.16.6/src/settings.c enlightenment-0.16.6.new/src/settings.c
---- enlightenment-0.16.6/src/settings.c	Fri Jul 28 23:29:56 2000
-+++ enlightenment-0.16.6.new/src/settings.c	Fri Jul 20 05:31:27 2001
+diff -ur enlightenment-0.16.6.orig/src/settings.c enlightenment-0.16.6/src/settings.c
+--- enlightenment-0.16.6.orig/src/settings.c	Wed Nov  5 18:58:51 2003
++++ enlightenment-0.16.6/src/settings.c	Wed Nov 12 17:23:52 2003
 @@ -84,7 +84,7 @@
  {
     char                s[256];
@@ -3967,7 +3857,7 @@ diff -Nru enlightenment-0.16.6/src/settings.c enlightenment-0.16.6.new/src/setti
     DialogItemTextSetText(tmp_desk_text, s);
     DialogDrawItems(tmp_desk_dialog, tmp_desk_text, 0, 0, 99999, 99999);
  }
-@@ -1152,9 +1152,9 @@
+@@ -1151,9 +1151,9 @@
     DialogItemSetFill(di, 1, 0);
     DialogItemSetColSpan(di, 2);
     if (tmp_desktops > 1)
@@ -3979,7 +3869,7 @@ diff -Nru enlightenment-0.16.6/src/settings.c enlightenment-0.16.6.new/src/setti
     DialogItemTextSetText(di, s);
  
     di = slider = DialogAddItem(table, DITEM_SLIDER);
-@@ -1271,10 +1271,10 @@
+@@ -1268,10 +1268,10 @@
     EMapWindow(disp, awin);
  
     if ((tmp_area_x > 1) || ((9 - tmp_area_y) > 1))
@@ -3992,7 +3882,7 @@ diff -Nru enlightenment-0.16.6/src/settings.c enlightenment-0.16.6.new/src/setti
     DialogItemTextSetText(tmp_area_text, s);
     DialogDrawItems(tmp_area_dialog, tmp_area_text, 0, 0, 99999, 99999);
  }
-@@ -1340,10 +1340,10 @@
+@@ -1337,10 +1337,10 @@
     DialogItemSetPadding(di, 2, 2, 2, 2);
     DialogItemSetFill(di, 1, 0);
     if ((tmp_area_x > 1) || (tmp_area_y > 1))
@@ -4005,7 +3895,7 @@ diff -Nru enlightenment-0.16.6/src/settings.c enlightenment-0.16.6.new/src/setti
     DialogItemTextSetText(di, s);
  
     table2 = DialogAddItem(table, DITEM_TABLE);
-@@ -2520,7 +2520,7 @@
+@@ -2562,7 +2562,7 @@
  	   ImlibImage         *im;
  	   Pixmap              p2;
  
@@ -4013,8 +3903,8 @@ diff -Nru enlightenment-0.16.6/src/settings.c enlightenment-0.16.6.new/src/setti
 +	   snprintf(s, sizeof(s), "%s/cached/bgsel/%s", UserCacheDir(),
  		     tmp_bg->name);
  	   p2 = ECreatePixmap(disp, root.win, 64, 48, root.depth);
- 	   SetBackgroundTo(id, p2, tmp_bg, 0);
-@@ -2636,7 +2636,7 @@
+ 	   SetBackgroundTo(pImlibData, p2, tmp_bg, 0);
+@@ -2679,7 +2679,7 @@
     ImlibColor          icl;
     Background         *bg;
  
@@ -4023,7 +3913,7 @@ diff -Nru enlightenment-0.16.6/src/settings.c enlightenment-0.16.6.new/src/setti
     icl.r = tmp_bg_r;
     icl.g = tmp_bg_g;
     icl.b = tmp_bg_b;
-@@ -2709,7 +2709,7 @@
+@@ -2751,7 +2751,7 @@
  			stmp = fullfileof(tmp_bg->bg.file);
  		     else
  			stmp = duplicate(_("-NONE-"));
@@ -4032,7 +3922,7 @@ diff -Nru enlightenment-0.16.6/src/settings.c enlightenment-0.16.6.new/src/setti
  			       _
  			       ("Background definition information:\nName: %s\nFile: %s\n"),
  			       tmp_bg->name, stmp);
-@@ -2831,7 +2831,7 @@
+@@ -2872,7 +2872,7 @@
  			stmp = fullfileof(tmp_bg->bg.file);
  		     else
  			stmp = duplicate(_("-NONE-"));
@@ -4041,7 +3931,7 @@ diff -Nru enlightenment-0.16.6/src/settings.c enlightenment-0.16.6.new/src/setti
  			       _
  			       ("Background definition information:\nName: %s\nFile: %s\n"),
  			       tmp_bg->name, stmp);
-@@ -2973,12 +2973,12 @@
+@@ -3012,12 +3012,12 @@
  		    }
  		  else
  		    {
@@ -4054,9 +3944,9 @@ diff -Nru enlightenment-0.16.6/src/settings.c enlightenment-0.16.6.new/src/setti
 -			    Esnprintf(s, sizeof(s), "%s/cached/bgsel/%s",
 +			    snprintf(s, sizeof(s), "%s/cached/bgsel/%s",
  				      UserCacheDir(), bglist[i]->name);
- 			    p2 = ECreatePixmap(disp, pmap, 64, 48, id->x.depth);
- 			    SetBackgroundTo(id, p2, bglist[i], 0);
-@@ -3088,7 +3088,7 @@
+ 			    p2 =
+ 			       ECreatePixmap(disp, pmap, 64, 48,
+@@ -3130,7 +3130,7 @@
  		   stmp = fullfileof(tmp_bg->bg.file);
  		else
  		   stmp = duplicate(_("-NONE-"));
@@ -4065,7 +3955,7 @@ diff -Nru enlightenment-0.16.6/src/settings.c enlightenment-0.16.6.new/src/setti
  			  _
  			  ("Background definition information:\nName: %s\nFile: %s\n"),
  			  tmp_bg->name, stmp);
-@@ -3151,7 +3151,7 @@
+@@ -3193,7 +3193,7 @@
     char                s[256];
  
     di = (DItem *) data;
@@ -4074,7 +3964,7 @@ diff -Nru enlightenment-0.16.6/src/settings.c enlightenment-0.16.6.new/src/setti
  	     tmp_bg_timeout / 3600,
  	     (tmp_bg_timeout / 60) - (60 * (tmp_bg_timeout / 3600)),
  	     (tmp_bg_timeout) - (60 * (tmp_bg_timeout / 60)));
-@@ -3211,7 +3211,7 @@
+@@ -3253,7 +3253,7 @@
  			stmp = fullfileof(tmp_bg->bg.file);
  		     else
  			stmp = duplicate(_("-NONE-"));
@@ -4083,16 +3973,16 @@ diff -Nru enlightenment-0.16.6/src/settings.c enlightenment-0.16.6.new/src/setti
  			       _
  			       ("Background definition information:\nName: %s\nFile: %s\n"),
  			       tmp_bg->name, stmp);
-@@ -3455,7 +3455,7 @@
+@@ -3497,7 +3497,7 @@
       {
  	char                s[1024];
  
 -	Esnprintf(s, sizeof(s), "__NEWBG_%i\n", time(NULL));
 +	snprintf(s, sizeof(s), "__NEWBG_%i\n", time(NULL));
- 	bg =
- 	   CreateDesktopBG(s, NULL, NULL, 1, 1, 0, 0, 0, 0, NULL, 1, 512, 512,
- 			   0, 0);
-@@ -3724,7 +3724,7 @@
+ 	bg = CreateDesktopBG(s, NULL, NULL, 1, 1, 0, 0, 0, 0, NULL, 1, 512, 512,
+ 			     0, 0);
+ 	AddItem(bg, bg->name, 0, LIST_TYPE_BACKGROUND);
+@@ -3765,7 +3765,7 @@
     DialogItemSetPadding(di, 2, 2, 2, 2);
     DialogItemSetFill(di, 1, 0);
     DialogItemSetAlign(di, 512, 512);
@@ -4101,7 +3991,7 @@ diff -Nru enlightenment-0.16.6/src/settings.c enlightenment-0.16.6.new/src/setti
  	     tmp_bg_timeout / 3600,
  	     (tmp_bg_timeout / 60) - (60 * (tmp_bg_timeout / 3600)),
  	     (tmp_bg_timeout) - (60 * (tmp_bg_timeout / 60)));
-@@ -3834,7 +3834,7 @@
+@@ -3875,7 +3875,7 @@
  	 stmp = fullfileof(tmp_bg->bg.file);
        else
  	 stmp = duplicate(_("-NONE-"));
@@ -4110,19 +4000,19 @@ diff -Nru enlightenment-0.16.6/src/settings.c enlightenment-0.16.6.new/src/setti
  		_("Background definition information:\nName: %s\nFile: %s\n"),
  		tmp_bg->name, stmp);
        Efree(stmp);
-diff -Nru enlightenment-0.16.6/src/setup.c enlightenment-0.16.6.new/src/setup.c
---- enlightenment-0.16.6/src/setup.c	Sun Jul 30 00:32:36 2000
-+++ enlightenment-0.16.6.new/src/setup.c	Fri Jul 20 05:31:07 2001
-@@ -272,7 +272,7 @@
+diff -ur enlightenment-0.16.6.orig/src/setup.c enlightenment-0.16.6/src/setup.c
+--- enlightenment-0.16.6.orig/src/setup.c	Wed Nov  5 18:58:51 2003
++++ enlightenment-0.16.6/src/setup.c	Wed Nov 12 17:23:52 2003
+@@ -185,7 +185,7 @@
  			    if (NULL != dispstr)
  			       *dispstr = '\0';
  			 }
--		       Esnprintf(subdisplay + strlen(subdisplay), 10, ".%d",
-+		       snprintf(subdisplay + strlen(subdisplay), 10, ".%d",
- 				 i);
+-		       Esnprintf(subdisplay + strlen(subdisplay), 10, ".%d", i);
++		       snprintf(subdisplay + strlen(subdisplay), 10, ".%d", i);
  		       dstr = duplicate(subdisplay);
  		       disp = XOpenDisplay(dstr);
-@@ -670,7 +670,7 @@
+ 		       root.scr = i;
+@@ -568,7 +568,7 @@
     char                s[1024], ss[1024], *home;
  
     EDBUG(6, "SetupDirs");
@@ -4131,7 +4021,7 @@ diff -Nru enlightenment-0.16.6/src/setup.c enlightenment-0.16.6.new/src/setup.c
     home = homedir(getuid());
     if (home)
       {
-@@ -681,7 +681,7 @@
+@@ -579,7 +579,7 @@
       {
  	if (!isdir(s))
  	  {
@@ -4140,7 +4030,7 @@ diff -Nru enlightenment-0.16.6/src/setup.c enlightenment-0.16.6.new/src/setup.c
  	     mv(s, ss);
  	     md(s);
  	  }
-@@ -690,37 +690,37 @@
+@@ -588,37 +588,37 @@
       }
     else
        md(s);
@@ -4185,16 +4075,16 @@ diff -Nru enlightenment-0.16.6/src/setup.c enlightenment-0.16.6.new/src/setup.c
     if (!exists(s))
        md(s);
     else
-@@ -743,7 +743,7 @@
+@@ -640,7 +640,7 @@
+    Esetenv("EROOT", __XOS2RedirRoot(ENLIGHTENMENT_ROOT), 1);
  #endif
-    Esetenv("EROOT", ENLIGHTENMENT_ROOT, 1);
     Esetenv("EBIN", ENLIGHTENMENT_BIN, 1);
 -   Esnprintf(s, sizeof(s), "%i", getpid());
 +   snprintf(s, sizeof(s), "%i", getpid());
     Esetenv("EPID", s, 1);
     Esetenv("ETHEME", themepath, 1);
     Esetenv("ECONFDIR", UserEDir(), 1);
-@@ -902,7 +902,7 @@
+@@ -785,7 +785,7 @@
  	     if (i > 12)
  		i = 1;
  
@@ -4203,7 +4093,7 @@ diff -Nru enlightenment-0.16.6/src/setup.c enlightenment-0.16.6.new/src/setup.c
  
  	     f = FindFile(s);
  	     im = NULL;
-@@ -956,7 +956,7 @@
+@@ -839,7 +839,7 @@
  
     EDBUG(3, "SetupUserInitialization");
  
@@ -4212,18 +4102,18 @@ diff -Nru enlightenment-0.16.6/src/setup.c enlightenment-0.16.6.new/src/setup.c
     if (isfile(file))
       {
  	mode.firsttime = 0;
-@@ -972,7 +972,7 @@
+@@ -855,7 +855,7 @@
  	fclose(f);
  	if (fork())
  	   EDBUG_RETURN_;
--	Esnprintf(file, sizeof(file), "exec %s/e_gen_menu", ENLIGHTENMENT_BIN);
-+	snprintf(file, sizeof(file), "exec %s/e_gen_menu", ENLIGHTENMENT_BIN);
+-	Esnprintf(file, sizeof(file), "exec %s/scripts/e_gen_menu",
++	snprintf(file, sizeof(file), "exec %s/scripts/e_gen_menu",
+ 		  ENLIGHTENMENT_ROOT);
  	execl(usershell(getuid()), usershell(getuid()), "-c", (char *)file,
  	      NULL);
- 	exit(0);
-diff -Nru enlightenment-0.16.6/src/snaps.c enlightenment-0.16.6.new/src/snaps.c
---- enlightenment-0.16.6/src/snaps.c	Sun Jul 30 00:32:36 2000
-+++ enlightenment-0.16.6.new/src/snaps.c	Fri Jul 20 05:31:24 2001
+diff -ur enlightenment-0.16.6.orig/src/snaps.c enlightenment-0.16.6/src/snaps.c
+--- enlightenment-0.16.6.orig/src/snaps.c	Wed Nov  5 18:58:51 2003
++++ enlightenment-0.16.6/src/snaps.c	Wed Nov 12 17:23:52 2003
 @@ -36,10 +36,10 @@
     if (ewin->snap)
        return ewin->snap;
@@ -4263,16 +4153,16 @@ diff -Nru enlightenment-0.16.6/src/snaps.c enlightenment-0.16.6.new/src/snaps.c
     else
        return;
     if (ewin->snap)
-@@ -922,7 +922,7 @@
- 	Efree(lst);
-      }
+@@ -924,7 +924,7 @@
+ 
     fclose(f);
+ 
 -   Esnprintf(buf, sizeof(buf), "%s.snapshots.%i", GetGenericSMFile(), root.scr);
 +   snprintf(buf, sizeof(buf), "%s.snapshots.%i", GetGenericSMFile(), root.scr);
-    rm(buf);
     mv(s, buf);
     if (!isfile(buf))
-@@ -959,9 +959,9 @@
+       Alert(_("Error saving snaps file\n"));
+@@ -961,9 +961,9 @@
     FILE               *f;
     int                 res_w, res_h;
  
@@ -4281,10 +4171,10 @@ diff -Nru enlightenment-0.16.6/src/snaps.c enlightenment-0.16.6.new/src/snaps.c
     if (!exists(buf))
 -      Esnprintf(buf, sizeof(buf), "%s.snapshots.%i", GetGenericSMFile(),
 +      snprintf(buf, sizeof(buf), "%s.snapshots.%i", GetGenericSMFile(),
-                 root.scr);
+ 		root.scr);
  #ifndef __EMX__
     f = fopen(buf, "r");
-@@ -1240,7 +1240,7 @@
+@@ -1239,7 +1239,7 @@
        return;
     if ((hint.res_name) && (hint.res_class))
       {
@@ -4293,7 +4183,7 @@ diff -Nru enlightenment-0.16.6/src/snaps.c enlightenment-0.16.6.new/src/snaps.c
  	sn = FindItem(buf, 0, LIST_FINDBY_BOTH, LIST_TYPE_SNAPSHOT);
       }
     if (hint.res_name)
-@@ -1266,7 +1266,7 @@
+@@ -1265,7 +1265,7 @@
        return;
     if ((hint.res_name) && (hint.res_class))
       {
@@ -4302,25 +4192,9 @@ diff -Nru enlightenment-0.16.6/src/snaps.c enlightenment-0.16.6.new/src/snaps.c
  	sn = FindItem(buf, 0, LIST_FINDBY_BOTH, LIST_TYPE_SNAPSHOT);
       }
     if (hint.res_name)
-diff -Nru enlightenment-0.16.6/src/snprintf.c enlightenment-0.16.6.new/src/snprintf.c
---- enlightenment-0.16.6/src/snprintf.c	Wed Jul 26 20:00:47 2000
-+++ enlightenment-0.16.6.new/src/snprintf.c	Fri Jul 20 05:31:04 2001
-@@ -84,10 +84,10 @@
- 
- #ifdef HAVE_STDARGS
- int
--Esnprintf(char *str, size_t count, const char *fmt, ...)
-+snprintf(char *str, size_t count, const char *fmt, ...)
- #else
- int
--Esnprintf(va_alist)
-+snprintf(va_alist)
-      va_dcl
- #endif
- {
-diff -Nru enlightenment-0.16.6/src/startup.c enlightenment-0.16.6.new/src/startup.c
---- enlightenment-0.16.6/src/startup.c	Fri Jul 28 19:23:35 2000
-+++ enlightenment-0.16.6.new/src/startup.c	Fri Jul 20 05:31:22 2001
+diff -ur enlightenment-0.16.6.orig/src/startup.c enlightenment-0.16.6/src/startup.c
+--- enlightenment-0.16.6.orig/src/startup.c	Wed Nov  5 18:58:51 2003
++++ enlightenment-0.16.6/src/startup.c	Wed Nov 12 17:23:52 2003
 @@ -47,7 +47,7 @@
     if (!exists(file))
        EDBUG_RETURN(0);
@@ -4356,10 +4230,10 @@ diff -Nru enlightenment-0.16.6/src/startup.c enlightenment-0.16.6.new/src/startu
  	CreateEFile(s);
       }
     if (h)
-diff -Nru enlightenment-0.16.6/src/tclass.c enlightenment-0.16.6.new/src/tclass.c
---- enlightenment-0.16.6/src/tclass.c	Fri Jul 28 19:23:35 2000
-+++ enlightenment-0.16.6.new/src/tclass.c	Fri Jul 20 05:31:00 2001
-@@ -83,7 +83,7 @@
+diff -ur enlightenment-0.16.6.orig/src/tclass.c enlightenment-0.16.6/src/tclass.c
+--- enlightenment-0.16.6.orig/src/tclass.c	Wed Nov  5 18:58:51 2003
++++ enlightenment-0.16.6/src/tclass.c	Wed Nov 12 17:23:52 2003
+@@ -85,7 +85,7 @@
       {
  	char                stuff[255];
  
@@ -4368,10 +4242,10 @@ diff -Nru enlightenment-0.16.6/src/tclass.c enlightenment-0.16.6.new/src/tclass.
  		  t->ref_count);
  	DIALOG_OK(_("TextClass Error!"), stuff);
  	EDBUG_RETURN_;
-diff -Nru enlightenment-0.16.6/src/text.c enlightenment-0.16.6.new/src/text.c
---- enlightenment-0.16.6/src/text.c	Fri Jul 28 19:23:35 2000
-+++ enlightenment-0.16.6.new/src/text.c	Fri Jul 20 05:31:19 2001
-@@ -156,7 +156,7 @@
+diff -ur enlightenment-0.16.6.orig/src/text.c enlightenment-0.16.6/src/text.c
+--- enlightenment-0.16.6.orig/src/text.c	Wed Nov  5 18:58:51 2003
++++ enlightenment-0.16.6/src/text.c	Wed Nov 12 17:23:52 2003
+@@ -166,7 +166,7 @@
  	  {
  	     *ss = ' ';
  	     word(dup, 1, w);
@@ -4380,9 +4254,9 @@ diff -Nru enlightenment-0.16.6/src/text.c enlightenment-0.16.6.new/src/text.c
  	     word(dup, 2, w);
  	     ss = FindFile(s);
  	     if (ss)
-diff -Nru enlightenment-0.16.6/src/theme.c enlightenment-0.16.6.new/src/theme.c
---- enlightenment-0.16.6/src/theme.c	Wed Jul 26 20:00:47 2000
-+++ enlightenment-0.16.6.new/src/theme.c	Fri Jul 20 05:30:57 2001
+diff -ur enlightenment-0.16.6.orig/src/theme.c enlightenment-0.16.6/src/theme.c
+--- enlightenment-0.16.6.orig/src/theme.c	Wed Nov  5 18:58:51 2003
++++ enlightenment-0.16.6/src/theme.c	Wed Nov 12 17:23:52 2003
 @@ -56,7 +56,7 @@
  	       {
  		  if (!strcmp(str[i], "DEFAULT"))
@@ -4401,7 +4275,7 @@ diff -Nru enlightenment-0.16.6/src/theme.c enlightenment-0.16.6.new/src/theme.c
  				 def = duplicate(s);
  			      }
  			 }
-@@ -83,7 +83,7 @@
+@@ -84,7 +84,7 @@
  		    {
  		       ok = 0;
  
@@ -4410,7 +4284,7 @@ diff -Nru enlightenment-0.16.6/src/theme.c enlightenment-0.16.6.new/src/theme.c
  		       if ((isdir(s)) && (SanitiseThemeDir(s)))
  			  ok = 1;
  		       else if ((isfile(s)) && (FileExtension(s))
-@@ -112,12 +112,12 @@
+@@ -113,12 +113,12 @@
        NULL;
     int                 count = 0;
  
@@ -4426,7 +4300,7 @@ diff -Nru enlightenment-0.16.6/src/theme.c enlightenment-0.16.6.new/src/theme.c
  #endif
     def2 = append_merge_dir(s, &list, &count);
  
-@@ -141,7 +141,7 @@
+@@ -146,7 +146,7 @@
     char               *def = NULL;
     int                 count;
  
@@ -4435,7 +4309,7 @@ diff -Nru enlightenment-0.16.6/src/theme.c enlightenment-0.16.6.new/src/theme.c
  #ifndef __EMX__
     count = readlink(ss, s, sizeof(s));
     if ((exists(ss)) && (count > 0))
-@@ -151,7 +151,7 @@
+@@ -156,7 +156,7 @@
  	   def = duplicate(s);
  	else
  	  {
@@ -4444,7 +4318,7 @@ diff -Nru enlightenment-0.16.6/src/theme.c enlightenment-0.16.6.new/src/theme.c
  	     def = duplicate(ss);
  	  }
       }
-@@ -162,9 +162,9 @@
+@@ -167,9 +167,9 @@
     if (!def)
       {
  #ifndef __EMX__
@@ -4456,7 +4330,7 @@ diff -Nru enlightenment-0.16.6/src/theme.c enlightenment-0.16.6.new/src/theme.c
  		  __XOS2RedirRoot(ENLIGHTENMENT_ROOT));
  #endif
  #ifndef __EMX__
-@@ -176,7 +176,7 @@
+@@ -181,7 +181,7 @@
  		def = duplicate(s);
  	     else
  	       {
@@ -4465,7 +4339,7 @@ diff -Nru enlightenment-0.16.6/src/theme.c enlightenment-0.16.6.new/src/theme.c
  			    s);
  		  def = duplicate(ss);
  	       }
-@@ -198,7 +198,7 @@
+@@ -203,7 +203,7 @@
   */
     char                ss[FILEPATH_LEN_MAX];
  
@@ -4474,7 +4348,7 @@ diff -Nru enlightenment-0.16.6/src/theme.c enlightenment-0.16.6.new/src/theme.c
     if (exists(ss))
        rm(ss);
     if (theme)
-@@ -241,14 +241,14 @@
+@@ -246,14 +246,14 @@
  	     /* make the temp dir */
  
  	     themename = fileof(theme);
@@ -4491,7 +4365,7 @@ diff -Nru enlightenment-0.16.6/src/theme.c enlightenment-0.16.6.new/src/theme.c
  			    "gzip -d -c < %s | (cd %s ; tar -xf -)", theme, th);
  	       }
  	     else if ((buf[257] == 'u') && (buf[258] == 's')
-@@ -256,7 +256,7 @@
+@@ -261,7 +261,7 @@
  		      && (buf[261] == 'r'))
  	       {
  		  /*vanilla tarball */
@@ -4500,7 +4374,7 @@ diff -Nru enlightenment-0.16.6/src/theme.c enlightenment-0.16.6.new/src/theme.c
  	       }
  	     /* exec the untar if tarred */
  	     system(s);
-@@ -270,9 +270,9 @@
+@@ -275,9 +275,9 @@
  		  char                sss[FILEPATH_LEN_MAX];
  
  #ifndef __EMX__
@@ -4512,7 +4386,7 @@ diff -Nru enlightenment-0.16.6/src/theme.c enlightenment-0.16.6.new/src/theme.c
  #endif
  		  system(sss);
  		  mustdel = 0;
-@@ -294,9 +294,9 @@
+@@ -299,9 +299,9 @@
     if (!theme[0])
       {
  #ifndef __EMX__
@@ -4524,7 +4398,7 @@ diff -Nru enlightenment-0.16.6/src/theme.c enlightenment-0.16.6.new/src/theme.c
  		  __XOS2RedirRoot(ENLIGHTENMENT_ROOT));
  #endif
  	EDBUG_RETURN(duplicate(s));
-@@ -309,7 +309,7 @@
+@@ -314,7 +314,7 @@
        ret = ExtractTheme(theme);
     if (!ret)
       {
@@ -4533,7 +4407,7 @@ diff -Nru enlightenment-0.16.6/src/theme.c enlightenment-0.16.6.new/src/theme.c
  	if (exists(s))
  	   ret = ExtractTheme(s);
  	else
-@@ -317,9 +317,9 @@
+@@ -322,9 +322,9 @@
  	if (!ret)
  	  {
  #ifndef __EMX__
@@ -4545,7 +4419,7 @@ diff -Nru enlightenment-0.16.6/src/theme.c enlightenment-0.16.6.new/src/theme.c
  		       __XOS2RedirRoot(ENLIGHTENMENT_ROOT), theme);
  #endif
  	     if (exists(s))
-@@ -344,7 +344,7 @@
+@@ -349,7 +349,7 @@
     if (!badtheme)
        return;
  
@@ -4554,10 +4428,10 @@ diff -Nru enlightenment-0.16.6/src/theme.c enlightenment-0.16.6.new/src/theme.c
  	     _("The theme:\n" "%s\n"
  	       "Is a badly formed theme package and is thus not being used.\n"
  	       "Enlightenment has fallen back to using the DEFAULT theme.\n"
-diff -Nru enlightenment-0.16.6/src/tooltips.c enlightenment-0.16.6.new/src/tooltips.c
---- enlightenment-0.16.6/src/tooltips.c	Fri Jul 28 21:13:13 2000
-+++ enlightenment-0.16.6.new/src/tooltips.c	Fri Jul 20 05:31:16 2001
-@@ -1046,7 +1046,7 @@
+diff -ur enlightenment-0.16.6.orig/src/tooltips.c enlightenment-0.16.6/src/tooltips.c
+--- enlightenment-0.16.6.orig/src/tooltips.c	Wed Nov  5 18:58:51 2003
++++ enlightenment-0.16.6/src/tooltips.c	Wed Nov 12 17:23:52 2003
+@@ -967,7 +967,7 @@
       {
  	char                stuff[255];
  
@@ -4566,26 +4440,3 @@ diff -Nru enlightenment-0.16.6/src/tooltips.c enlightenment-0.16.6.new/src/toolt
  		  tt->ref_count);
  	DIALOG_OK(_("ToolTip Error!"), stuff);
       }
-diff -Nru enlightenment-0.16.6/stamp-h enlightenment-0.16.6.new/stamp-h
---- enlightenment-0.16.6/stamp-h	Thu Jan  1 01:00:00 1970
-+++ enlightenment-0.16.6.new/stamp-h	Fri Jul 20 05:11:30 2001
-@@ -0,0 +1 @@
-+timestamp
-diff -Nru enlightenment-0.16.6/src/snprintf.c enlightenment-0.16.6.new/src/snprintf.c
---- enlightenment-0.16.6/src/snprintf.c	Thu Aug  9 19:44:49 2001
-+++ enlightenment-0.16.6.new/src/snprintf.c	Thu Aug  9 19:47:30 2001
-@@ -28,6 +28,8 @@
-  * 
-  * so workaround...
-  */
-+#ifndef HAVE_SNPRINTF
-+
- #ifdef __sgi
- #ifdef _NO_ANSIMODE
- #undef _NO_ANSIMODE
-@@ -589,3 +591,5 @@
-  * 
-  * The End
-  */
-+
-+#endif /* HAVE_SNPRINTF */
