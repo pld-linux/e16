@@ -2,16 +2,16 @@ Summary:	Enlightenment Window Manager
 Summary(pl):	X Window menad¿er - Enlightenment  
 Name:		enlightenment
 Version:	0.16.4
-Release: 2
+Release:	2
 License:	GPL
 Group:		X11/Window Managers
 Group(es):	X11/Administraadores De Ventanas
 Group(fr):	X11/Gestionnaires De Fenêtres
 Group(pl):	X11/Zarz±dcy Okien
 Source0:	ftp://ftp.enlightenment.org/pub/enlightenment/enlightenment/%{name}-%{version}.tar.gz
-Source1:	enlightenment.desktop
-Patch0:		enlightenment-config-path.patch
-Patch1:		enlightenment-makefile_fix.patch
+Source1:	%{name}.desktop
+Patch0:		%{name}-config-path.patch
+Patch1:		%{name}-makefile_fix.patch
 URL:		http://www.enlightenment.org/
 BuildRequires:	gtk+-devel >= 1.2.1
 BuildRequires:	esound-devel >= 0.2.13
