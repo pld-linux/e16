@@ -48,7 +48,7 @@ window-menad¿erem jaki kiedykolwiek zosta³ stworzony dla Linuxa ;)
 
 %build
 gettextize --copy --force
-CFLAGS="-I%{_includedir}/freetype %{?debug:-O -g}%{!?debug:$RPM_OPT_FLAGS}"
+CFLAGS="-I%{_includedir}/freetype %{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS}"
 %configure \
 	--enable-fsstd \
 	--enable-sound
