@@ -1,0 +1,11 @@
+--- enlightenment-0.16.6/configure.in~	Sat Jul 24 00:43:55 2004
++++ enlightenment-0.16.6/configure.in	Sat Jul 24 00:43:55 2004
+@@ -28,7 +28,7 @@
+ AC_SUBST(ENLIGHTENMENT_MICRO)
+ 
+ AC_SUBST(ENLIGHTENMENT_BIN)
+-ALL_LINGUAS="de dk en_US es fr hu ko nl no ru sv pt pl pt_BR tr ja"
++ALL_LINGUAS="da de en_US es fr hu ja ko nb nl pl pt pt_BR ru sv tr"
+ 
+ AC_PROG_CC
+ AC_PROG_MAKE_SET
