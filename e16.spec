@@ -2,7 +2,7 @@ Summary:	Enlightenment Window Manager
 Summary(pl):	X Window menad¿er - Enlightenment
 Name:		enlightenment
 Version:	0.16.5
-Release:	5
+Release:	
 License:	GPL
 Group:		X11/Window Managers
 Source0:	ftp://ftp.enlightenment.org/pub/enlightenment/enlightenment/%{name}-%{version}.tar.gz
@@ -59,7 +59,7 @@ aclocal
 autoconf
 rm -f missing
 automake -a -c -f
-CFLAGS="-I/usr/include/freetype1/freetype %{rpmcflags}"
+CFLAGS="-I%{_includedir}/freetype %{rpmcflags}"
 %configure \
 	--enable-sound=yes
 
