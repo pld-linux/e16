@@ -16,6 +16,7 @@ Source3:	%{name}.wm_style
 Patch0:		%{name}-config-path.patch
 Patch1:		%{name}-makefile_fix.patch
 Patch2:		%{name}-ac_am_fixes.patch
+Patch3:		%{name}-use_sys_snprintf.patch
 URL:		http://www.enlightenment.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -53,6 +54,7 @@ window-menad¿erem jaki kiedykolwiek zosta³ stworzony dla Linuxa ;)
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 libtoolize --copy --force
@@ -63,7 +65,7 @@ rm -f missing
 automake -a -c
 CFLAGS="-I%{_includedir}/freetype %{rpmcflags}"
 %configure \
-	--enable-sound
+	--enable-sound=yes
 
 %{__make}
 
