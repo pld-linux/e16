@@ -1,0 +1,64 @@
+#!/bin/sh
+
+EDirUser=$HOME/.enlightenment
+[ -d $EDirUser ] || exit 1
+
+
+DIALOG_ID=
+e_dialog() {
+if [ "$1" == "msg" ]; then
+	msg="$(echo "$2" | tr '&' '\n' )"
+	[ "$DIALOG_ID" != "" ] && \
+		eesh -e "win_op $DIALOG_ID close"
+	eesh -e "dialog_ok $msg"
+	DIALOG_ID=$( eesh -ewait "window_list" | \
+		grep $(gettext -d enlightenment Message) \
+		| cut -f1 -d\ | head -n1 )
+elif [ "$1" == "title" ]; then
+	eesh -e "win_op $DIALOG_ID title $2" &
+	# don't use it to much: sigfault
+fi
+}
+
+deskmd5() {
+find /usr/share/applications/ -name "*.desktop" \
+	-exec cat "{}" ";" | md5sum > $EDirUser/menus/md5
+}
+
+SPACE="                                "
+e_dialog msg ".${SPACE}Please Wait.${SPACE}."
+e_dialog title "Menus are being generated..."
+
+rm -rf $EDirUser/menus.old{,menu}
+mv $EDirUser/menus{,.oldmenu}
+mkdir $EDirUser/menus
+
+
+#core
+vfmg -i -f -c -s --xterm='Eterm --name %1 --exec %2' enlightenment
+
+#vim: '
+
+rm -rf $EDirUser/menus.old
+mv -f $EDirUser/file.menu{,.oldmenu}
+ln -s menus/Applications.menu $EDirUser/file.menu
+
+if [ ! -r $EDirUser/file.menu -o \
+	$(ls $EDirUser/menus | wc -l) -lt 5 ]; then
+	
+	rm -rf $EDirUser/menus
+	mv $EDirUser/menus{.oldmenu,}
+	mv -f $EDirUser/file.menu{.oldmenu,}
+	
+	e_dialog msg ".${SPACE}Something went wrong !${SPACE}.&Old menus reverted."
+else
+	rm -rf $EDirUser/menus.oldmenu
+	rm -f $EDirUser/file.menu.oldmenu
+	
+	e_dialog msg ".${SPACE}Seems to be OK.${SPACE}.&Old menus deleted."
+	echo "$LANG" > $EDirUser/menus/lang
+	deskmd5 &
+fi
+
+eesh -e 'reload_menus'
+e_dialog title "Menu generation complete."

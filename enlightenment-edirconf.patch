@@ -1,0 +1,108 @@
+diff -Nur enlightenment-0.16.7.1.orig/src/config.c enlightenment-0.16.7.1/src/config.c
+--- enlightenment-0.16.7.1.orig/src/config.c	2004-08-20 23:35:46.000000000 +0200
++++ enlightenment-0.16.7.1/src/config.c	2004-10-01 01:32:53.715493632 +0200
+@@ -3348,7 +3348,7 @@
+ 	     i++;
+ 	  }
+ 	Esnprintf(execline, sizeof(execline), "%s " "-P " "-nostdinc " "-undef "
+-		  "-include %s/config/definitions " "-I%s " "-I%s/config "
++		  "-include %s/definitions " "-I%s " "-I%s "
+ 		  "-D ENLIGHTENMENT_VERSION=%s " "-D ENLIGHTENMENT_ROOT=%s "
+ 		  "-D ENLIGHTENMENT_BIN=%s "
+ 		  "-D ENLIGHTENMENT_THEME=%s " "-D ECONFDIR=%s "
+@@ -3357,7 +3357,7 @@
+ 		  "-D SCREEN_DEPTH_%i=1 " "-D USER_NAME=%s " "-D HOME_DIR=%s "
+ 		  "-D USER_SHELL=%s " "-D ENLIGHTENMENT_VERSION_015=1 "
+ 		  "%s %s/cached/cfg/%s.preparsed",
+-		  epp_path, EDirRoot(), themepath, EDirRoot(),
++		  epp_path, EDirConf(), themepath, EDirConf(),
+ 		  ENLIGHTENMENT_VERSION, EDirRoot(), EDirBin(),
+ 		  themepath, EDirUser(), EDirUserCache(), VRoot.w, VRoot.h,
+ 		  VRoot.w, VRoot.h, VRoot.depth, def_user, def_home, def_shell,
+@@ -3586,7 +3586,7 @@
+       EDBUG_RETURN(Estrdup(s));
+ 
+    /* look in system config dir */
+-   Esnprintf(s, sizeof(s), "%s/config/%s", EDirRoot(), file);
++   Esnprintf(s, sizeof(s), "%s/%s", EDirConf(), file);
+    if (findLocalizedFile(s) || isfile(s))
+       EDBUG_RETURN(Estrdup(s));
+ 
+@@ -3615,7 +3615,7 @@
+       EDBUG_RETURN(Estrdup(s));
+ 
+    /* look in system config dir */
+-   Esnprintf(s, sizeof(s), "%s/config/%s", EDirRoot(), file);
++   Esnprintf(s, sizeof(s), "%s/%s", EDirConf(), file);
+    if (findLocalizedFile(s) || isfile(s))
+       EDBUG_RETURN(Estrdup(s));
+ 
+@@ -3692,7 +3692,7 @@
+    EDBUG(5, "LoadEConfig");
+ 
+    Esnprintf(s, sizeof(s), "%s/", EDirUser());
+-   Esnprintf(s, sizeof(s), "%s/config/", EDirRoot());
++   Esnprintf(s, sizeof(s), "%s/", EDirConf());
+ 
+    /* save the current theme */
+    if ((themelocation) && (themelocation[0] != 0))
+diff -Nur enlightenment-0.16.7.1.orig/src/E.h enlightenment-0.16.7.1/src/E.h
+--- enlightenment-0.16.7.1.orig/src/E.h	2004-08-20 23:35:46.000000000 +0200
++++ enlightenment-0.16.7.1/src/E.h	2004-10-01 01:23:11.338028464 +0200
+@@ -2381,6 +2381,7 @@
+ 
+ /* misc.c */
+ void                BlumFlimFrub(void);
++const char         *EDirConf(void);
+ const char         *EDirRoot(void);
+ const char         *EDirBin(void);
+ void                EDirUserSet(const char *d);
+diff -Nur enlightenment-0.16.7.1.orig/src/file.c enlightenment-0.16.7.1/src/file.c
+--- enlightenment-0.16.7.1.orig/src/file.c	2004-08-20 23:35:46.000000000 +0200
++++ enlightenment-0.16.7.1/src/file.c	2004-10-01 01:30:04.091280432 +0200
+@@ -300,7 +300,7 @@
+ {
+    struct stat         st;
+ 
+-   EDBUG(9, "filesize");
++   EDBUG(9, "fileinode");
+    if ((!s) || (!*s))
+       EDBUG_RETURN(0);
+    if (stat(s, &st) < 0)
+@@ -313,7 +313,7 @@
+ {
+    struct stat         st;
+ 
+-   EDBUG(9, "filesize");
++   EDBUG(9, "filedev");
+    if ((!s) || (!*s))
+       EDBUG_RETURN(0);
+    if (stat(s, &st) < 0)
+diff -Nur enlightenment-0.16.7.1.orig/src/misc.c enlightenment-0.16.7.1/src/misc.c
+--- enlightenment-0.16.7.1.orig/src/misc.c	2004-08-20 23:35:46.000000000 +0200
++++ enlightenment-0.16.7.1/src/misc.c	2004-10-01 01:30:25.558016992 +0200
+@@ -76,6 +76,13 @@
+    return ENLIGHTENMENT_ROOT;
+ }
+ 
++const char         *
++EDirConf(void)
++{
++   return ENLIGHTENMENT_CONF;
++}
++
++
+ void
+ EDirUserSet(const char *d)
+ {
+diff -Nur enlightenment-0.16.7.1.orig/src/setup.c enlightenment-0.16.7.1/src/setup.c
+--- enlightenment-0.16.7.1.orig/src/setup.c	2004-08-20 23:35:46.000000000 +0200
++++ enlightenment-0.16.7.1/src/setup.c	2004-10-01 01:26:45.939404096 +0200
+@@ -568,6 +568,7 @@
+ {
+    char                s[1024];
+ 
++   // EDirConf ?
+    Esetenv("EVERSION", ENLIGHTENMENT_VERSION, 1);
+    Esetenv("EROOT", EDirRoot(), 1);
+    Esetenv("EBIN", EDirBin(), 1);

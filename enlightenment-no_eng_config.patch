@@ -1,0 +1,100 @@
+diff -Nur enlightenment-0.16.7.1.orig/config/ja/menus.cfg.ja enlightenment-0.16.7.1/config/ja/menus.cfg.ja
+--- enlightenment-0.16.7.1.orig/config/ja/menus.cfg.ja	2000-01-31 23:34:32.000000000 +0100
++++ enlightenment-0.16.7.1/config/ja/menus.cfg.ja	2004-10-07 00:38:08.737748424 +0200
+@@ -70,15 +70,15 @@
+ 
+ BEGIN_NEW_MENU("MAINT_SUBMENU", "ROOT")
+ ADD_MENU_TITLE("Enlightenment¤Î¥á¥¤¥ó¥Æ¥Ê¥ó¥¹")
+-ADD_MENU_TEXT_ITEM("ÀßÄê¥Õ¥¡¥¤¥ë¥­¥ã¥Ã¥·¥å¤Î¥¯¥ê¥¢",               __A_EXEC, ENLIGHTENMENT_BIN"/e_cache_clean config")
+-ADD_MENU_TEXT_ITEM("¥Ú¡¼¥¸¥ã¥Ð¥Ã¥¯¥°¥é¥¦¥ó¥É¥­¥ã¥Ã¥·¥å¤Î¥¯¥ê¥¢",          __A_EXEC, ENLIGHTENMENT_BIN"/e_cache_clean pager")
+-ADD_MENU_TEXT_ITEM("ÇØ·Ê¥»¥ì¥¯¥¿¥­¥ã¥Ã¥·¥å¤Î¥¯¥ê¥¢",       __A_EXEC, ENLIGHTENMENT_BIN"/e_cache_clean bgsel")
+-ADD_MENU_TEXT_ITEM("¤¹¤Ù¤Æ¤Î¥­¥ã¥Ã¥·¥å¤ò¥¯¥ê¥¢",                      __A_EXEC, ENLIGHTENMENT_BIN"/e_cache_clean all")
+-ADD_MENU_TEXT_ITEM("ÀßÄê¥Õ¥¡¥¤¥ë¥­¥ã¥Ã¥·¥åÍøÍÑ¾õ¶·",         __A_EXEC, ENLIGHTENMENT_BIN"/e_cache_query config")
+-ADD_MENU_TEXT_ITEM("¥Ú¡¼¥¸¥ã¥Ð¥Ã¥¯¥°¥é¥¦¥ó¥É¥­¥ã¥Ã¥·¥åÍøÍÑ¾õ¶·",    __A_EXEC, ENLIGHTENMENT_BIN"/e_cache_query pager")
+-ADD_MENU_TEXT_ITEM("ÇØ·Ê¥»¥ì¥¯¥¿¥­¥ã¥Ã¥·¥åÍøÍÑ¾õ¶·", __A_EXEC, ENLIGHTENMENT_BIN"/e_cache_query bgsel")
+-ADD_MENU_TEXT_ITEM("¤¹¤Ù¤Æ¤Î¥­¥ã¥Ã¥·¥å¤ÎÍøÍÑ¾õ¶·",                 __A_EXEC, ENLIGHTENMENT_BIN"/e_cache_query all")
+-ADD_MENU_TEXT_ITEM("¥á¥Ë¥å¡¼¤òºÆ¹½À®",                      __A_EXEC, ENLIGHTENMENT_BIN"/e_gen_menu")
++ADD_MENU_TEXT_ITEM("ÀßÄê¥Õ¥¡¥¤¥ë¥­¥ã¥Ã¥·¥å¤Î¥¯¥ê¥¢",               __A_EXEC, E_SCRIPTS_DIR"/e_cache_clean config")
++ADD_MENU_TEXT_ITEM("¥Ú¡¼¥¸¥ã¥Ð¥Ã¥¯¥°¥é¥¦¥ó¥É¥­¥ã¥Ã¥·¥å¤Î¥¯¥ê¥¢",          __A_EXEC, E_SCRIPTS_DIR"/e_cache_clean pager")
++ADD_MENU_TEXT_ITEM("ÇØ·Ê¥»¥ì¥¯¥¿¥­¥ã¥Ã¥·¥å¤Î¥¯¥ê¥¢",       __A_EXEC, E_SCRIPTS_DIR"/e_cache_clean bgsel")
++ADD_MENU_TEXT_ITEM("¤¹¤Ù¤Æ¤Î¥­¥ã¥Ã¥·¥å¤ò¥¯¥ê¥¢",                      __A_EXEC, E_SCRIPTS_DIR"/e_cache_clean all")
++ADD_MENU_TEXT_ITEM("ÀßÄê¥Õ¥¡¥¤¥ë¥­¥ã¥Ã¥·¥åÍøÍÑ¾õ¶·",         __A_EXEC, E_SCRIPTS_DIR"/e_cache_query config")
++ADD_MENU_TEXT_ITEM("¥Ú¡¼¥¸¥ã¥Ð¥Ã¥¯¥°¥é¥¦¥ó¥É¥­¥ã¥Ã¥·¥åÍøÍÑ¾õ¶·",    __A_EXEC, E_SCRIPTS_DIR"/e_cache_query pager")
++ADD_MENU_TEXT_ITEM("ÇØ·Ê¥»¥ì¥¯¥¿¥­¥ã¥Ã¥·¥åÍøÍÑ¾õ¶·", __A_EXEC, E_SCRIPTS_DIR"/e_cache_query bgsel")
++ADD_MENU_TEXT_ITEM("¤¹¤Ù¤Æ¤Î¥­¥ã¥Ã¥·¥å¤ÎÍøÍÑ¾õ¶·",                 __A_EXEC, E_SCRIPTS_DIR"/e_cache_query all")
++ADD_MENU_TEXT_ITEM("¥á¥Ë¥å¡¼¤òºÆ¹½À®",                      __A_EXEC, E_SCRIPTS_DIR"/e_gen_menu")
+ END_MENU
+ 
+ /* dont need this anymore - will have a scritp soon to do it all 
+@@ -121,9 +121,9 @@
+ ADD_MENU_SUBMENU_TEXT_ITEM("ÀßÄê",        "CONFIG_SUBMENU")
+ ADD_MENU_SUBMENU_TEXT_ITEM("¥Æ¡¼¥Þ",          "THEMES_SUBMENU")
+ ADD_MENU_SUBMENU_TEXT_ITEM("¥á¥¤¥ó¥Æ¥Ê¥ó¥¹",     "MAINT_SUBMENU")
+-ADD_MENU_TEXT_ITEM("¥Ø¥ë¥×",                 __A_EXEC, ENLIGHTENMENT_BIN"/dox" $EROOT"/E-docs")
++ADD_MENU_TEXT_ITEM("¥Ø¥ë¥×",                 __A_EXEC, ENLIGHTENMENT_BIN"/edox" $EROOT"/E-docs")
+ ADD_MENU_TEXT_ITEM("Enlightenment¤Ë¤Ä¤¤¤Æ",  __A_ABOUT, "")
+-ADD_MENU_TEXT_ITEM("¤³¤Î¥Æ¡¼¥Þ¤Ë¤Ä¤¤¤Æ",     __A_EXEC, ENLIGHTENMENT_BIN"/dox" $ETHEME"/ABOUT")
++ADD_MENU_TEXT_ITEM("¤³¤Î¥Æ¡¼¥Þ¤Ë¤Ä¤¤¤Æ",     __A_EXEC, ENLIGHTENMENT_BIN"/edox" $ETHEME"/ABOUT")
+ ADD_MENU_TEXT_ITEM("Enlightenment¤ÎºÆµ¯Æ°",__A_EXIT, "restart")
+ ADD_MENU_TEXT_ITEM("¥í¥°¥¢¥¦¥È",              __A_EXIT, "logout")
+ END_MENU
+diff -Nur enlightenment-0.16.7.1.orig/config/Makefile.am enlightenment-0.16.7.1/config/Makefile.am
+--- enlightenment-0.16.7.1.orig/config/Makefile.am	2004-10-07 00:09:53.009538296 +0200
++++ enlightenment-0.16.7.1/config/Makefile.am	2004-10-07 00:41:11.288996416 +0200
+@@ -16,14 +16,13 @@
+ 
+ configdatadir = $(sysconfdir)
+ 
+-TRANSLATIONS = config.ja config.pl config.ko
++TRANSLATIONS = ja ko pl
+ EXTRA_DIST = $(sysconf_DATA) $(TRANSLATIONS) strings.c
+ 
+ install-data-local:
+ 	$(mkinstalldirs) $(DESTDIR)$(configdatadir)
+ 	for f in $(TRANSLATIONS); do \
+-		gzip -d -c < $(srcdir)/$$f | \
+-			(cd $(DESTDIR)$(configdatadir); tar -xmf -) \
++		cp $(srcdir)/$$f/* $(DESTDIR)$(configdatadir); \
+ 	done
+ 
+ uninstall-local:
+diff -Nur enlightenment-0.16.7.1.orig/config/pl/menus.cfg.pl enlightenment-0.16.7.1/config/pl/menus.cfg.pl
+--- enlightenment-0.16.7.1.orig/config/pl/menus.cfg.pl	2001-08-16 15:28:34.000000000 +0200
++++ enlightenment-0.16.7.1/config/pl/menus.cfg.pl	2004-10-07 00:37:44.051501304 +0200
+@@ -60,15 +60,15 @@
+ 
+ BEGIN_NEW_MENU("MAINT_SUBMENU", "ROOT")
+ ADD_MENU_TITLE("Konserwacja Enlightenment")
+-ADD_MENU_TEXT_ITEM("Wyczy¶æ cache plików konfiguracyjnych",                      __A_EXEC, ENLIGHTENMENT_BIN"/e_cache_clean.pl config")
+-ADD_MENU_TEXT_ITEM("Wyczy¶æ cache z t³ami Podgl±du Pulpitu",                     __A_EXEC, ENLIGHTENMENT_BIN"/e_cache_clean.pl pager")
+-ADD_MENU_TEXT_ITEM("Wyczy¶æ cache z wyborem t³a",                                __A_EXEC, ENLIGHTENMENT_BIN"/e_cache_clean.pl bgsel")
+-ADD_MENU_TEXT_ITEM("Wyczy¶æ wszystkie cache",                                    __A_EXEC, ENLIGHTENMENT_BIN"/e_cache_clean.pl all")
+-ADD_MENU_TEXT_ITEM("Podaj zu¿ycie pamiêci przez cache plików konfiguracyjnych",  __A_EXEC, ENLIGHTENMENT_BIN"/e_cache_query.pl config")
+-ADD_MENU_TEXT_ITEM("Podaj zu¿ycie pamiêci przez cache z t³ami Podgl±du Pulpitu", __A_EXEC, ENLIGHTENMENT_BIN"/e_cache_query.pl pager")
+-ADD_MENU_TEXT_ITEM("Podaj zu¿ycie pamiêci przez cache z wyborem t³a",            __A_EXEC, ENLIGHTENMENT_BIN"/e_cache_query.pl bgsel")
+-ADD_MENU_TEXT_ITEM("Podaj zu¿ycie pamiêci przez wszystkie cache",                __A_EXEC, ENLIGHTENMENT_BIN"/e_cache_query.pl all")
+-ADD_MENU_TEXT_ITEM("Regeneracja Menu",                                           __A_EXEC, ENLIGHTENMENT_BIN"/e_gen_menu.pl")
++ADD_MENU_TEXT_ITEM("Wyczy¶æ cache plików konfiguracyjnych",                      __A_EXEC, E_SCRIPTS_DIR"/e_cache_clean config")
++ADD_MENU_TEXT_ITEM("Wyczy¶æ cache z t³ami Podgl±du Pulpitu",                     __A_EXEC, E_SCRIPTS_DIR"/e_cache_clean pager")
++ADD_MENU_TEXT_ITEM("Wyczy¶æ cache z wyborem t³a",                                __A_EXEC, E_SCRIPTS_DIR"/e_cache_clean bgsel")
++ADD_MENU_TEXT_ITEM("Wyczy¶æ wszystkie cache",                                    __A_EXEC, E_SCRIPTS_DIR"/e_cache_clean all")
++ADD_MENU_TEXT_ITEM("Podaj zu¿ycie pamiêci przez cache plików konfiguracyjnych",  __A_EXEC, E_SCRIPTS_DIR"/e_cache_query config")
++ADD_MENU_TEXT_ITEM("Podaj zu¿ycie pamiêci przez cache z t³ami Podgl±du Pulpitu", __A_EXEC, E_SCRIPTS_DIR"/e_cache_query pager")
++ADD_MENU_TEXT_ITEM("Podaj zu¿ycie pamiêci przez cache z wyborem t³a",            __A_EXEC, E_SCRIPTS_DIR"/e_cache_query bgsel")
++ADD_MENU_TEXT_ITEM("Podaj zu¿ycie pamiêci przez wszystkie cache",                __A_EXEC, E_SCRIPTS_DIR"/e_cache_query all")
++ADD_MENU_TEXT_ITEM("Regeneracja Menu",                                           __A_EXEC, E_SCRIPTS_DIR"/e_gen_menu")
+ END_MENU
+ 
+ /* dont need this anymore - will have a scritp soon to do it all 
+@@ -112,9 +112,9 @@
+ ADD_MENU_SUBMENU_TEXT_ITEM("Ustawienia",              "CONFIG_SUBMENU")
+ ADD_MENU_SUBMENU_TEXT_ITEM("Wystroje",                "THEMES_SUBMENU")
+ ADD_MENU_SUBMENU_TEXT_ITEM("Konserwacja",             "MAINT_SUBMENU")
+-ADD_MENU_TEXT_ITEM("Pomoc",                   __A_EXEC, ENLIGHTENMENT_BIN"/dox" $EROOT"/E-docs")
++ADD_MENU_TEXT_ITEM("Pomoc",                   __A_EXEC, ENLIGHTENMENT_BIN"/edox" $EROOT"/E-docs")
+ ADD_MENU_TEXT_ITEM("O Enlightenment",         __A_ABOUT, "")
+-ADD_MENU_TEXT_ITEM("O tym wystroju",          __A_EXEC, ENLIGHTENMENT_BIN"/dox" $ETHEME"/ABOUT")
++ADD_MENU_TEXT_ITEM("O tym wystroju",          __A_EXEC, ENLIGHTENMENT_BIN"/edox" $ETHEME"/ABOUT")
+ ADD_MENU_TEXT_ITEM("Restartuj Enlightenment", __A_EXIT, "restart")
+ ADD_MENU_TEXT_ITEM("Wyloguj siê",             __A_EXIT, "logout")
+ END_MENU
