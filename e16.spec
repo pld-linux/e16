@@ -1,8 +1,8 @@
 Summary:	Enlightenment Window Manager
 Summary(pl):	X Window menad¿er - Enlightenment  
 Name:		enlightenment
-Version:	0.16.4
-Release:	3
+Version:	0.16.5
+Release:	1
 License:	GPL
 Group:		X11/Window Managers
 Group(de):	X11/Fenstermanager
@@ -47,6 +47,7 @@ window-menad¿erem jaki kiedykolwiek zosta³ stworzony dla Linuxa ;)
 %patch1 -p1
 
 %build
+gettextize --copy --force
 CFLAGS="-I%{_includedir}/freetype %{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g}"
 %configure \
 	--enable-fsstd \
@@ -65,18 +66,18 @@ install -d $RPM_BUILD_ROOT%{_datadir}/gnome/wm-properties \
 
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/wmstyle/%{name}.sh
 install %{SOURCE3} $RPM_BUILD_ROOT/etc/sysconfig/wmstyle/%{name}.names
+install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/gnome/wm-properties
 
 gzip -9nf AUTHORS README NEWS \
-	$RPM_BUILD_ROOT%{_mandir}/man1/*
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/gnome/wm-properties
+%find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc {AUTHORS,README,NEWS}.gz
+%doc *.gz
 %dir %{_sysconfdir}/X11/enlightenment
 %config %{_sysconfdir}/X11/enlightenment/*
 %attr(755,root,root) /etc/sysconfig/wmstyle/*.sh
