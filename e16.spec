@@ -7,7 +7,6 @@ License:	GPL
 Group:		X11/Window Managers
 Source0:	http://dl.sourceforge.net/enlightenment/%{name}-%{version}.tar.gz
 # Source0-md5:	1439839c3023914a62f8254cc31085fc
-# Source0-size:	1791137
 Source1:	%{name}.desktop
 Source2:	%{name}-xsession.desktop
 Source3:	%{name}-winter.etheme.i18n
@@ -36,7 +35,8 @@ BuildRequires:	libtiff-devel
 BuildRequires:	libtool
 BuildRequires:	libungif-devel
 BuildRequires:	zlib-devel
-Requires:	vfmg >= 0.9.18-4
+Requires:	ImageMagick-coder-png
+Requires:	vfmg >= 0.9.18-10
 Requires:	xinitrc-ng
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -66,6 +66,7 @@ for LANG_FILE in ja ko pl; do
 done )
 %patch3 -p1
 %patch4 -p1
+
 for FILE in actionclasses.cfg keybindings.cfg keybindings.gmc.cfg \
 		keybindings.nogmc.cfg menus.cfg; do
 	iconv -f EUC-JP -t UTF-8 config/ja/$FILE.ja > \
