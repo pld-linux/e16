@@ -21,6 +21,7 @@ Patch0:		%{name}-config-path.patch
 Patch1:		%{name}-makefile_fix.patch
 Patch2:		%{name}-ac_am_fixes.patch
 Patch3:		%{name}-use_sys_snprintf.patch
+Patch4:		%{name}-pl.patch
 URL:		http://enlightenment.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
