@@ -5,7 +5,7 @@ Version:	0.16
 Release:	0.2
 Copyright:	GPL
 Group:		X11/Window Managers
-Group(pl):	X11/Zarz±dcy okien
+Group(pl):	X11/Zarz±dcy Okien
 Source:		ftp://www.rasterman.com/pub/enlightenment/%{name}-%{version}.devel.2.tar.gz
 Patch:		enlightenment-config-path.patch
 URL:		http://www.rasterman.com/
