@@ -53,11 +53,11 @@ window-menad¿erem jaki kiedykolwiek zosta³ stworzony dla Linuksa ;)
 %patch3 -p1
 
 %build
+rm -f missing
 %{__libtoolize}
 %{__gettextize}
-aclocal
+%{__aclocal}
 %{__autoconf}
-rm -f missing
 %{__automake}
 CFLAGS="-I%{_includedir}/freetype %{rpmcflags}"
 %configure \
@@ -76,8 +76,6 @@ install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/wmstyle/%{name}.sh
 install %{SOURCE3} $RPM_BUILD_ROOT/etc/sysconfig/wmstyle/%{name}.names
 install %{SOURCE1} $RPM_BUILD_ROOT%{_wmpropsdir}
 
-gzip -9nf AUTHORS README NEWS
-
 %find_lang %{name}
 
 %clean
@@ -85,7 +83,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc *.gz
+%doc AUTHORS README NEWS
 %config %{_sysconfdir}
 %attr(755,root,root) /etc/sysconfig/wmstyle/*.sh
 /etc/sysconfig/wmstyle/*.names
