@@ -7,7 +7,7 @@ Copyright:	GPL
 Group:		X11/Window Managers
 Group(pl):	X11/Zarz±dcy okien
 Source:		ftp://www.rasterman.com/pub/enlightenment/%{name}-%{version}.devel.2.tar.gz
-Patch:		enlightenment-0.16-config-path.patch
+Patch:		enlightenment-config-path.patch
 URL:		http://www.rasterman.com/
 Requires:	glib >= 1.2.1
 Requires:	gtk+ >= 1.2.1
