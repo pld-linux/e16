@@ -37,7 +37,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_sysconfdir	/etc/X11/enlightenment
 
 %description
-Enlightenment is a Windowmanager for X-Windows that is designed to be
+Enlightenment is a Windowmanager for X Window that is designed to be
 powerful, extensible, configurable and able to be really good looking.
 
 %description -l pl
