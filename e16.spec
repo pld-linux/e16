@@ -2,7 +2,7 @@ Summary:	Enlightenment Window Manager
 Summary(pl):	X Window menad¿er - Enlightenment
 Name:		enlightenment
 Version:	0.16.5
-Release:	
+Release:	5
 License:	GPL
 Group:		X11/Window Managers
 Source0:	ftp://ftp.enlightenment.org/pub/enlightenment/enlightenment/%{name}-%{version}.tar.gz
