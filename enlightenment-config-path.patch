@@ -1,15 +1,3 @@
-diff -Nru enlightenment-0.16.5/src/Makefile.in enlightenment-0.16.5.new/src/Makefile.in
---- enlightenment-0.16.5/src/Makefile.in	Sun Oct  1 06:58:42 2000
-+++ enlightenment-0.16.5.new/src/Makefile.in	Sun Oct  1 05:28:39 2000
-@@ -127,7 +127,7 @@
- 
- INCLUDES = -I$(top_srcdir) $(ESD_CFLAGS) $(IMLIB_CFLAGS) -I$(includedir) -I.. -I../intl -I$(top_srcdir)/intl
- 
--DEFS = -DENLIGHTENMENT_ROOT=\"@ENLIGHTENMENT_ROOT@\" -DENLIGHTENMENT_BIN=\"@ENLIGHTENMENT_BIN@\" -DLOCALEDIR=\"@LOCALEDIR@\"
-+DEFS = -DENLIGHTENMENT_ROOT=\"@ENLIGHTENMENT_ROOT@\" -DENLIGHTENMENT_BIN=\"@ENLIGHTENMENT_BIN@\" -DLOCALEDIR=\"@LOCALEDIR@\" -DCONFIGDATADIR=\"$(configdatadir)\"
- mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
- CONFIG_HEADER = ../econfig.h
- CONFIG_CLEAN_FILES = 
 diff -Nru enlightenment-0.16.5/src/config.c enlightenment-0.16.5.new/src/config.c
 --- enlightenment-0.16.5/src/config.c	Sun Oct  1 06:58:42 2000
 +++ enlightenment-0.16.5.new/src/config.c	Sun Oct  1 07:03:53 2000
@@ -18,7 +6,7 @@ diff -Nru enlightenment-0.16.5/src/config.c enlightenment-0.16.5.new/src/config.
  	Esnprintf(execline, sizeof(execline), "%s " "-P " "-nostdinc " "-undef "
  #ifndef __EMX__
 -		  "-include %s/config/definitions " "-I%s " "-I%s/config "
-+		  "-include %s/config/definitions " "-I%s "
++		  "-include %s/definitions " "-I%s " "-I%s "
  		  "-D ENLIGHTENMENT_VERSION=%s " "-D ENLIGHTENMENT_ROOT=%s "
  		  "-D ENLIGHTENMENT_BIN=%s "
  #else

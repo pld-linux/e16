@@ -249,7 +249,7 @@ diff -Nru enlightenment-0.16.5/src/Makefile.am enlightenment-0.16.5.new/src/Make
 -#	    $(LN_S) $(bindir)/$$i $(exec_prefix)/bin/$$i; \
 -#	  done; \
 -#	fi
-+DEFS=-DENLIGHTENMENT_ROOT=\"$(pkgdatadir)\" -DENLIGHTENMENT_BIN=\"$(bindir)\" -DLOCALEDIR=\"$(datadir)/locale\" -DCONFIGDATADIR=\"$(sysconfdir)/config\"
++DEFS=-DENLIGHTENMENT_ROOT=\"$(pkgdatadir)\" -DENLIGHTENMENT_BIN=\"$(bindir)\" -DLOCALEDIR=\"$(datadir)/locale\" -DCONFIGDATADIR=\"$(sysconfdir)\"
  
  install-data-local:
 -	$(top_srcdir)/mkinstalldirs $(DESTDIR)$(ENLIGHTENMENT_ROOT)/themes; \
@@ -306,7 +306,7 @@ diff -Nru enlightenment-0.16.5/src/themes/configs/Makefile.am enlightenment-0.16
  
  install-data-local:
 -	$(mkinstalldirs) $(DESTDIR)$(configdatadir)
-+	$(mkinstalldirs) $(DESTDIR)$(sysconfdir)/config
++	$(mkinstalldirs) $(DESTDIR)$(sysconfdir)
  
  # Japanese
 -	gzip -d -c < $(srcdir)/config.ja | (cd $(DESTDIR)$(configdatadir); tar -xmf -)
@@ -320,7 +320,7 @@ diff -Nru enlightenment-0.16.5/src/themes/configs/backup/Makefile.am enlightenme
 -else
 -ebackupdir = $(prefix)/enlightenment/config/backup
 -endif
-+ebackupdir = $(sysconfdir)/config/backup
++ebackupdir = $(sysconfdir)/backup
  
  ebackup_DATA = 
  
@@ -333,7 +333,7 @@ diff -Nru enlightenment-0.16.5/src/themes/configs/pix/Makefile.am enlightenment-
 -else
 -epixdir = $(prefix)/enlightenment/config/pix
 -endif
-+epixdir = $(sysconfdir)/config/pix
++epixdir = $(sysconfdir)/pix
  
  epix_DATA = wait1.png wait2.png wait3.png wait4.png \
              wait5.png wait6.png wait7.png wait8.png \
