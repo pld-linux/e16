@@ -32,6 +32,7 @@ Requires:	xinitrc >= 3.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
+%define		_wmpropsdir	%{_datadir}/wm-properties
 
 %description
 Enlightenment is a Windowmanager for X-Windows that is designed to be
@@ -48,7 +49,7 @@ window-menad¿erem jaki kiedykolwiek zosta³ stworzony dla Linuxa ;)
 
 %build
 gettextize --copy --force
-CFLAGS="-I%{_includedir}/freetype %{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS}"
+CFLAGS="-I%{_includedir}/freetype %{rpmcflags}"
 %configure \
 	--enable-fsstd \
 	--enable-sound
@@ -57,8 +58,7 @@ CFLAGS="-I%{_includedir}/freetype %{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_datadir}/gnome/wm-properties \
-	$RPM_BUILD_ROOT/etc/sysconfig/wmstyle
+install -d $RPM_BUILD_ROOT{%{_wmpropsdir},/etc/sysconfig/wmstyle}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
@@ -66,9 +66,9 @@ install -d $RPM_BUILD_ROOT%{_datadir}/gnome/wm-properties \
 
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/wmstyle/%{name}.sh
 install %{SOURCE3} $RPM_BUILD_ROOT/etc/sysconfig/wmstyle/%{name}.names
-install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/gnome/wm-properties
+install %{SOURCE1} $RPM_BUILD_ROOT%{_wmpropsdir}
 
-gzip -9nf AUTHORS README NEWS \
+gzip -9nf AUTHORS README NEWS
 
 %find_lang %{name}
 
@@ -84,5 +84,5 @@ rm -rf $RPM_BUILD_ROOT
 /etc/sysconfig/wmstyle/*.names
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/enlightenment
-%{_datadir}/gnome/wm-properties/*
+%{_wmpropsdir}/*
 %{_mandir}/man1/*
