@@ -1,12 +1,12 @@
-diff -Nru enlightenment-0.16.3/src/themes/Makefile.in enlightenment-0.16.3.new/src/themes/Makefile.in
---- enlightenment-0.16.3/src/themes/Makefile.in	Tue Nov 23 00:26:44 1999
-+++ enlightenment-0.16.3.new/src/themes/Makefile.in	Fri Feb 11 02:51:42 2000
-@@ -302,8 +302,6 @@
- 	gzip -d -c < $(srcdir)/BrushedMetal-Tigert.etheme | (cd $(DESTDIR)$(ethemedir); rm -rf BrushedMetal-Tigert; mkdir BrushedMetal-Tigert; cd BrushedMetal-Tigert; tar -xmf -)
- 	gzip -d -c < $(srcdir)/ShinyMetal.etheme | (cd $(DESTDIR)$(ethemedir); rm -rf ShinyMetal; mkdir ShinyMetal; cd ShinyMetal; tar -xmf -)
- 	gzip -d -c < $(srcdir)/BlueSteel.etheme | (cd $(DESTDIR)$(ethemedir); rm -rf BlueSteel; mkdir BlueSteel; cd BlueSteel; tar -xmf -)
--# gzip -d -c < $(srcdir)/Ganymede.etheme | (cd $(DESTDIR)$(ethemedir); rm -rf Ganymede; mkdir Ganymede; cd Ganymede; tar -xmf -)
--	if [ -n "$(USER)" ]; then chown -R $(USER) $(DESTDIR)$(ethemedir); else chown -R root $(DESTDIR)$(ethemedir); fi
+diff -Nru enlightenment-0.16.4.orig/src/themes/Makefile.in enlightenment-0.16.4/src/themes/Makefile.in
+--- enlightenment-0.16.4.orig/src/themes/Makefile.in	Wed Jun  7 01:17:45 2000
++++ enlightenment-0.16.4/src/themes/Makefile.in	Wed Jun  7 01:19:26 2000
+@@ -332,8 +332,6 @@
+ 	gzip -d -c < $(srcdir)/BlueSteel.etheme.ja | (cd $(DESTDIR)$(ethemedir)/BlueSteel; tar -xmf -)
+ 	gzip -d -c < $(srcdir)/Ganymede.etheme.ja | (cd $(DESTDIR)$(ethemedir)/Ganymede; tar -xmf -)
  
+-	if [ -n "$(USER)" ]; then chown -R $(USER) $(DESTDIR)$(ethemedir); else chown -R root $(DESTDIR)$(ethemedir); fi
+-
  # Tell versions [3.59,3.63) of GNU make to not export all variables.
  # Otherwise a system limit (for SysV at least) may be exceeded.
+ .NOEXPORT:
