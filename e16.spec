@@ -2,14 +2,13 @@ Summary:	Enlightenment Window Manager
 Summary(pl):	Zarz±dca okien X - Enlightenment
 Name:		enlightenment
 Version:	0.16.7.2
-Release:	0.1
-License:	GPL
+Release:	0.2
+License:	BSD
 Group:		X11/Window Managers
 Source0:	http://dl.sourceforge.net/enlightenment/%{name}-%{version}.tar.gz
 # Source0-md5:	78747d34f882676eafe26eef22a448be
 Source1:	%{name}.desktop
 Source2:	%{name}-xsession.desktop
-Source3:	%{name}-winter.etheme.i18n
 Source4:	%{name}-e_gen_menu
 Source5:	%{name}-e_check_menu
 Patch0:		%{name}-edirconf.patch 
@@ -17,6 +16,7 @@ Patch1:		%{name}-ac_am_fixes.patch
 Patch2:		%{name}-pl.patch
 Patch3:		%{name}-no_eng_config.patch
 Patch4:		%{name}-check_menus.patch
+Patch5:		%{name}-winter-i18n.patch
 URL:		http://enlightenment.org/
 BuildRequires:	XFree86
 BuildRequires:	autoconf
@@ -66,6 +66,11 @@ for LANG_FILE in ja ko pl; do
 done )
 %patch3 -p1
 %patch4 -p1
+mkdir themes/winter
+cd themes/winter
+tar -zxf ../winter.etheme
+cd -
+%patch5 -p1
 
 for FILE in actionclasses.cfg keybindings.cfg keybindings.gmc.cfg \
 		keybindings.nogmc.cfg menus.cfg; do
@@ -80,8 +85,6 @@ done	# it helps, but UTF-8 still isn't working correctly
 mv -f po/{no,nb}.po
 rm po/*.gmo
 
-cp %{SOURCE3} themes/winter.etheme.i18n
-
 %build
 rm -f missing
 %{__libtoolize}
@@ -95,7 +98,7 @@ export LOCALEDIR=%{_datadir}/locale
 	--enable-sound=yes
 
 # regenerate gmo files
-%{__make} dist
+%{__make} -C po update-gmo
 %{__make}
 
 %install
