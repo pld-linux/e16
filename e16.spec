@@ -2,7 +2,7 @@ Summary:	Enlightenment Window Manager
 Summary(pl):	X Window menad¿er - Enlightenment  
 Name:		enlightenment
 Version:	0.16.5
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Window Managers
 Group(de):	X11/Fenstermanager
@@ -20,7 +20,7 @@ BuildRequires:	gtk+-devel >= 1.2.1
 BuildRequires:	esound-devel >= 0.2.13
 BuildRequires:	imlib-devel >= 1.9.8
 BuildRequires:	gettext-devel 
-BuildRequires:	freetype-devel
+BuildRequires:	freetype1-devel
 BuildRequires:	libghttp-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng >= 1.0.8
