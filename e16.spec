@@ -15,24 +15,30 @@ Source2:	%{name}.RunWM
 Source3:	%{name}.wm_style
 Patch0:		%{name}-config-path.patch
 Patch1:		%{name}-makefile_fix.patch
+Patch2:		%{name}-ac_am_fixes.patch
 URL:		http://www.enlightenment.org/
-BuildRequires:	gtk+-devel >= 1.2.1
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	esound-devel >= 0.2.13
-BuildRequires:	imlib-devel >= 1.9.8
-BuildRequires:	gettext-devel 
+BuildRequires:	fnlib-devel
 BuildRequires:	freetype1-devel
+BuildRequires:	gettext-devel 
+BuildRequires:	gtk+-devel >= 1.2.1
+BuildRequires:	imlib-devel >= 1.9.8
 BuildRequires:	libghttp-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng >= 1.0.8
 BuildRequires:	libtiff-devel
+BuildRequires:	libtool
 BuildRequires:	libungif-devel
 BuildRequires:	zlib-devel
-BuildRequires:	fnlib-devel
 Requires:	xinitrc >= 3.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
+%define		_mandir		%{_prefix}/man
 %define		_wmpropsdir	%{_datadir}/wm-properties
+%define		_sysconfdir	/etc/X11/enlightenment
 
 %description
 Enlightenment is a Windowmanager for X-Windows that is designed to be
@@ -46,23 +52,27 @@ window-menad¿erem jaki kiedykolwiek zosta³ stworzony dla Linuxa ;)
 %setup  -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
+libtoolize --copy --force
 gettextize --copy --force
+aclocal
+autoconf
+rm -f missing
+automake -a -c
 CFLAGS="-I%{_includedir}/freetype %{rpmcflags}"
 %configure \
-	--enable-fsstd \
 	--enable-sound
 
-%{__make} configdatadir=%{_sysconfdir}/X11/enlightenment
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_wmpropsdir},/etc/sysconfig/wmstyle}
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	configdatadir=%{_sysconfdir}/X11/enlightenment
+	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/wmstyle/%{name}.sh
 install %{SOURCE3} $RPM_BUILD_ROOT/etc/sysconfig/wmstyle/%{name}.names
@@ -78,8 +88,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc *.gz
-%dir %{_sysconfdir}/X11/enlightenment
-%config %{_sysconfdir}/X11/enlightenment/*
+%{_sysconfdir}/config
 %attr(755,root,root) /etc/sysconfig/wmstyle/*.sh
 /etc/sysconfig/wmstyle/*.names
 %attr(755,root,root) %{_bindir}/*
