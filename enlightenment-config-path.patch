@@ -1,0 +1,80 @@
+diff -ur enlightenment-0.16.devel.2.orig/src/Makefile.in enlightenment-0.16.devel.2/src/Makefile.in
+--- enlightenment-0.16.devel.2.orig/src/Makefile.in	Mon May 24 20:45:06 1999
++++ enlightenment-0.16.devel.2/src/Makefile.in	Sun Jun 20 04:10:42 1999
+@@ -102,7 +102,7 @@
+ 
+ INCLUDES = -I$(top_srcdir) $(ESD_CFLAGS) $(IMLIB_CFLAGS) -I$(includedir) -I..
+ 
+-DEFS = -DENLIGHTENMENT_ROOT=\"@ENLIGHTENMENT_ROOT@\" -DENLIGHTENMENT_BIN=\"@ENLIGHTENMENT_BIN@\"
++DEFS = -DENLIGHTENMENT_ROOT=\"@ENLIGHTENMENT_ROOT@\" -DENLIGHTENMENT_BIN=\"@ENLIGHTENMENT_BIN@\" -DCONFIGDATADIR=\"$(configdatadir)\"
+ mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
+ CONFIG_HEADER = ../econfig.h
+ CONFIG_CLEAN_FILES = 
+diff -ur enlightenment-0.16.devel.2.orig/src/config.c enlightenment-0.16.devel.2/src/config.c
+--- enlightenment-0.16.devel.2.orig/src/config.c	Mon May 24 20:33:15 1999
++++ enlightenment-0.16.devel.2/src/config.c	Sun Jun 20 04:09:44 1999
+@@ -2675,8 +2675,8 @@
+ 		"-P "
+ 		"-nostdinc "
+ 		"-undef "
+-		"-include %s/config/definitions "
+-		"-I%s/config "
++		"-include %s/definitions "
++		"-I%s "
+ 		"-D ENLIGHTENMENT_VERSION=%s "
+ 		"-D ENLIGHTENMENT_ROOT=%s "
+ 		"-D ENLIGHTENMENT_BIN=%s "
+@@ -2690,7 +2690,7 @@
+ 		"-D USER_SHELL=%s "
+ 		"-D ENLIGHTENMENT_VERSION_015=1 "
+ 		"%s %s/.enlightenment/cached/cfg/%s.preparsed",
+-		epp_path, ENLIGHTENMENT_ROOT, ENLIGHTENMENT_ROOT,
++		epp_path, CONFIGDATADIR, CONFIGDATADIR,
+ 		ENLIGHTENMENT_VERSION, ENLIGHTENMENT_ROOT, ENLIGHTENMENT_BIN,
+ 		themepath,
+ 		root.w, root.h, root.w, root.h, root.depth,
+@@ -2969,7 +2969,7 @@
+   if (isfile(s))
+     EDBUG_RETURN(duplicate(s));
+   /* look in system config dir */
+-  Esnprintf(s, sizeof(s), "%s/config/%s", ENLIGHTENMENT_ROOT, file);
++  Esnprintf(s, sizeof(s), "%s/%s", CONFIGDATADIR, file);
+   if (isfile(s))
+     EDBUG_RETURN(duplicate(s));
+   /* not found.... NULL */
+@@ -2996,7 +2996,7 @@
+   if (isfile(s))
+     EDBUG_RETURN(duplicate(s));
+   /* look in system config dir */
+-  Esnprintf(s, sizeof(s), "%s/config/%s", ENLIGHTENMENT_ROOT, file);
++  Esnprintf(s, sizeof(s), "%s/%s", CONFIGDATADIR, file);
+   if (isfile(s))
+     EDBUG_RETURN(duplicate(s));
+   /* not found.... NULL */
+@@ -3017,7 +3017,7 @@
+   home = homedir(getuid());
+   Esnprintf(s, sizeof(s), "%s/.enlightenment/", home);
+   Fnlib_add_dir(fd, s);
+-  Esnprintf(s, sizeof(s), "%s/config/", ENLIGHTENMENT_ROOT);
++  Esnprintf(s, sizeof(s), "%s/", CONFIGDATADIR);
+   Fnlib_add_dir(fd, s);
+   /* save the current theme */
+   if ((themelocation) && (themelocation[0] != 0))
+@@ -3048,7 +3048,7 @@
+       Alert("Enlightenment has just experienced some major problems in\n"
+ 	    "attempting to load the theme you specified or the default\n"
+ 	    "configuration directory:\n"
+-	    "%s/config/\n"
++	    "%s/\n"
+ 	    "This will prevent Enlightenment from loading any configuration\n"
+ 	    "files at all.\n"
+ 	    "Since this couldn't be found Enlightenment is probably not\n"
+@@ -3067,7 +3067,7 @@
+ 	    "Please contact your system administrator or package maintainer.\n"
+ 	    "If you are the administrator of your own system please\n"
+ 	    "consult the documentation that came with Enlightenment for\n"
+-	    "addional information.\n", ENLIGHTENMENT_ROOT);
++	    "addional information.\n", CONFIGDATADIR);
+       if (home)
+ 	Efree(home);
+       EDBUG_RETURN(0);
