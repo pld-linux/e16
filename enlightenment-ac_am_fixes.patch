@@ -77,25 +77,3 @@ diff -Nur enlightenment-0.16.7.1.orig/configure.in enlightenment-0.16.7.1/config
  AC_DEFINE_UNQUOTED(LOCALEDIR, "$LOCALEDIR",  [The installation locale directory])
  
  if test "x$enable_sound" = "xyes"; then
-diff -Nur enlightenment-0.16.7.1.orig/themes/Makefile.am enlightenment-0.16.7.1/themes/Makefile.am
---- enlightenment-0.16.7.1.orig/themes/Makefile.am	2004-05-20 11:20:09.000000000 +0200
-+++ enlightenment-0.16.7.1/themes/Makefile.am	2004-10-09 20:30:28.255701904 +0200
-@@ -1,8 +1,8 @@
- 
- THEME = winter
--THEME_FILES = winter.etheme winter.etheme.ko
-+THEME_FILES = winter.etheme winter.etheme.i18n
- 
--ethemedir = $(datadir)/themes
-+ethemedir = $(pkgdatadir)/themes
- 
- EXTRA_DIST = $(THEME_FILES) 
- 
-@@ -13,7 +13,6 @@
- 	for tf in $(THEME_FILES); do \
- 		gzip -d -c < $(srcdir)/$$tf | (cd $(THEME_DIR); tar -xmf -); \
- 	done
--	-if [ -n "$(USER)" ]; then chown -R $(USER) $(THEME_DIR); else chown -R root $(THEME_DIR); fi
- 	
- 
- uninstall-local:
