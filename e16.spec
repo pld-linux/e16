@@ -1,31 +1,16 @@
 Summary:	Enlightenment Window Manager
 Summary(pl):	X Window menad¿er - Enlightenment  
 Name:		enlightenment
-Version:	0.15.0
-Release:	3d
-%define		date	19990203		
+Version:	0.15.4
+Release:	4
 Copyright:	GPL
 Group:		X11/Window Managers
 Group(pl):	X11/Zarz±dcy okien
-#######		ftp://www.rasterman.com/pub/enlightenment
-Source:		%{name}-%{version}-%{date}.tar.gz
+Source:		ftp://www.rasterman.com/pub/enlightenment/%{name}-%{version}.tar.gz
 URL:		http://www.rasterman.com/
-Requires:	imlib >= 1.9.2
-Requires:	fnlib >= 0.4
-Requires:	libpng
-Requires:	libtiff
-Requires:	libjpeg
-Requires:	zlib
-Requires:	libgr-progs
-Requires:	glib = 1.1.15
-Requires:	gtk+ = 1.1.15
-Requires:	libungif
-Requires:	ImageMagick
-Requires:	esound	 >= 0.2.7
-Requires:	freetype >= 1.2
-Requires:	Gtk-perl >= 0.5000
-Requires:	stringlist >= 0.3
-BuildRoot:	/tmp/buildroot-%{name}-%{version}
+Requires:	glib = 1.2.1
+Requires:	gtk+ = 1.2.1
+BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
 Enlightenment is a Windowmanager for X-Windows that is designed to be
@@ -39,42 +24,44 @@ jaki kiedykolwiek zosta³ stworzony dla Linuxa ;)
 %setup -q 
 
 %build
-CFLAGS=$RPM_OPT_FLAGS LDFLAGS=-s \
-    ./configure \
+CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
+./configure \
 	--prefix=/usr/X11R6 \
+	--enable-fsstd \
 	--enable-sound
-make
+
+make configdatadir=/etc/X11/enlightenment
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/usr/X11R6/bin
 
-make prefix=$RPM_BUILD_ROOT/usr/X11R6 install
+make install \
+	DESTDIR=$RPM_BUILD_ROOT \
+	configdatadir=/etc/X11/enlightenment
 
-
-ln -s	/usr/X11R6/enlightenment/bin/enlightenment \
-	$RPM_BUILD_ROOT/usr/X11R6/bin
-
-bzip2 -9 AUTHORS README NEWS 
+gzip -9nf AUTHORS README NEWS 
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS.bz2 README.bz2 NEWS.bz2 
-
-%dir /usr/X11R6/enlightenment
-
-%attr(755,root,root) /usr/X11R6/enlightenment/bin/*
-
-%config /usr/X11R6/enlightenment/config
-%config /usr/X11R6/enlightenment/themes
-/usr/X11R6/enlightenment/E-docs
-
+%doc {AUTHORS,README,NEWS}.gz
 %attr(755,root,root) /usr/X11R6/bin/*
+/usr/X11R6/share/enlightenment
+
+%dir /etc/X11/enlightenment
+%config /etc/X11/enlightenment/*
 
 %changelog
+* Sun Mar 21 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [0.15.4-4]
+- aadded --enable-fsstd to ./configure parameters,
+- gzipping %doc (instead bzipping2),
+- config files moved to /etc/X11/enlightenment,
+- removed Requires (autogenerate).
+
 * Sat Feb  6 1999 Micha³ Kuratczyk <kurkens@polbox.com>
   [0.15.0-3d]
 - added %config macros
