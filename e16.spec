@@ -14,7 +14,6 @@ Group:		X11/Window Managers
 Source0:	http://dl.sourceforge.net/enlightenment/%{name}-%{version}.tar.gz
 # Source0-md5:	fa1b5f062cd2ba005eb555c358450deb
 Source1:	%{name}.desktop
-Source2:	%{name}.RunWM
 Source4:	%{name}-xsession.desktop
 Patch0:		%{name}-config-path.patch
 Patch1:		%{name}-makefile_fix.patch
@@ -79,7 +78,6 @@ install -d $RPM_BUILD_ROOT{%{_datadir}/xsessions,%{_wmpropsdir},/etc/sysconfig/w
 	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_wmpropsdir}
-install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/wmstyle/%{name}.sh
 install %{SOURCE4} $RPM_BUILD_ROOT%{_datadir}/xsessions/%{name}.desktop
 
 %find_lang %{name}
@@ -91,7 +89,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS README NEWS
 %config %{_sysconfdir}
-%attr(755,root,root) /etc/sysconfig/wmstyle/*.sh
 %attr(755,root,root) %{_bindir}/*
 %dir %{_datadir}/enlightenment
 %{_datadir}/enlightenment/[!s]*
