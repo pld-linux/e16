@@ -1,12 +1,12 @@
 diff -Nru enlightenment-0.16.6/configure.in enlightenment-0.16.6.new/configure.in
 --- enlightenment-0.16.6/configure.in	Thu Jul 27 23:23:28 2000
 +++ enlightenment-0.16.6.new/configure.in	Wed May 30 14:08:45 2001
-@@ -31,10 +29,6 @@
+@@ -31,10 +29,7 @@
  AC_DEFINE_UNQUOTED(ENLIGHTENMENT_MICRO, "$ENLIGHTENMENT_MICRO", [Micro Version])
  AC_SUBST(ENLIGHTENMENT_MICRO)
  
 -AC_SUBST(ENLIGHTENMENT_ROOT)
--AC_SUBST(ENLIGHTENMENT_BIN)
+ AC_SUBST(ENLIGHTENMENT_BIN)
 -AC_SUBST(LOCALEDIR)
 -
  ALL_LINGUAS="de dk en_US es fr hu ko nl no ru sv pt pl pt_BR tr ja"
@@ -21,7 +21,7 @@ diff -Nru enlightenment-0.16.6/configure.in enlightenment-0.16.6.new/configure.i
  AC_ARG_ENABLE(sound, [  --enable-sound          compile with sound support [default=yes]], ,enable_sound=yes)
  
  AC_ARG_ENABLE(upgrade, [  --enable-upgrade        compile with auto-upgrade support [default=yes]], ,enable_upgrade=yes)
-@@ -82,16 +74,6 @@
+@@ -82,16 +74,7 @@
  dnl The following test must come after AM_GNU_GETTEXT as it relies on
  dnl ${DATADIRNAME} being defined.
  
@@ -33,7 +33,7 @@ diff -Nru enlightenment-0.16.6/configure.in enlightenment-0.16.6.new/configure.i
 -	LOCALEDIR=${prefix}/enlightenment/locale
 -fi
 -ENLIGHTENMENT_ROOT=`eval echo ${datadir}/enlightenment`
--ENLIGHTENMENT_BIN=`eval echo ${bindir}`
+ ENLIGHTENMENT_BIN=`eval echo ${bindir}`
 -
  if test "x$enable_sound" = "xyes"; then
  AM_PATH_ESD(0.2.17,AC_DEFINE(HAVE_LIBESD, 1, [libesd.so]),[
