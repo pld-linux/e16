@@ -28,6 +28,8 @@ jaki kiedykolwiek zosta³ stworzony dla Linuxa ;)
 %patch -p1
 
 %build
+LDFLAGS="-s"; export LDFLAGS
+CFLAGS="-I/usr/include/freetype $RPM_OPT_FLAGS"; export CFLAGS
 %configure \
 	--enable-fsstd \
 	--enable-sound
