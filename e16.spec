@@ -6,7 +6,8 @@ Release:	2
 Copyright:	GPL
 Group:		X11/Window Managers
 Group(pl):	X11/Zarz±dcy Okien
-Source:		ftp://ftp.enlightenment.org/pub/enlightenment/enlightenment/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.enlightenment.org/pub/enlightenment/enlightenment/%{name}-%{version}.tar.gz
+Source1:	enlightenment.desktop
 Patch:		enlightenment-config-path.patch
 URL:		http://www.enlightenment.org/
 BuildRequires:	gtk+-devel >= 1.2.1
@@ -47,6 +48,7 @@ make configdatadir=/etc/X11/enlightenment
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install $RPM_BUILD_ROOT%{_datadir}/gnome/wm-properties
 
 make install \
 	DESTDIR=$RPM_BUILD_ROOT \
@@ -54,6 +56,8 @@ make install \
 
 gzip -9nf AUTHORS README NEWS \
 	$RPM_BUILD_ROOT%{_mandir}/man1/*
+
+install %{SOURCE1} RPM_BUILD_ROOT%{_datadir}/gnome/wm-properties
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -65,4 +69,5 @@ rm -rf $RPM_BUILD_ROOT
 %config /etc/X11/enlightenment/*
 %attr(755,root,root) /usr/X11R6/bin/*
 %{_datadir}/enlightenment
+RPM_BUILD_ROOT%{_datadir}/gnome/wm-properties/*
 %{_mandir}/man1/*
