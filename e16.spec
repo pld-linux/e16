@@ -1,5 +1,5 @@
 Summary:	Enlightenment Window Manager
-Summary(pl):	X Window menad¿er - Enlightenment  
+Summary(pl):	X Window menad¿er - Enlightenment
 Name:		enlightenment
 Version:	0.16.5
 Release:	4
@@ -19,7 +19,7 @@ BuildRequires:	automake
 BuildRequires:	esound-devel >= 0.2.13
 BuildRequires:	fnlib-devel
 BuildRequires:	freetype1-devel
-BuildRequires:	gettext-devel 
+BuildRequires:	gettext-devel
 BuildRequires:	gtk+-devel >= 1.2.1
 BuildRequires:	imlib-devel >= 1.9.8
 BuildRequires:	libghttp-devel
