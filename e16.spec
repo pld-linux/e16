@@ -69,5 +69,5 @@ rm -rf $RPM_BUILD_ROOT
 %config /etc/X11/enlightenment/*
 %attr(755,root,root) /usr/X11R6/bin/*
 %{_datadir}/enlightenment
-RPM_BUILD_ROOT%{_datadir}/gnome/wm-properties/*
+%{_datadir}/gnome/wm-properties/*
 %{_mandir}/man1/*
