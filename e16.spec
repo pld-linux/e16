@@ -58,7 +58,7 @@ gettextize --copy --force
 aclocal
 autoconf
 rm -f missing
-automake -a -c
+automake -a -c -f
 CFLAGS="-I%{_includedir}/freetype %{rpmcflags}"
 %configure \
 	--enable-sound=yes
