@@ -10,6 +10,7 @@ Source0:	http://dl.sourceforge.net/enlightenment/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Source2:	%{name}.RunWM
 Source3:	%{name}.wm_style
+Source4:	%{name}-xsession.desktop
 Patch0:		%{name}-config-path.patch
 Patch1:		%{name}-makefile_fix.patch
 Patch2:		%{name}-ac_am_fixes.patch
@@ -66,14 +67,15 @@ CFLAGS="-I%{_includedir}/freetype %{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_wmpropsdir},/etc/sysconfig/wmstyle}
+install -d $RPM_BUILD_ROOT{%{_datadir}/xsessions,%{_wmpropsdir},/etc/sysconfig/wmstyle}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+install %{SOURCE1} $RPM_BUILD_ROOT%{_wmpropsdir}
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/wmstyle/%{name}.sh
 install %{SOURCE3} $RPM_BUILD_ROOT/etc/sysconfig/wmstyle/%{name}.names
-install %{SOURCE1} $RPM_BUILD_ROOT%{_wmpropsdir}
+install %{SOURCE4} $RPM_BUILD_ROOT%{_datadir}/xsessions/%{name}.desktop
 
 %find_lang %{name}
 
@@ -88,5 +90,6 @@ rm -rf $RPM_BUILD_ROOT
 /etc/sysconfig/wmstyle/*.names
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/enlightenment
+%{_datadir}/xsessions/%{name}.desktop
 %{_wmpropsdir}/*
 %{_mandir}/man1/*
