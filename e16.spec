@@ -6,6 +6,7 @@ Release:	5
 License:	GPL
 Group:		X11/Window Managers
 Source0:	ftp://ftp.enlightenment.org/pub/enlightenment/enlightenment/%{name}-%{version}.tar.gz
+# Source0-md5:	3902b7c9cfaa8f70ca8079b348de0ed5
 Source1:	%{name}.desktop
 Source2:	%{name}.RunWM
 Source3:	%{name}.wm_style
