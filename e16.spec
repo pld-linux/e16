@@ -3,7 +3,7 @@ Summary(pl):	X Window menad¿er - Enlightenment
 Name:		enlightenment
 Version:	0.16.4
 Release:	1
-Copyright:	GPL
+License:	GPL
 Group:		X11/Window Managers
 Group(pl):	X11/Zarz±dcy Okien
 Source0:	ftp://ftp.enlightenment.org/pub/enlightenment/enlightenment/%{name}-%{version}.tar.gz
@@ -32,8 +32,8 @@ Enlightenment is a Windowmanager for X-Windows that is designed to be
 powerful, extensible, configurable and able to be really good looking.
 
 %description -l pl
-Enlightenment jest najpotê¿niejszym i najpiêkniejszym window-menad¿erem 
-jaki kiedykolwiek zosta³ stworzony dla Linuxa ;)
+Enlightenment jest najpotê¿niejszym i najpiêkniejszym
+window-menad¿erem jaki kiedykolwiek zosta³ stworzony dla Linuxa ;)
 
 %prep
 %setup  -q
@@ -42,12 +42,12 @@ jaki kiedykolwiek zosta³ stworzony dla Linuxa ;)
 
 %build
 LDFLAGS="-s"; export LDFLAGS
-CFLAGS="-I/usr/include/freetype $RPM_OPT_FLAGS"; export CFLAGS
+CFLAGS="-I%{_includedir}/freetype $RPM_OPT_FLAGS"; export CFLAGS
 %configure \
 	--enable-fsstd \
 	--enable-sound
 
-make configdatadir=/etc/X11/enlightenment
+make configdatadir=%{_sysconfdir}/X11/enlightenment
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -55,7 +55,7 @@ install -d $RPM_BUILD_ROOT%{_datadir}/gnome/wm-properties
 
 make install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	configdatadir=/etc/X11/enlightenment
+	configdatadir=%{_sysconfdir}/X11/enlightenment
 
 gzip -9nf AUTHORS README NEWS \
 	$RPM_BUILD_ROOT%{_mandir}/man1/*
@@ -68,9 +68,9 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc {AUTHORS,README,NEWS}.gz
-%dir /etc/X11/enlightenment
-%config /etc/X11/enlightenment/*
-%attr(755,root,root) /usr/X11R6/bin/*
+%dir %{_sysconfdir}/X11/enlightenment
+%config %{_sysconfdir}/X11/enlightenment/*
+%attr(755,root,root) %{_prefix}/bin/*
 %{_datadir}/enlightenment
 %{_datadir}/gnome/wm-properties/*
 %{_mandir}/man1/*
