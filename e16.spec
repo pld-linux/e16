@@ -15,7 +15,6 @@ Source0:	http://dl.sourceforge.net/enlightenment/%{name}-%{version}.tar.gz
 # Source0-md5:	fa1b5f062cd2ba005eb555c358450deb
 Source1:	%{name}.desktop
 Source2:	%{name}.RunWM
-Source3:	%{name}.wm_style
 Source4:	%{name}-xsession.desktop
 Patch0:		%{name}-config-path.patch
 Patch1:		%{name}-makefile_fix.patch
@@ -81,7 +80,6 @@ install -d $RPM_BUILD_ROOT{%{_datadir}/xsessions,%{_wmpropsdir},/etc/sysconfig/w
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_wmpropsdir}
 install %{SOURCE2} $RPM_BUILD_ROOT/etc/sysconfig/wmstyle/%{name}.sh
-install %{SOURCE3} $RPM_BUILD_ROOT/etc/sysconfig/wmstyle/%{name}.names
 install %{SOURCE4} $RPM_BUILD_ROOT%{_datadir}/xsessions/%{name}.desktop
 
 %find_lang %{name}
@@ -94,7 +92,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS README NEWS
 %config %{_sysconfdir}
 %attr(755,root,root) /etc/sysconfig/wmstyle/*.sh
-/etc/sysconfig/wmstyle/*.names
 %attr(755,root,root) %{_bindir}/*
 %dir %{_datadir}/enlightenment
 %{_datadir}/enlightenment/[!s]*
