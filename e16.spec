@@ -1,5 +1,5 @@
 Summary:	Enlightenment Window Manager
-Summary(pl):	X Window menad¿er - Enlightenment
+Summary(pl):	Zarz±dca okien X - Enlightenment
 Name:		enlightenment
 Version:	0.16.5
 Release:	5
@@ -42,8 +42,8 @@ Enlightenment is a Windowmanager for X-Windows that is designed to be
 powerful, extensible, configurable and able to be really good looking.
 
 %description -l pl
-Enlightenment jest najpotê¿niejszym i najpiêkniejszym
-window-menad¿erem jaki kiedykolwiek zosta³ stworzony dla Linuksa ;)
+Enlightenment jest najpotê¿niejszym i najpiêkniejszym zarz±dc± okien
+jaki kiedykolwiek zosta³ stworzony dla Linuksa ;)
 
 %prep
 %setup  -q
