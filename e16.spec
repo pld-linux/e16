@@ -1,16 +1,19 @@
 Summary:	Enlightenment Window Manager
 Summary(pl):	X Window menad¿er - Enlightenment  
 Name:		enlightenment
-Version:	0.15.5
-Release:	1
+Version:	0.16
+Release:	0.2
 Copyright:	GPL
 Group:		X11/Window Managers
 Group(pl):	X11/Zarz±dcy okien
-Source:		ftp://www.rasterman.com/pub/enlightenment/%{name}-%{version}.tar.gz
+Source:		ftp://www.rasterman.com/pub/enlightenment/%{name}-%{version}.devel.2.tar.gz
+Patch:		enlightenment-0.16-config-path.patch
 URL:		http://www.rasterman.com/
-Requires:	glib = 1.2.1
-Requires:	gtk+ = 1.2.1
+Requires:	glib >= 1.2.1
+Requires:	gtk+ >= 1.2.1
 BuildRoot:	/tmp/%{name}-%{version}-root
+
+%define	_prefix	/usr/X11R6
 
 %description
 Enlightenment is a Windowmanager for X-Windows that is designed to be
@@ -21,12 +24,11 @@ Enlightenment jest najpotê¿niejszym i najpiêkniejszym window-menad¿erem
 jaki kiedykolwiek zosta³ stworzony dla Linuxa ;)
 
 %prep
-%setup -q 
+%setup -q -n %{name}-%{version}.devel.2
+%patch -p1
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
-./configure %{_target_platform} \
-	--prefix=/usr/X11R6 \
+%configure \
 	--enable-fsstd \
 	--enable-sound
 
