@@ -1,6 +1,3 @@
-# TODO:
-#	- fix applnk submenu handling (for Ra)
-#
 Summary:	Enlightenment Window Manager
 Summary(pl):	Zarz±dca okien X - Enlightenment
 Name:		enlightenment
@@ -22,6 +19,7 @@ Patch2:		%{name}-pl.patch
 Patch3:		%{name}-no_eng_config.patch
 Patch4:		%{name}-check_menus.patch
 URL:		http://enlightenment.org/
+BuildRequires:	XFree86
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	esound-devel >= 0.2.13
@@ -38,7 +36,6 @@ BuildRequires:	libtiff-devel
 BuildRequires:	libtool
 BuildRequires:	libungif-devel
 BuildRequires:	zlib-devel
-BuildRequires:	XFree86
 Requires:	vfmg >= 0.9.18-4
 Requires:	xinitrc-ng
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -55,7 +52,7 @@ Enlightenment jest najpotê¿niejszym i najpiêkniejszym zarz±dc± okien
 jaki kiedykolwiek zosta³ stworzony dla Linuksa ;)
 
 %prep
-%setup  -q
+%setup -q
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
