@@ -1,7 +1,7 @@
-diff -Nru enlightenment-0.16.5/src/config.c enlightenment-0.16.5.new/src/config.c
---- enlightenment-0.16.5/src/config.c	Sun Oct  1 06:58:42 2000
-+++ enlightenment-0.16.5.new/src/config.c	Sun Oct  1 07:03:53 2000
-@@ -3268,7 +3268,7 @@
+diff -Nru enlightenment-0.16.6/src/config.c enlightenment-0.16.6.new/src/config.c
+--- enlightenment-0.16.6/src/config.c	Wed Nov  5 18:58:50 2003
++++ enlightenment-0.16.6.new/src/config.c	Tue Nov 11 07:03:53 2003
+@@ -3263,7 +3263,7 @@
  	  }
  	Esnprintf(execline, sizeof(execline), "%s " "-P " "-nostdinc " "-undef "
  #ifndef __EMX__
@@ -10,7 +10,7 @@ diff -Nru enlightenment-0.16.5/src/config.c enlightenment-0.16.5.new/src/config.
  		  "-D ENLIGHTENMENT_VERSION=%s " "-D ENLIGHTENMENT_ROOT=%s "
  		  "-D ENLIGHTENMENT_BIN=%s "
  #else
-@@ -3283,7 +3283,7 @@
+@@ -3278,7 +3278,7 @@
  		  "-D USER_SHELL=%s " "-D ENLIGHTENMENT_VERSION_015=1 "
  		  "%s %s/cached/cfg/%s.preparsed",
  #ifndef __EMX__
@@ -19,7 +19,7 @@ diff -Nru enlightenment-0.16.5/src/config.c enlightenment-0.16.5.new/src/config.
  		  ENLIGHTENMENT_VERSION, ENLIGHTENMENT_ROOT, ENLIGHTENMENT_BIN,
  #else
  		  epp_path, x11root, ENLIGHTENMENT_ROOT, themepath, x11root,
-@@ -3600,7 +3600,7 @@
+@@ -3534,7 +3534,7 @@
  
     /* look in system config dir */
  #ifndef __EMX__
@@ -28,9 +28,18 @@ diff -Nru enlightenment-0.16.5/src/config.c enlightenment-0.16.5.new/src/config.
  #else
     Esnprintf(s, sizeof(s), "%s/config/%s", __XOS2RedirRoot(ENLIGHTENMENT_ROOT),
  	     file);
-@@ -3670,7 +3670,7 @@
-    Esnprintf(s, sizeof(s), "%s/", UserEDir());
-    Fnlib_add_dir(fd, s);
+@@ -3579,7 +3579,7 @@
+ 
+    /* look in system config dir */
+ #ifndef __EMX__
+-   Esnprintf(s, sizeof(s), "%s/config/%s", ENLIGHTENMENT_ROOT, file);
++   Esnprintf(s, sizeof(s), "%s/%s", CONFIGDATADIR, file);
+ #else
+    Esnprintf(s, sizeof(s), "%s/config/%s", __XOS2RedirRoot(ENLIGHTENMENT_ROOT),
+ 	     file);
+@@ -3669,7 +3669,7 @@
+    Fnlib_add_dir(pFnlibData, s);
+ #endif
  #ifndef __EMX__
 -   Esnprintf(s, sizeof(s), "%s/config/", ENLIGHTENMENT_ROOT);
 +   Esnprintf(s, sizeof(s), "%s/", CONFIGDATADIR);

@@ -1,12 +1,12 @@
-diff -Nru enlightenment-0.16.4.orig/src/themes/Makefile.in enlightenment-0.16.4/src/themes/Makefile.in
---- enlightenment-0.16.4.orig/src/themes/Makefile.in	Wed Jun  7 01:17:45 2000
-+++ enlightenment-0.16.4/src/themes/Makefile.in	Wed Jun  7 01:19:26 2000
-@@ -332,8 +332,6 @@
- 	gzip -d -c < $(srcdir)/BlueSteel.etheme.ja | (cd $(DESTDIR)$(ethemedir)/BlueSteel; tar -xmf -)
- 	gzip -d -c < $(srcdir)/Ganymede.etheme.ja | (cd $(DESTDIR)$(ethemedir)/Ganymede; tar -xmf -)
- 
+diff -Nru enlightenment-0.16.6.orig/src/themes/Makefile.in enlightenment-0.16.6/src/themes/Makefile.in
+--- enlightenment-0.16.6.orig/src/themes/Makefile.in	Wed Jun  7 01:17:45 2000
++++ enlightenment-0.16.6/src/themes/Makefile.in	Wed Jun  7 01:19:26 2000
+@@ -477,8 +477,6 @@
+ 	for t in $(THEMES_PL); do \
+ 		gzip -d -c < $(srcdir)/$$t.etheme.pl | (cd $(DESTDIR)$(ethemedir); mkdir -p $$t; cd $$t; tar -xmf -); \
+ 	done
 -	if [ -n "$(USER)" ]; then chown -R $(USER) $(DESTDIR)$(ethemedir); else chown -R root $(DESTDIR)$(ethemedir); fi
 -
- # Tell versions [3.59,3.63) of GNU make to not export all variables.
- # Otherwise a system limit (for SysV at least) may be exceeded.
- .NOEXPORT:
+ uninstall-local:
+ 	-for t in $(THEMES); do \
+ 		gzip -d -c < $(srcdir)/$$t.etheme | (cd $(DESTDIR)$(ethemedir)/)/$$t; rm -f `tar -tf -` 2>/dev/null); \
