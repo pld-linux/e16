@@ -1,12 +1,12 @@
 Summary:	Enlightenment Window Manager
 Summary(pl):	X Window menad¿er - Enlightenment  
 Name:		enlightenment
-Version:	0.16
+Version:	0.16.2
 Release:	0.2
 Copyright:	GPL
 Group:		X11/Window Managers
 Group(pl):	X11/Zarz±dcy Okien
-Source:		ftp://www.rasterman.com/pub/enlightenment/%{name}-%{version}.devel.2.tar.gz
+Source:		ftp://www.rasterman.com/pub/enlightenment/%{name}-%{version}.tar.gz
 Patch:		enlightenment-config-path.patch
 URL:		http://www.rasterman.com/
 Requires:	glib >= 1.2.1
@@ -24,7 +24,7 @@ Enlightenment jest najpotê¿niejszym i najpiêkniejszym window-menad¿erem
 jaki kiedykolwiek zosta³ stworzony dla Linuxa ;)
 
 %prep
-%setup -q -n %{name}-%{version}.devel.2
+%setup -q
 %patch -p1
 
 %build
