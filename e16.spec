@@ -5,6 +5,8 @@ Version:	0.16.4
 Release:	1
 License:	GPL
 Group:		X11/Window Managers
+Group(es):	X11/Administraadores De Ventanas
+Group(fr):	X11/Gestionnaires De Fenêtres
 Group(pl):	X11/Zarz±dcy Okien
 Source0:	ftp://ftp.enlightenment.org/pub/enlightenment/enlightenment/%{name}-%{version}.tar.gz
 Source1:	enlightenment.desktop
@@ -25,7 +27,6 @@ BuildRequires:	fnlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
 
 %description
 Enlightenment is a Windowmanager for X-Windows that is designed to be
@@ -70,7 +71,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc {AUTHORS,README,NEWS}.gz
 %dir %{_sysconfdir}/X11/enlightenment
 %config %{_sysconfdir}/X11/enlightenment/*
-%attr(755,root,root) %{_prefix}/bin/*
+%attr(755,root,root) %{_bindir}/*
 %{_datadir}/enlightenment
 %{_datadir}/gnome/wm-properties/*
 %{_mandir}/man1/*
