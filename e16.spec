@@ -19,6 +19,8 @@ BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libtiff-devel
 BuildRequires:	libungif-devel
+BuildRequires:	zlib-devel
+BuildRequires:	fnlib-devel
 BuildRequires:	XFree86-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 
