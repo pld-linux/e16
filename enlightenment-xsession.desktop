@@ -6,5 +6,7 @@ TryExec=enlightenment
 Name=Enlightenment
 Comment=An extremely themable very feature-rich window manager
 Comment[nl]=Een zeer rijke en configureerbare window manager
+Comment[pl]=Wysoce konfigurowalny zarządca okien o bardzo bogatych możbliwościach
 Comment[sr]=Изузетно прилагодљив менаџер прозора са пуно могућности
 Comment[sv]=En ytterst anpassningsbar mycket funktionsrik fönsterhanterare
+# vi: encoding=utf-8
