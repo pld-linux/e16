@@ -3,7 +3,7 @@ Summary(pl):	Zarz±dca okien X - Enlightenment
 Summary(de):	Enlightenment ist ein Window Manager für X
 Name:		enlightenment
 Version:	0.16.7.2
-Release:	1
+Release:	2
 License:	BSD
 Group:		X11/Window Managers
 Source0:	http://dl.sourceforge.net/enlightenment/%{name}-%{version}.tar.gz
@@ -37,7 +37,7 @@ BuildRequires:	libtool
 BuildRequires:	libungif-devel
 BuildRequires:	zlib-devel
 Requires:	ImageMagick-coder-png
-Requires:	vfmg >= 0.9.18-10
+Requires:	vfmg >= 0.9.95
 Requires:	xinitrc-ng
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
