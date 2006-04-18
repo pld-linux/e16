@@ -35,9 +35,7 @@ mkdir $EDirUser/menus
 
 
 #core
-vfmg -i -f -c -s --xterm='Eterm --name %1 --exec %2' enlightenment
-
-#vim: '
+vfmg enlightenment
 
 rm -rf $EDirUser/menus.old
 mv -f $EDirUser/file.menu{,.oldmenu}
