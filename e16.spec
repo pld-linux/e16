@@ -26,6 +26,7 @@ BuildRequires:	esound-devel >= 0.2.13
 BuildRequires:	fnlib-devel
 BuildRequires:	freetype-devel
 BuildRequires:	gettext-devel
+BuildRequires:	giflib-devel
 BuildRequires:	gtk+-devel >= 1.2.1
 BuildRequires:	iconv
 BuildRequires:	imlib2-devel
@@ -34,7 +35,6 @@ BuildRequires:	libjpeg-devel
 BuildRequires:	libpng >= 1.0.8
 BuildRequires:	libtiff-devel
 BuildRequires:	libtool
-BuildRequires:	libungif-devel
 BuildRequires:	zlib-devel
 Requires:	ImageMagick-coder-png
 Requires:	vfmg >= 0.9.95
