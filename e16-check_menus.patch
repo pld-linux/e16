@@ -1,40 +1,33 @@
-diff -Nur enlightenment-0.16.7.1/src/main.c enlightenment-0.16.7.1.new/src/main.c
---- enlightenment-0.16.7.1/src/main.c	2004-08-20 23:35:46.000000000 +0200
-+++ enlightenment-0.16.7.1.new/src/main.c	2004-10-08 20:09:24.000000000 +0200
-@@ -361,7 +361,11 @@
- 
-    SetupUserInitialization();
-    if (Mode.firsttime)
--      runDocBrowser();
-+     {
-+       runDocBrowser();
-+     } else {
-+       checkMenu();
-+     }
- 
- #if 0				/* Not if AAA */
-    Mode.wm.startup = 1;
-diff -Nur enlightenment-0.16.7.1/src/setup.c enlightenment-0.16.7.1.new/src/setup.c
---- enlightenment-0.16.7.1/src/setup.c	2004-08-20 23:35:46.000000000 +0200
-+++ enlightenment-0.16.7.1.new/src/setup.c	2004-10-09 15:02:42.060368144 +0200
-@@ -800,3 +800,20 @@
-    EDBUG_RETURN_;
- 
+--- e16-0.16.8.1/src/main.c~	2006-07-17 22:23:50.000000000 +0200
++++ e16-0.16.8.1/src/main.c	2006-07-17 22:28:30.000000000 +0200
+@@ -487,6 +487,20 @@
  }
-+
-+void
-+checkMenu(void)
+ 
+ static void
++RunMenuCheck(void)
 +{
-+   FILE               *f;
++
 +   char                file[FILEPATH_LEN_MAX];
 +
-+   EDBUG(3, "checkMenu");
-+   
 +   if (fork())
-+      EDBUG_RETURN_;
-+   Esnprintf(file, sizeof(file), "exec %s/scripts/e_check_menu", EDirRoot());
-+   execl(usershell(getuid()), usershell(getuid()), "-c", (char *)file,
-+      NULL);
++      return;
 +
-+   EDBUG_RETURN_;
++   Esnprintf(file, sizeof(file), "exec %s/scripts/e_check_menu", EDirRoot());
++   execl(usershell(getuid()), usershell(getuid()), "-c", (char *)file, NULL);
++   exit(0);
 +}
++
++static void
+ RunInitPrograms(void)
+ {
+    if (Mode.wm.session_start)
+@@ -498,7 +512,8 @@
+      {
+ 	RunMenuGen();
+ 	RunDocBrowser();
+-     }
++     } else
++	RunMenuCheck();
+ }
+ 
+ const char         *
