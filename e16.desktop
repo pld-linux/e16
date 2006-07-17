@@ -2,11 +2,6 @@
 Encoding=UTF-8
 Name=Enlightenment
 Name[ko]=인라이튼먼트
-Exec=enlightenment
-TryExec=enlightenment
-
-[Window Manager]
-ConfigExec=e-conf
-ConfigTryExec=e-conf
-SessionManaged=true
+Exec=e16
+TryExec=e16
 # vi: encoding=utf-8

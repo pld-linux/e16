@@ -1,6 +1,6 @@
 #!/bin/sh
 
-EDirUser=$HOME/.enlightenment
+EDirUser=$HOME/.e16
 [ -d $EDirUser ] || exit 1
 
 
@@ -12,7 +12,7 @@ if [ "$1" == "msg" ]; then
 		eesh -e "win_op $DIALOG_ID close"
 	eesh -e "dialog_ok $msg"
 	DIALOG_ID=$( eesh -ewait "window_list" | \
-		grep $(gettext -d enlightenment Message) \
+		grep $(gettext -d e16 Message) \
 		| cut -f1 -d\ | head -n1 )
 elif [ "$1" == "title" ]; then
 	eesh -e "win_op $DIALOG_ID title $2" &

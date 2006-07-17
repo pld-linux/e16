@@ -1,8 +1,8 @@
 #!/bin/sh
 
-EDirUser=$HOME/.enlightenment
+EDirUser=$HOME/.e16
 [ -d $EDirUser ] || exit 1
-EDirRoot=/usr/share/enlightenment
+EDirRoot=/usr/share/e16
 
 
 [ "$LANG" != "$(cat $EDirUser/menus/lang)" ] && \
