@@ -38,20 +38,17 @@ mkdir $EDirUser/menus
 vfmg e16
 
 rm -rf $EDirUser/menus.old
-mv -f $EDirUser/file.menu{,.oldmenu}
-ln -s menus/index.menu $EDirUser/file.menu
+ln -s index.menu $EDirUser/menus/file.menu
 
-if [ ! -r $EDirUser/file.menu -o \
+if [ ! -r $EDirUser/menus/file.menu -o \
 	$(ls $EDirUser/menus | wc -l) -lt 5 ]; then
 	
 	rm -rf $EDirUser/menus
 	mv $EDirUser/menus{.oldmenu,}
-	mv -f $EDirUser/file.menu{.oldmenu,}
 	
 	e_dialog msg ".${SPACE}Something went wrong !${SPACE}.&Old menus reverted."
 else
 	rm -rf $EDirUser/menus.oldmenu
-	rm -f $EDirUser/file.menu.oldmenu
 	
 	e_dialog msg ".${SPACE}Seems to be OK.${SPACE}.&Old menus deleted."
 	echo "$LANG" > $EDirUser/menus/lang
