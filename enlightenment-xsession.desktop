@@ -1,12 +1,9 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=XSession
-Exec=e16
-TryExec=e16
-Name=Enlightenment
-Comment=An extremely themable very feature-rich window manager
-Comment[nl]=Een zeer rijke en configureerbare window manager
-Comment[pl]=Wysoce konfigurowalny zarządca okien o bardzo bogatych możliwościach
-Comment[sr]=Изузетно прилагодљив менаџер прозора са пуно могућности
-Comment[sv]=En ytterst anpassningsbar mycket funktionsrik fönsterhanterare
+Exec=enlightenment_start
+TryExec=enlightenment
+Name=Enlightenment DR17
+Comment=Very feature-rich window manager
+Comment[pl]=Zarządca okien o bardzo bogatych możliwościach
 # vi: encoding=utf-8
