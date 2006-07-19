@@ -2,12 +2,12 @@ Summary:	Enlightenment Window Manager
 Summary(pl):	Zarz±dca okien X - Enlightenment
 Summary(de):	Enlightenment ist ein Window Manager für X
 Name:		e16
-Version:	0.16.8.1
+Version:	0.16.8.2
 Release:	0.1
 License:	BSD
 Group:		X11/Window Managers
 Source0:	http://dl.sourceforge.net/enlightenment/%{name}-%{version}.tar.gz
-# Source0-md5:	0ff909ae575f805160676a853adff9a0
+# Source0-md5:	03c0ffd785957a61af40e4d6d045c9b5
 Source1:	%{name}.desktop
 Source2:	%{name}-xsession.desktop
 Source3:	%{name}-e_gen_menu
