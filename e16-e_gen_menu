@@ -35,7 +35,7 @@ mkdir $EDirUser/menus
 
 
 #core
-vfmg enlightenment
+vfmg e16
 
 rm -rf $EDirUser/menus.old
 mv -f $EDirUser/file.menu{,.oldmenu}
@@ -58,5 +58,5 @@ else
 	deskmd5 &
 fi
 
-eesh -e 'reload_menus'
+eesh -e 'menus reload'
 e_dialog title "Menu generation complete."
