@@ -37,7 +37,6 @@ BuildRequires:	libtool
 BuildRequires:	zlib-devel
 Requires:	ImageMagick-coder-png
 Requires:	vfmg >= 0.9.95
-Requires:	xinitrc-ng
 Obsoletes:	enlightenment <= 0.16.7.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
