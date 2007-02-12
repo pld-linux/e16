@@ -1,5 +1,5 @@
 Summary:	Enlightenment Window Manager
-Summary(pl):	Zarz±dca okien X - Enlightenment
+Summary(pl.UTF-8):   ZarzÄ…dca okien X - Enlightenment
 Name:		enlightenment
 Version:	0.16.999.018
 Release:	1
@@ -23,13 +23,13 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Enlightenment is a Windowmanager for X Window that is designed to be
 powerful, extensible, configurable and able to be really good looking.
 
-%description -l pl
-Enlightenment jest najpotê¿niejszym i najpiêkniejszym zarz±dc± okien
-jaki kiedykolwiek zosta³ stworzony dla Linuksa ;)
+%description -l pl.UTF-8
+Enlightenment jest najpotÄ™Å¼niejszym i najpiÄ™kniejszym zarzÄ…dcÄ… okien
+jaki kiedykolwiek zostaÅ‚ stworzony dla Linuksa ;)
 
 %package devel
 Summary:	Development headers for Enlightenment
-Summary:	Pliki nag³ówkowe dla Enlightenmenta
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe dla Enlightenmenta
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	edje-devel
@@ -37,8 +37,8 @@ Requires:	edje-devel
 %description devel
 Development headers for Enlightenment.
 
-%description -l pl devel
-Pliki nag³ówkowe dla Enlightenmenta.
+%description -l pl.UTF-8 devel
+Pliki nagÅ‚Ã³wkowe dla Enlightenmenta.
 
 %prep
 %setup -q
