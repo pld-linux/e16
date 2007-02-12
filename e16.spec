@@ -1,6 +1,6 @@
 Summary:	Enlightenment Window Manager
-Summary(pl.UTF-8):   Zarządca okien X - Enlightenment
-Summary(de.UTF-8):   Enlightenment ist ein Window Manager für X
+Summary(pl.UTF-8):	Zarządca okien X - Enlightenment
+Summary(de.UTF-8):	Enlightenment ist ein Window Manager für X
 Name:		e16
 Version:	0.16.8.2
 Release:	0.1
