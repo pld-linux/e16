@@ -1,6 +1,6 @@
 Summary:	Enlightenment Window Manager
-Summary(pl):	Zarz±dca okien X - Enlightenment
-Summary(de):	Enlightenment ist ein Window Manager für X
+Summary(pl.UTF-8):   ZarzÄ…dca okien X - Enlightenment
+Summary(de.UTF-8):   Enlightenment ist ein Window Manager fÃ¼r X
 Name:		e16
 Version:	0.16.8.2
 Release:	0.1
@@ -47,15 +47,15 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Enlightenment is a Windowmanager for X Window that is designed to be
 powerful, extensible, configurable and able to be really good looking.
 
-%description -l pl
-Enlightenment jest najpotê¿niejszym i najpiêkniejszym zarz±dc± okien
-jaki kiedykolwiek zosta³ stworzony dla Linuksa ;)
+%description -l pl.UTF-8
+Enlightenment jest najpotÄ™Å¼niejszym i najpiÄ™kniejszym zarzÄ…dcÄ… okien
+jaki kiedykolwiek zostaÅ‚ stworzony dla Linuksa ;)
 
-%description -l de
-Enlightenment ist ein Window Manager für X. Sein Designziel ist es, so
-konfigurierbar wie nur möglich in den Bereichen Aussehen und Bedienung
+%description -l de.UTF-8
+Enlightenment ist ein Window Manager fÃ¼r X. Sein Designziel ist es, so
+konfigurierbar wie nur mÃ¶glich in den Bereichen Aussehen und Bedienung
 zu sein. Das derzeitige Design von Enlightenment steuert darauf hin,
-ein "vernünftiger" Desktop zu werden, das bedeutet, es verwaltet
+ein "vernÃ¼nftiger" Desktop zu werden, das bedeutet, es verwaltet
 Anwendungsfenster, zudem wird in der Lage sein, Anwendungen zu starten
 und Dateien zu verwalten.
 
