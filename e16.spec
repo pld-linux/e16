@@ -38,9 +38,10 @@ BuildRequires:	zlib-devel
 Requires:	ImageMagick-coder-png
 Requires:	vfmg >= 0.9.95
 Obsoletes:	enlightenment <= 0.16.7.2
+Conflicts:	filesystem < 3.0-20
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_wmpropsdir	/usr/share/wm-properties
+%define		_wmpropsdir	/usr/share/gnome/wm-properties
 %define		_sysconfdir	/etc/X11/%{name}
 
 %description
