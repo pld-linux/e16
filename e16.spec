@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_with	gnome2		# build with support for GNOME2 wm-properties
+#
 Summary:	Enlightenment Window Manager
 Summary(pl.UTF-8):	Zarządca okien X - Enlightenment
 Summary(de.UTF-8):	Enlightenment ist ein Window Manager für X
@@ -97,7 +101,7 @@ install -d $RPM_BUILD_ROOT{%{_datadir}/xsessions,%{_wmpropsdir},/etc/sysconfig/w
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_wmpropsdir}
+%{?with_gnome2:install %{SOURCE1} $RPM_BUILD_ROOT%{_wmpropsdir}}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_datadir}/xsessions/%{name}.desktop
 install %{SOURCE3} $RPM_BUILD_ROOT%{_datadir}/%{name}/scripts/e_gen_menu
 install %{SOURCE4} $RPM_BUILD_ROOT%{_datadir}/%{name}/scripts/e_check_menu
@@ -117,4 +121,4 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/%{name}/scripts
 %attr(755,root,root) %{_datadir}/%{name}/scripts/*
 %{_datadir}/xsessions/%{name}.desktop
-%{_wmpropsdir}/*
+%{?with_gnome2:%{_wmpropsdir}/*}
