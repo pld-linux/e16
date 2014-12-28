@@ -28,7 +28,7 @@ BuildRequires:	automake
 BuildRequires:	esound-devel >= 0.2.17
 BuildRequires:	fnlib-devel
 BuildRequires:	freetype-devel
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	giflib-devel
 BuildRequires:	gtk+-devel >= 1.2.1
 BuildRequires:	iconv
