@@ -66,13 +66,13 @@ und Dateien zu verwalten.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
+%patch -P0 -p1
+%patch -P1 -p1
 #%%patch2 -p1 	XXX: needs update
-%patch3 -p1
+%patch -P3 -p1
 mkdir themes/winter
 tar -C themes/winter -zxf themes/winter.etheme
-%patch4 -p1
+%patch -P4 -p1
 rm themes/winter/fonts.cfg.*
 
 mv -f po/{no,nb}.po
